@@ -103,7 +103,7 @@ export class ClassTabsComponent implements OnDestroy {
 
   async saveEdits() {
     if (!this.selectedClass || !this.selectedSpec) return;
-    await this.gear.saveSpec(this.selectedClass, this.selectedSpec);
+    await this.gear.saveAll();
     this.editMode = false;
     this.computeDirty();
   }

@@ -128,8 +128,262 @@
         { "id": 13938, "name": "Bonecreeper Stylus" }
       ]
     },
-    "Frost": { },
-    "Arcane": { }
+    "Frost": {
+      "HeadSlot": [
+        { "id": 19375, "name": "Mish'undare, Circlet of the Mind Flayer" },
+        { "id": 21347, "name": "Enigma Circlet" },
+        { "id": 16914, "name": "Netherwind Crown" },
+        { "id": 22267, "name": "Spellweaver's Turban" },
+        { "id": 18727, "name": "Crimson Felt Hat" }
+      ],
+      "NeckSlot": [
+        { "id": 21608, "name": "Amulet of Vek'nilash" },
+        { "id": 18814, "name": "Choker of the Fire Lord" },
+        { "id": 21507, "name": "Charm of the Shifting Sands" },
+        { "id": 19885, "name": "Jin'do's Evil Eye" },
+        { "id": 18404, "name": "Onyxia Tooth Pendant" }
+      ],
+      "ShoulderSlot": [
+        { "id": 19370, "name": "Mantle of the Blackwing Cabal" },
+        { "id": 21345, "name": "Enigma Shoulderpads" },
+        { "id": 16917, "name": "Netherwind Mantle" },
+        { "id": 19845, "name": "Zandalar Illusionist's Mantle" },
+        { "id": 11782, "name": "Boreal Mantle" }
+      ],
+      "BackSlot": [
+        { "id": 22731, "name": "Cloak of the Devoured" },
+        { "id": 19857, "name": "Cloak of Consumption" },
+        { "id": 19430, "name": "Cloak of the Brood Lord" },
+        { "id": 13386, "name": "Archivist Cape of the Black Baron" },
+        { "id": 17078, "name": "Sapphiron Drape" }
+      ],
+      "ChestSlot": [
+        { "id": 21343, "name": "Enigma Robes" },
+        { "id": 14152, "name": "Robe of the Archmage" },
+        { "id": 19682, "name": "Bloodvine Vest" },
+        { "id": 19145, "name": "Robe of Volatile Power" },
+        { "id": 1716,  "name": "Robe of the Magi" }
+      ],
+      "WristSlot": [
+        { "id": 21186, "name": "Rockfury Bracers" },
+        { "id": 19374, "name": "Bracers of Arcane Accuracy" },
+        { "id": 21464, "name": "Shackles of the Unscarred" },
+        { "id": 11766, "name": "Flameweave Cuffs" },
+        { "id": 18497, "name": "Sublime Wristguards" }
+      ],
+      "HandsSlot": [
+        { "id": 21585, "name": "Dark Storm Gauntlets" },
+        { "id": 18808, "name": "Gloves of the Hypnotic Flame" },
+        { "id": 16913, "name": "Netherwind Gloves" },
+        { "id": 14146, "name": "Gloves of Spell Mastery" },
+        { "id": 13253, "name": "Hands of Power" }
+      ],
+      "WaistSlot": [
+        { "id": 22730, "name": "Eyestalk Waist Cord" },
+        { "id": 19136, "name": "Mana Igniting Cord" },
+        { "id": 18405, "name": "Belt of the Archmage" },
+        { "id": 19400, "name": "Firemaw's Clutch" },
+        { "id": 18809, "name": "Sash of Whispered Secrets" }
+      ],
+      "LegsSlot": [
+        { "id": 21676, "name": "Leggings of the Festering Swarm" },
+        { "id": 21346, "name": "Enigma Leggings" },
+        { "id": 19683, "name": "Bloodvine Leggings" },
+        { "id": 16915, "name": "Netherwind Pants" },
+        { "id": 11841, "name": "Senior Designer's Pantaloons" }
+      ],
+      "FeetSlot": [
+        { "id": 21344, "name": "Enigma Boots" },
+        { "id": 19684, "name": "Bloodvine Boots" },
+        { "id": 16912, "name": "Netherwind Boots" },
+        { "id": 19131, "name": "Snowblind Shoes" },
+        { "id": 18735, "name": "Maleki's Footwraps" }
+      ],
+      "Finger0Slot": [
+        { "id": 21709, "name": "Ring of the Fallen God" },
+        { "id": 21836, "name": "Ritssyn's Ring of Chaos" },
+        { "id": 21210, "name": "Signet Ring of the Bronze Dragonflight" },
+        { "id": 19147, "name": "Ring of Spell Power" },
+        { "id": 19382, "name": "Pure Elementium Band" }
+      ],
+      "Finger1Slot": [
+        { "id": 21709, "name": "Ring of the Fallen God" },
+        { "id": 21836, "name": "Ritssyn's Ring of Chaos" },
+        { "id": 21210, "name": "Signet Ring of the Bronze Dragonflight" },
+        { "id": 19147, "name": "Ring of Spell Power" },
+        { "id": 19382, "name": "Pure Elementium Band" }
+      ],
+      "Trinket0Slot": [
+        { "id": 19379, "name": "Neltharion's Tear" },
+        { "id": 19339, "name": "Mind Quickening Gem" },
+        { "id": 19950, "name": "Zandalarian Hero Charm" },
+        { "id": 18467, "name": "Royal Seal of Eldre'Thalas" },
+        { "id": 12930, "name": "Briarwood Reed" }
+      ],
+      "Trinket1Slot": [
+        { "id": 19379, "name": "Neltharion's Tear" },
+        { "id": 19339, "name": "Mind Quickening Gem" },
+        { "id": 19950, "name": "Zandalarian Hero Charm" },
+        { "id": 18467, "name": "Royal Seal of Eldre'Thalas" },
+        { "id": 12930, "name": "Briarwood Reed" }
+      ],
+      "MainHandSlot": [
+        { "id": 21622, "name": "Sharpened Silithid Femur" },
+        { "id": 19347, "name": "Claw of Chromaggus" },
+        { "id": 21413, "name": "Blade of Vaulted Secrets" },
+        { "id": 17070, "name": "Fang of the Mystics" },
+        { "id": 23451, "name": "Grand Marshal's Mageblade" }
+      ],
+      "SecondaryHandSlot": [
+        { "id": 21597, "name": "Royal Scepter of Vek'lor" },
+        { "id": 19366, "name": "Master Dragonslayer's Orb" },
+        { "id": 19891, "name": "Jin'do's Bag of Whammies" },
+        { "id": 13385, "name": "Tome of Knowledge" },
+        { "id": 15857, "name": "Magebane Scion" }
+      ],
+      "TwoHandSlot": [
+        { "id": 21273, "name": "Blessed Qiraji Acolyte Staff" },
+        { "id": 19356, "name": "Staff of the Shadow Flame" },
+        { "id": 21128, "name": "Staff of the Qiraji Prophets" },
+        { "id": 18842, "name": "Staff of Dominance" },
+        { "id": 21452, "name": "Staff of the Ruins" }
+      ],
+      "RangedSlot": [
+        { "id": 21603, "name": "Wand of Qiraji Nobility" },
+        { "id": 19861, "name": "Touch of Chaos" },
+        { "id": 19108, "name": "Wand of Biting Cold" },
+        { "id": 13396, "name": "Skul's Ghastly Touch" },
+        { "id": 13938, "name": "Bonecreeper Stylus" }
+      ]
+    },
+    "Arcane": {
+      "HeadSlot": [
+        { "id": 19375, "name": "Mish'undare, Circlet of the Mind Flayer" },
+        { "id": 21347, "name": "Enigma Circlet" },
+        { "id": 16914, "name": "Netherwind Crown" },
+        { "id": 22267, "name": "Spellweaver's Turban" },
+        { "id": 18727, "name": "Crimson Felt Hat" }
+      ],
+      "NeckSlot": [
+        { "id": 21608, "name": "Amulet of Vek'nilash" },
+        { "id": 18814, "name": "Choker of the Fire Lord" },
+        { "id": 21507, "name": "Charm of the Shifting Sands" },
+        { "id": 19885, "name": "Jin'do's Evil Eye" },
+        { "id": 18404, "name": "Onyxia Tooth Pendant" }
+      ],
+      "ShoulderSlot": [
+        { "id": 19370, "name": "Mantle of the Blackwing Cabal" },
+        { "id": 21345, "name": "Enigma Shoulderpads" },
+        { "id": 16917, "name": "Netherwind Mantle" },
+        { "id": 19845, "name": "Zandalar Illusionist's Mantle" },
+        { "id": 11782, "name": "Boreal Mantle" }
+      ],
+      "BackSlot": [
+        { "id": 22731, "name": "Cloak of the Devoured" },
+        { "id": 19857, "name": "Cloak of Consumption" },
+        { "id": 19430, "name": "Cloak of the Brood Lord" },
+        { "id": 13386, "name": "Archivist Cape of the Black Baron" },
+        { "id": 17078, "name": "Sapphiron Drape" }
+      ],
+      "ChestSlot": [
+        { "id": 21343, "name": "Enigma Robes" },
+        { "id": 14152, "name": "Robe of the Archmage" },
+        { "id": 19682, "name": "Bloodvine Vest" },
+        { "id": 19145, "name": "Robe of Volatile Power" },
+        { "id": 1716,  "name": "Robe of the Magi" }
+      ],
+      "WristSlot": [
+        { "id": 21186, "name": "Rockfury Bracers" },
+        { "id": 19374, "name": "Bracers of Arcane Accuracy" },
+        { "id": 21464, "name": "Shackles of the Unscarred" },
+        { "id": 11766, "name": "Flameweave Cuffs" },
+        { "id": 18497, "name": "Sublime Wristguards" }
+      ],
+      "HandsSlot": [
+        { "id": 21585, "name": "Dark Storm Gauntlets" },
+        { "id": 18808, "name": "Gloves of the Hypnotic Flame" },
+        { "id": 16913, "name": "Netherwind Gloves" },
+        { "id": 14146, "name": "Gloves of Spell Mastery" },
+        { "id": 13253, "name": "Hands of Power" }
+      ],
+      "WaistSlot": [
+        { "id": 22730, "name": "Eyestalk Waist Cord" },
+        { "id": 19136, "name": "Mana Igniting Cord" },
+        { "id": 18405, "name": "Belt of the Archmage" },
+        { "id": 19400, "name": "Firemaw's Clutch" },
+        { "id": 18809, "name": "Sash of Whispered Secrets" }
+      ],
+      "LegsSlot": [
+        { "id": 21676, "name": "Leggings of the Festering Swarm" },
+        { "id": 21346, "name": "Enigma Leggings" },
+        { "id": 19683, "name": "Bloodvine Leggings" },
+        { "id": 16915, "name": "Netherwind Pants" },
+        { "id": 11841, "name": "Senior Designer's Pantaloons" }
+      ],
+      "FeetSlot": [
+        { "id": 21344, "name": "Enigma Boots" },
+        { "id": 19684, "name": "Bloodvine Boots" },
+        { "id": 16912, "name": "Netherwind Boots" },
+        { "id": 19131, "name": "Snowblind Shoes" },
+        { "id": 18735, "name": "Maleki's Footwraps" }
+      ],
+      "Finger0Slot": [
+        { "id": 21709, "name": "Ring of the Fallen God" },
+        { "id": 21836, "name": "Ritssyn's Ring of Chaos" },
+        { "id": 21210, "name": "Signet Ring of the Bronze Dragonflight" },
+        { "id": 19147, "name": "Ring of Spell Power" },
+        { "id": 19382, "name": "Pure Elementium Band" }
+      ],
+      "Finger1Slot": [
+        { "id": 21709, "name": "Ring of the Fallen God" },
+        { "id": 21836, "name": "Ritssyn's Ring of Chaos" },
+        { "id": 21210, "name": "Signet Ring of the Bronze Dragonflight" },
+        { "id": 19147, "name": "Ring of Spell Power" },
+        { "id": 19382, "name": "Pure Elementium Band" }
+      ],
+      "Trinket0Slot": [
+        { "id": 19379, "name": "Neltharion's Tear" },
+        { "id": 19339, "name": "Mind Quickening Gem" },
+        { "id": 19950, "name": "Zandalarian Hero Charm" },
+        { "id": 18467, "name": "Royal Seal of Eldre'Thalas" },
+        { "id": 12930, "name": "Briarwood Reed" }
+      ],
+      "Trinket1Slot": [
+        { "id": 19379, "name": "Neltharion's Tear" },
+        { "id": 19339, "name": "Mind Quickening Gem" },
+        { "id": 19950, "name": "Zandalarian Hero Charm" },
+        { "id": 18467, "name": "Royal Seal of Eldre'Thalas" },
+        { "id": 12930, "name": "Briarwood Reed" }
+      ],
+      "MainHandSlot": [
+        { "id": 21622, "name": "Sharpened Silithid Femur" },
+        { "id": 19347, "name": "Claw of Chromaggus" },
+        { "id": 21413, "name": "Blade of Vaulted Secrets" },
+        { "id": 17070, "name": "Fang of the Mystics" },
+        { "id": 23451, "name": "Grand Marshal's Mageblade" }
+      ],
+      "SecondaryHandSlot": [
+        { "id": 21597, "name": "Royal Scepter of Vek'lor" },
+        { "id": 19366, "name": "Master Dragonslayer's Orb" },
+        { "id": 19891, "name": "Jin'do's Bag of Whammies" },
+        { "id": 13385, "name": "Tome of Knowledge" },
+        { "id": 15857, "name": "Magebane Scion" }
+      ],
+      "TwoHandSlot": [
+        { "id": 21273, "name": "Blessed Qiraji Acolyte Staff" },
+        { "id": 19356, "name": "Staff of the Shadow Flame" },
+        { "id": 21128, "name": "Staff of the Qiraji Prophets" },
+        { "id": 18842, "name": "Staff of Dominance" },
+        { "id": 21452, "name": "Staff of the Ruins" }
+      ],
+      "RangedSlot": [
+        { "id": 21603, "name": "Wand of Qiraji Nobility" },
+        { "id": 19861, "name": "Touch of Chaos" },
+        { "id": 19108, "name": "Wand of Biting Cold" },
+        { "id": 13396, "name": "Skul's Ghastly Touch" },
+        { "id": 13938, "name": "Bonecreeper Stylus" }
+      ]
+    }
   },
   "Warlock": {
     "Destruction": {

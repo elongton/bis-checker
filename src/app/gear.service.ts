@@ -15,7 +15,7 @@ export class GearService {
 
   constructor(private http: HttpClient) {
     const saved = localStorage.getItem(STORAGE_KEY);
-    this.http.get<GearLibrary>('/gear').subscribe({
+    this.http.get<GearLibrary>('/api/gear').subscribe({
       next: (lib) => {
         this.currentLib = JSON.parse(JSON.stringify(lib));
         this.pristineLib = JSON.parse(JSON.stringify(lib));
@@ -77,6 +77,20 @@ export class GearService {
       // Update pristine copy locally after successful POST
       this.pristineLib = JSON.parse(JSON.stringify(this.currentLib));
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.currentLib));
+    } catch (e) {
+      console.error('Save failed, keeping changes locally only.');
+    }
+  }
+
+    // Save only a specific spec slice, POST to /gear/:cls/:spec
+  async saveAll() {
+    if (!this.currentLib) return;
+    const slice = (this.currentLib);
+    if (!slice) return;
+    try {
+      await this.http.put(`/api/gear`, slice).toPromise();
+      // Update pristine copy locally after successful POST
+      this.pristineLib = JSON.parse(JSON.stringify(this.currentLib));
     } catch (e) {
       console.error('Save failed, keeping changes locally only.');
     }
