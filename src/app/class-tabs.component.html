@@ -1,0 +1,41 @@
+<!-- Sticky global header -->
+<div class="header-wrapper">
+  <div class="header-container">
+    <div class="global-header">
+      <div class="gh-left">
+        <span class="logo">Classic BiS Library</span>
+      </div>
+      <div class="gh-right">
+        <button *ngIf="!editMode" class="edit-btn" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
+        <ng-container *ngIf="editMode">
+          <button class="save-btn" (click)="saveEdits()" title="Save"
+            [disabled]="!selectedClass || !selectedSpec || !isDirty">💾 Save</button>
+          <button class="cancel-btn" (click)="cancelEdits()" title="Cancel">✖️ Cancel</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 80px;">
+  <div class="tabs" role="tablist">
+    <button *ngFor="let cls of classes; index as i; trackBy: trackByClass" [class.active]="i===active"
+      (click)="active=i; openClass(cls)" role="tab" [attr.aria-selected]="i===active">
+      {{ cls }}
+    </button>
+  </div>
+
+  <div class="panel" *ngIf="classes.length">
+    <ng-container *ngIf="classes[active] as current">
+      <div class="spec-list">
+        <a *ngFor="let spec of classSpecs(current); trackBy: trackBySpec" (click)="openSpec(current, spec)">
+          {{ spec }}
+        </a>
+      </div>
+    </ng-container>
+  </div>
+
+  <app-spec-detail id="spec-detail" *ngIf="selectedClass && selectedSpec && selectedBlock" [cls]="selectedClass!"
+    [spec]="selectedSpec!" [specBlock]="selectedBlock!" [editMode]="editMode">
+  </app-spec-detail>
+</div>

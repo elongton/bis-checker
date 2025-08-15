@@ -1,0 +1,75 @@
+<div class="wrap">
+  <header class="hero">
+    <h1>{{ cls }} – {{ spec }}</h1>
+  </header>
+
+  <section class="legend">
+    <div><strong>Top 5 per slot.</strong> Hover items for stats (Wowhead tooltips). <span *ngIf="editMode">Edit mode is ON (drag to reorder, edit, add). <br> When searching for item IDs, use <a href="https://www.wowhead.com/" target="_blank">WowHead</a> and extract the item ID from the URL.</span></div>
+  </section>
+
+  <section class="grid">
+    <div class="slot" *ngFor="let row of rows; trackBy: trackByRow">
+      <h3>{{ slotLabel(row.slot) }}</h3>
+
+      <!-- View mode -->
+      <ol *ngIf="!editMode">
+        <li *ngFor="let it of row.items; index as i; trackBy: trackByItem">
+          <a [href]="wowhead(it.id)" target="_blank" rel="noopener">{{ it.name }}</a>
+          <span class="rank">#{{ i+1 }}</span>
+        </li>
+      </ol>
+
+      <!-- Edit mode: drag & drop + edit/delete -->
+      <div *ngIf="editMode" cdkDropList [cdkDropListData]="row.items" (cdkDropListDropped)="dropped(row.slot, $event)" class="dnd-list">
+        <div class="item-row" *ngFor="let it of row.items; index as i; trackBy: trackByItem" cdkDrag>
+          <div class="drag-handle" cdkDragHandle title="Drag to reorder">⠿</div>
+          <div class="left">
+            <a [href]="wowhead(it.id)" target="_blank" rel="noopener">{{ it.name }}</a>
+            <span class="muted">(#{{ i+1 }} — ID: {{ it.id }})</span>
+          </div>
+          <div class="right">
+            <button (click)="startEdit(row.slot, i)" title="Edit">✏️</button>
+            <button (click)="remove(row.slot, i)" title="Delete">🗑️</button>
+          </div>
+        </div>
+
+        <!-- Inline editor for existing item (by ID) -->
+        <div class="edit-inline" *ngFor="let it of row.items; index as i; trackBy: trackByItem">
+          <div *ngIf="editing[row.slot + ':' + i]" class="editor">
+            <div class="ta-row">
+              <input id="{{'edit-' + (row.slot + ':' + i)}}"
+                     type="number" inputmode="numeric"
+                     placeholder="Enter Item ID (Classic)…"
+                     [(ngModel)]="editId[row.slot + ':' + i]">
+              <div class="ta-actions">
+                <button class="ok" [disabled]="busy[row.slot + ':' + i]" (click)="confirmEdit(row.slot, i)" title="Confirm">✅</button>
+                <button class="cancel" [disabled]="busy[row.slot + ':' + i]" (click)="cancelEdit(row.slot, i)" title="Cancel">❌</button>
+              </div>
+            </div>
+            <div class="err" *ngIf="error[row.slot + ':' + i]">{{ error[row.slot + ':' + i] }}</div>
+          </div>
+        </div>
+
+        <!-- Add new item section (by ID) -->
+        <div class="add-wrap" *ngIf="!adding[row.slot]">
+          <button class="add-btn" (click)="startAdd(row.slot)">+ Add item</button>
+        </div>
+
+        <div class="editor" *ngIf="adding[row.slot]">
+          <div class="ta-row">
+            <input id="{{'add-' + row.slot}}"
+                   type="number" inputmode="numeric"
+                   placeholder="Enter Item ID to add…"
+                   [(ngModel)]="editId['add:' + row.slot]">
+            <div class="ta-actions">
+              <button class="ok" [disabled]="busy['add:' + row.slot]" (click)="confirmAdd(row.slot)" title="Add">✅</button>
+              <button class="cancel" [disabled]="busy['add:' + row.slot]" (click)="cancelAdd(row.slot)" title="Cancel">❌</button>
+            </div>
+          </div>
+          <div class="err" *ngIf="error['add:' + row.slot]">{{ error['add:' + row.slot] }}</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
