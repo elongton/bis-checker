@@ -100,5 +100,5 @@ export class GearService {
                 .replace('Secondary Hand Slot','Off Hand').replace('Ranged Slot','Ranged');
   }
 
-  static wowheadUrl(id: number) { return `https://www.wowhead.com/classic/item/${id}`; }
+  static wowheadUrl(id: number) { return `https://www.wowhead.com/classic/item=${id}`; }
 }
