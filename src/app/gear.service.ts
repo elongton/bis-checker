@@ -22,6 +22,7 @@ constructor(private http: HttpClient) {
     const saved = localStorage.getItem(STORAGE_KEY);
     this.http.get<GearLibrary>('/api/gear', { headers: this.getHeaders() }).subscribe({
       next: (lib) => {
+        console.log(lib);
         this.currentLib = JSON.parse(JSON.stringify(lib));
         this.pristineLib = JSON.parse(JSON.stringify(lib));
         if (this.currentLib) this.subject.next(this.currentLib);

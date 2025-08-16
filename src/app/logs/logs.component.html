@@ -1,6 +1,30 @@
 <div class="log-container">
-  <h1>System Logs</h1>
+  <h1>Gear Change Logs</h1>
+
+  <div class="filters">
+    <label>
+      Start Date:
+      <input type="date" [(ngModel)]="startDate">
+    </label>
+    <label>
+      End Date:
+      <input type="date" [(ngModel)]="endDate">
+    </label>
+    <button (click)="applyDateFilter()">Apply</button>
+  </div>
+
   <div *ngFor="let log of logs" class="log-entry">
-    <pre>{{ log | json }}</pre>
+    <p><strong>{{ log.timestamp }}</strong> — <em>{{ log.username }}</em></p>
+    <ul>
+      <li *ngFor="let change of log.changes">
+        {{ change.path }}: <code>{{ change.before | json }}</code> → <code>{{ change.after | json }}</code>
+      </li>
+    </ul>
+  </div>
+
+  <div class="pagination">
+    <button (click)="onPageChange(page - 1)" [disabled]="page <= 1">Previous</button>
+    Page {{ page }} of {{ totalLogs / limit | ceil }}
+    <button (click)="onPageChange(page + 1)" [disabled]="page * limit >= totalLogs">Next</button>
   </div>
 </div>

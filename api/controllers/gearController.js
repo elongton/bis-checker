@@ -195,10 +195,40 @@ async function logAndUpdateSpec(req, res) {
   res.status(200).json({ message: "Gear updated and changes logged." });
 }
 
+async function getLogs(req, res) {
+  try {
+    const { start, end, page = 1, limit = 10 } = req.query;
+    const db = await connect();
+    const collection = db.collection("gearLogs");
+
+    const query = {};
+    if (start || end) {
+      query.timestamp = {};
+      if (start) query.timestamp.$gte = new Date(start);
+      if (end) query.timestamp.$lte = new Date(end);
+    }
+
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const logs = await collection.find(query)
+      .sort({ timestamp: -1 })
+      .skip(skip)
+      .limit(parseInt(limit))
+      .toArray();
+
+    const total = await collection.countDocuments(query);
+
+    res.json({ logs, total });
+  } catch (error) {
+    console.error("Failed to retrieve gear logs:", error);
+    res.status(500).json({ error: "Failed to retrieve gear logs" });
+  }
+}
+
 module.exports = {
   logAndUpdateSpec,
   getFullGearJSON,
   getAllDocuments,
   updateSlot,
   replaceGearLibrary,
+  getLogs
 };

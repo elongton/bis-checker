@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LogsComponent } from "./logs/logs.component";
+// import { LogsComponent } from "./logs/logs.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
@@ -10,6 +10,8 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { AppComponent } from "./app.component";
 import { ClassTabsComponent } from "./class-tabs.component";
 import { SpecDetailComponent } from "./spec-detail.component";
+import { LogsComponent } from "./logs/logs.component";
+import { CeilPipe } from './ceil.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { SpecDetailComponent } from "./spec-detail.component";
     AppComponent,
     ClassTabsComponent,
     SpecDetailComponent,
+    CeilPipe
   ],
   imports: [
     BrowserModule,
