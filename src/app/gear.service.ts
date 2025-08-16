@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GearLibrary, ClassBlock, SpecBlock, SlotName, ItemRef } from './models';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,9 +13,14 @@ export class GearService {
   private currentLib?: GearLibrary;
   private pristineLib?: GearLibrary;
 
-  constructor(private http: HttpClient) {
+  
+  private getHeaders() {
+    const userString = localStorage.getItem('discord_user');
+    return new HttpHeaders({ 'x-discord-username': (userString ? JSON.parse(userString).username : null) || 'unknown' });
+  }
+constructor(private http: HttpClient) {
     const saved = localStorage.getItem(STORAGE_KEY);
-    this.http.get<GearLibrary>('/api/gear').subscribe({
+    this.http.get<GearLibrary>('/api/gear', { headers: this.getHeaders() }).subscribe({
       next: (lib) => {
         this.currentLib = JSON.parse(JSON.stringify(lib));
         this.pristineLib = JSON.parse(JSON.stringify(lib));
@@ -73,7 +78,7 @@ export class GearService {
     const slice = (this.currentLib[cls]?.[spec]) as SpecBlock;
     if (!slice) return;
     try {
-      await this.http.post(`/gear/${encodeURIComponent(cls)}/${encodeURIComponent(spec)}`, slice).toPromise();
+      await this.http.post(`/gear/${encodeURIComponent(cls)}/${encodeURIComponent(spec)}`, slice, { headers: this.getHeaders() }).toPromise();
       // Update pristine copy locally after successful POST
       this.pristineLib = JSON.parse(JSON.stringify(this.currentLib));
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.currentLib));
@@ -88,7 +93,7 @@ export class GearService {
     const slice = (this.currentLib);
     if (!slice) return;
     try {
-      await this.http.put(`/api/gear`, slice).toPromise();
+      await this.http.put(`/api/gear`, slice, { headers: this.getHeaders() }).toPromise();
       // Update pristine copy locally after successful POST
       this.pristineLib = JSON.parse(JSON.stringify(this.currentLib));
     } catch (e) {

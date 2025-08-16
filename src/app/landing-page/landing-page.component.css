@@ -1,0 +1,10 @@
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 64px;
+  font-weight: bold;
+  background-color: #000;
+  color: #0ff;
+}

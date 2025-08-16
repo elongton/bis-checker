@@ -1,0 +1,6 @@
+<div class="log-container">
+  <h1>System Logs</h1>
+  <div *ngFor="let log of logs" class="log-entry">
+    <pre>{{ log | json }}</pre>
+  </div>
+</div>
