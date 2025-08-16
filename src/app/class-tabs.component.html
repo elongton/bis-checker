@@ -3,7 +3,7 @@
   <div class="header-container">
     <div class="global-header">
       <div class="gh-left">
-        <span class="logo">BiS Admin</span>
+        <span class="logo"><a routerLink="/">BiS Admin</a></span>
       </div>
       <div class="gh-right">
         <ng-container *ngIf="user">
@@ -55,3 +55,7 @@
     [spec]="selectedSpec!" [specBlock]="selectedBlock!" [editMode]="editMode">
   </app-spec-detail>
 </div>
+
+<footer style="text-align: center; padding: 1em; margin-top: 2em; font-size: 0.9em; color: #999;">
+  Made by Èvé with ❤️, but also the hatred of a thousand burning hells. 
+</footer>
