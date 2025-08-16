@@ -6,11 +6,17 @@
         <span class="logo">Classic BiS Library</span>
       </div>
       <div class="gh-right">
-        <button *ngIf="!editMode" class="edit-btn" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
-        <ng-container *ngIf="editMode">
-          <button class="save-btn" (click)="saveEdits()" title="Save"
-            [disabled]="!selectedClass || !selectedSpec || !isDirty">💾 Save</button>
-          <button class="cancel-btn" (click)="cancelEdits()" title="Cancel">✖️ Cancel</button>
+        <ng-container *ngIf="user">
+          <button *ngIf="!editMode" class="edit-btn" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
+          <ng-container *ngIf="editMode">
+            <button class="save-btn" (click)="saveEdits()" title="Save"
+              [disabled]="!selectedClass || !selectedSpec || !isDirty">💾 Save</button>
+            <button class="cancel-btn" (click)="cancelEdits()" title="Cancel">✖️ Cancel</button>
+          </ng-container>
+        </ng-container>
+        <ng-container>
+          <button mat-button *ngIf="!user" (click)="login()">Login</button>
+          <img *ngIf="user" [src]="'https://cdn.discordapp.com/avatars/' + user.id + '/' + user.avatar + '.png'" class="profile-pic" alt="Profile" />
         </ng-container>
       </div>
     </div>
@@ -19,16 +25,26 @@
 
 <div class="container" style="margin-top: 80px;">
   <div class="tabs" role="tablist">
-    <button *ngFor="let cls of classes; index as i; trackBy: trackByClass" [class.active]="i===active"
+
+    <!-- Class Buttons -->
+    <button *ngFor="let cls of classes; index as i; trackBy: trackByClass"
+      [ngStyle]="{ 'background-color': i === active ? '#1E88E5' : 'transparent', 'color': i === active ? 'white' : 'inherit' }"
       (click)="active=i; openClass(cls)" role="tab" [attr.aria-selected]="i===active">
       {{ cls }}
     </button>
+
+    <!-- <button *ngFor="let cls of classes; index as i; trackBy: trackByClass" [class.active]="i===active"
+      (click)="active=i; openClass(cls)" role="tab" [attr.aria-selected]="i===active">
+      {{ cls }}
+    </button> -->
   </div>
 
   <div class="panel" *ngIf="classes.length">
     <ng-container *ngIf="classes[active] as current">
       <div class="spec-list">
-        <a *ngFor="let spec of classSpecs(current); trackBy: trackBySpec" (click)="openSpec(current, spec)">
+        <a *ngFor="let spec of classSpecs(current); trackBy: trackBySpec"
+          [ngStyle]="{ 'background-color': selectedSpec === spec ? '#FF4081' : 'transparent', 'color': selectedSpec === spec ? 'white' : 'inherit', 'padding': '4px 8px', 'border-radius': '4px' }"
+          (click)="openSpec(current, spec)">
           {{ spec }}
         </a>
       </div>

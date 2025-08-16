@@ -1,13 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
-import { GearService } from './gear.service';
-import { SpecBlock } from './models';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { Subscription, combineLatest } from 'rxjs';
+import { Component, OnDestroy } from "@angular/core";
+import { GearService } from "./gear.service";
+import { SpecBlock } from "./models";
+import { ActivatedRoute, Router, ParamMap } from "@angular/router";
+import { Subscription, combineLatest } from "rxjs";
 
 @Component({
-  selector: 'app-class-tabs',
-  templateUrl: './class-tabs.component.html',
-  styleUrls: ['./class-tabs.component.css']
+  selector: "app-class-tabs",
+  templateUrl: "./class-tabs.component.html",
+  styleUrls: ["./class-tabs.component.css"],
 })
 export class ClassTabsComponent implements OnDestroy {
   classes: string[] = [];
@@ -21,65 +21,107 @@ export class ClassTabsComponent implements OnDestroy {
 
   private sub?: Subscription;
   private libSub?: Subscription;
+  user: any = null;
 
-  constructor(private gear: GearService, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private gear: GearService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+
+    const userJson = localStorage.getItem('discord_user');
+    if (userJson) {
+      this.user = JSON.parse(userJson);
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userParam = urlParams.get('user');
+    if (userParam) {
+      this.user = JSON.parse(userParam);
+      localStorage.setItem('discord_user', JSON.stringify(this.user));
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+
     const classes$ = this.gear.getClasses();
     const params$ = this.route.paramMap;
 
-    this.sub = combineLatest([classes$, params$]).subscribe(([clsList, params]: [string[], ParamMap]) => {
-      this.classes = clsList;
-      clsList.forEach(cls => this.gear.getSpecsForClass(cls).subscribe(s => { this.specs[cls] = s; }));
+    this.sub = combineLatest([classes$, params$]).subscribe(
+      ([clsList, params]: [string[], ParamMap]) => {
+        this.classes = clsList;
+        clsList.forEach((cls) =>
+          this.gear.getSpecsForClass(cls).subscribe((s) => {
+            this.specs[cls] = s;
+          })
+        );
 
-      const pClsRaw = params.get('cls');
-      const pSpecRaw = params.get('spec');
+        const pClsRaw = params.get("cls");
+        const pSpecRaw = params.get("spec");
 
-      if (pClsRaw) {
-        const libCls = this.findCaseInsensitive(pClsRaw, clsList);
-        if (libCls) {
-          this.active = Math.max(0, clsList.indexOf(libCls));
-          this.selectedClass = libCls;
-          if (pSpecRaw) {
-            const libSpec = this.findCaseInsensitive(pSpecRaw, this.classSpecs(libCls));
-            if (libSpec) this.openSpec(libCls, libSpec, false);
-            else { this.selectedSpec = null; this.selectedBlock = undefined; this.isDirty = false; }
-          } else {
-            this.selectedSpec = null;
-            this.selectedBlock = undefined;
-            this.isDirty = false;
+        if (pClsRaw) {
+          const libCls = this.findCaseInsensitive(pClsRaw, clsList);
+          if (libCls) {
+            this.active = Math.max(0, clsList.indexOf(libCls));
+            this.selectedClass = libCls;
+            if (pSpecRaw) {
+              const libSpec = this.findCaseInsensitive(
+                pSpecRaw,
+                this.classSpecs(libCls)
+              );
+              if (libSpec) this.openSpec(libCls, libSpec, false);
+              else {
+                this.selectedSpec = null;
+                this.selectedBlock = undefined;
+                this.isDirty = false;
+              }
+            } else {
+              this.selectedSpec = null;
+              this.selectedBlock = undefined;
+              this.isDirty = false;
+            }
           }
         }
       }
-    });
+    );
 
     // Recompute dirty when library changes
     this.libSub = this.gear.getLibrary().subscribe(() => this.computeDirty());
   }
 
-  ngOnDestroy() { this.sub?.unsubscribe(); this.libSub?.unsubscribe(); }
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
+    this.libSub?.unsubscribe();
+  }
 
-  classSpecs(cls: string) { return this.specs[cls] ?? []; }
+  classSpecs(cls: string) {
+    return this.specs[cls] ?? [];
+  }
 
   openClass(cls: string) {
-    const map: Record<string, [string,string]> = {
-      Druid: ['druid', 'restoration'],
-      Hunter: ['hunter', 'marksmanship'],
-      Mage: ['mage', 'fire'],
-      Paladin: ['paladin', 'holy'],
-      Priest: ['priest', 'holy'],
-      Rogue: ['rogue', 'combat'],
-      Warlock: ['warlock', 'destruction'],
-      Warrior: ['warrior', 'protection'],
+    const map: Record<string, [string, string]> = {
+      Druid: ["druid", "restoration"],
+      Hunter: ["hunter", "marksmanship"],
+      Mage: ["mage", "fire"],
+      Paladin: ["paladin", "holy"],
+      Priest: ["priest", "holy"],
+      Rogue: ["rogue", "combat"],
+      Warlock: ["warlock", "destruction"],
+      Warrior: ["warrior", "protection"],
     };
-    const pair = map[cls] || [cls.toLowerCase(), this.classSpecs(cls)[0]?.toLowerCase() || ''];
-    if (pair[1]) this.router.navigate(['/', pair[0], pair[1]]);
-    else this.router.navigate(['/', pair[0]]);
+    const pair = map[cls] || [
+      cls.toLowerCase(),
+      this.classSpecs(cls)[0]?.toLowerCase() || "",
+    ];
+    if (pair[1]) this.router.navigate(["/", pair[0], pair[1]]);
+    else this.router.navigate(["/", pair[0]]);
   }
 
   openSpec(cls: string, spec: string, pushRoute: boolean = true) {
     this.selectedClass = cls;
     this.selectedSpec = spec;
-    if (pushRoute) this.router.navigate(['/', cls.toLowerCase(), spec.toLowerCase()]);
-    this.gear.getSpecBlock(cls, spec).subscribe(block => {
+    if (pushRoute)
+      this.router.navigate(["/", cls.toLowerCase(), spec.toLowerCase()]);
+    this.gear.getSpecBlock(cls, spec).subscribe((block) => {
       this.selectedBlock = block;
       this.computeDirty();
     });
@@ -89,11 +131,11 @@ export class ClassTabsComponent implements OnDestroy {
   // Sticky header actions
   tryToggleEdit() {
     if (!this.editMode) {
-      const pw = window.prompt('Enter password to enable edit mode:');
-      if (pw === 'grox') {
+      const pw = window.prompt("Enter password to enable edit mode:");
+      if (pw === "grox") {
         this.editMode = true;
       } else {
-        alert('Incorrect password.');
+        alert("Incorrect password.");
       }
     } else {
       // turning off edit mode without saving
@@ -111,12 +153,16 @@ export class ClassTabsComponent implements OnDestroy {
   cancelEdits() {
     this.gear.cancel();
     this.editMode = false;
-    if (this.selectedClass && this.selectedSpec) this.openSpec(this.selectedClass, this.selectedSpec, false);
+    if (this.selectedClass && this.selectedSpec)
+      this.openSpec(this.selectedClass, this.selectedSpec, false);
     else this.computeDirty();
   }
 
   computeDirty() {
-    if (!this.selectedClass || !this.selectedSpec) { this.isDirty = false; return; }
+    if (!this.selectedClass || !this.selectedSpec) {
+      this.isDirty = false;
+      return;
+    }
     this.isDirty = this.gear.isSpecDirty(this.selectedClass, this.selectedSpec);
   }
 
@@ -127,5 +173,9 @@ export class ClassTabsComponent implements OnDestroy {
     const lower = needle.toLowerCase();
     for (const h of hay) if (h.toLowerCase() === lower) return h;
     return null;
+  }
+
+  login() {
+    window.location.href = "api/auth/discord";
   }
 }

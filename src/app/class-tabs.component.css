@@ -118,3 +118,16 @@ h1 {
 .dashed {
   border: 1px dashed red;
 }
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 12px;
+}
+
+.gh-right {
+  display: flex;
+  align-items: center;
+}

@@ -2,7 +2,6 @@ const express = require("express");
 const dotenv = require("dotenv");
 const gearRoutes = require("./routes/gear");
 const blizzardRoutes = require("./routes/blizzard");
-const discordRoutes = require("./routes/discord");
 
 dotenv.config();
 const app = express();
@@ -21,7 +20,7 @@ passport.deserializeUser((obj, done) => done(null, obj));
 passport.use(new DiscordStrategy({
   clientID: "1406045095207370872",
   clientSecret: process.env.DISCORD_CLIENT_SECRET,
-  callbackURL: "/auth/discord/callback",
+  callbackURL: "/api/auth/discord/callback",
   scope: ['identify']
 }, (accessToken, refreshToken, profile, done) => {
   return done(null, profile);
@@ -38,7 +37,15 @@ app.use(passport.session());
 app.use(express.json());
 app.use("/api/gear", gearRoutes);
 app.use("/api/blizzard", blizzardRoutes);
-app.use("/api/auth", discordRoutes);
+
+// Discord auth routes
+app.get('/api/auth/discord', passport.authenticate('discord'));
+app.get('/api/auth/discord/callback',
+  passport.authenticate('discord', { failureRedirect: '/' }),
+  (req, res) => {
+    res.redirect(`http://localhost:4200/?user=${encodeURIComponent(JSON.stringify(req.user))}`);
+  }
+);
 
 // Serve Angular build
 app.use(express.static(path.join(__dirname, '../dist/classic-bis-browser')));
