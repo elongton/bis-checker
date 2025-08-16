@@ -8,3 +8,13 @@
   background-color: #000;
   color: #0ff;
 }
+
+.hover-link{
+  text-decoration: none;
+  color: #0ff;
+}
+
+.hover-link:hover {
+  color: midnightblue;
+  cursor: pointer;
+}

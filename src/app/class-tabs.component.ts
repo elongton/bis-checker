@@ -127,12 +127,16 @@ export class ClassTabsComponent implements OnDestroy {
     });
     // no auto scroll
   }
-
   // Sticky header actions
   tryToggleEdit() {
     if (!this.editMode) {
+      if (localStorage.getItem('edit_pw') == 'grox'){
+        this.editMode = true;
+        return; 
+      }
       const pw = window.prompt("Enter password to enable edit mode:");
       if (pw === "grox") {
+        localStorage.setItem('edit_pw', 'grox');
         this.editMode = true;
       } else {
         alert("Incorrect password.");
