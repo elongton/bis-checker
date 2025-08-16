@@ -1,5 +1,5 @@
 <div class="log-container">
-  <h1>Gear Change Logs</h1>
+  <h1>Gear <a routerLink="/">C</a>hange Logs</h1>
 
   <div class="filters">
     <label>
@@ -10,7 +10,11 @@
       End Date:
       <input type="date" [(ngModel)]="endDate">
     </label>
-    <button (click)="applyDateFilter()">Apply</button>
+    <label>
+      Search:
+      <input type="text" [(ngModel)]="username" placeholder="Search username">
+    </label>
+    <button (click)="applyUsernameFilter()">Apply</button>
   </div>
 
   <div *ngFor="let log of logs" class="log-entry">

@@ -11,6 +11,7 @@ export class LogsComponent implements OnInit {
   totalLogs = 0;
   page = 1;
   limit = 10;
+  username = '';
   startDate = '';
   endDate = '';
 
@@ -25,6 +26,8 @@ export class LogsComponent implements OnInit {
     if (this.startDate) params.start = this.startDate;
     if (this.endDate) params.end = this.endDate;
 
+    if (this.username) params.username = this.username;
+
     this.http.get<any>('/api/gear/logs', { params }).subscribe(data => {
       this.logs = data.logs;
       this.totalLogs = data.total;
@@ -37,6 +40,11 @@ export class LogsComponent implements OnInit {
   }
 
   applyDateFilter(): void {
+    this.page = 1;
+    this.fetchLogs();
+  }
+
+  applyUsernameFilter(): void {
     this.page = 1;
     this.fetchLogs();
   }

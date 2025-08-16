@@ -197,7 +197,7 @@ async function logAndUpdateSpec(req, res) {
 
 async function getLogs(req, res) {
   try {
-    const { start, end, page = 1, limit = 10 } = req.query;
+    const { start, end, page = 1, limit = 10, username } = req.query;
     const db = await connect();
     const collection = db.collection("gearLogs");
 
@@ -207,8 +207,12 @@ async function getLogs(req, res) {
       if (start) query.timestamp.$gte = new Date(start);
       if (end) query.timestamp.$lte = new Date(end);
     }
+    if (username) {
+      query.username = username;
+    }
 
     const skip = (parseInt(page) - 1) * parseInt(limit);
+
     const logs = await collection.find(query)
       .sort({ timestamp: -1 })
       .skip(skip)
