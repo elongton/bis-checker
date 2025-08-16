@@ -7,6 +7,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+console.log("Client Secret:");
+console.log(process.env.DISCORD_CLIENT_SECRET);
 
 const session = require('express-session');
 const passport = require('passport');
@@ -18,13 +20,15 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
 
 passport.use(new DiscordStrategy({
-  clientID: "1406045095207370872",
+  clientID: process.env.DISCORD_CLIENT_ID,
   clientSecret: process.env.DISCORD_CLIENT_SECRET,
   callbackURL: "/api/auth/discord/callback",
   scope: ['identify']
 }, (accessToken, refreshToken, profile, done) => {
   return done(null, profile);
 }));
+
+
 
 app.use(session({ secret: "secret", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
@@ -43,7 +47,7 @@ app.get('/api/auth/discord', passport.authenticate('discord'));
 app.get('/api/auth/discord/callback',
   passport.authenticate('discord', { failureRedirect: '/' }),
   (req, res) => {
-    res.redirect(`http://localhost:4200/druid/restoration?user=${encodeURIComponent(JSON.stringify(req.user))}`);
+    res.redirect(`${process.env.APP_URL}/druid/restoration?user=${encodeURIComponent(JSON.stringify(req.user))}`);
   }
 );
 
