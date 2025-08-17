@@ -1,0 +1,5527 @@
+{
+  "MAGE": {
+    "Fire": {
+      "HeadSlot": [
+        {
+          "id": 19375,
+          "name": "Mish'undare, Circlet of the Mind Flayer"
+        },
+        {
+          "id": 21347,
+          "name": "Enigma Circlet"
+        },
+        {
+          "id": 16914,
+          "name": "Netherwind Crown"
+        },
+        {
+          "id": 22267,
+          "name": "Spellweaver's Turban"
+        },
+        {
+          "id": 18727,
+          "name": "Crimson Felt Hat"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21608,
+          "name": "Amulet of Vek'nilash"
+        },
+        {
+          "id": 18814,
+          "name": "Choker of the Fire Lord"
+        },
+        {
+          "id": 21507,
+          "name": "Charm of the Shifting Sands"
+        },
+        {
+          "id": 19885,
+          "name": "Jin'do's Evil Eye"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 19370,
+          "name": "Mantle of the Blackwing Cabal"
+        },
+        {
+          "id": 21345,
+          "name": "Enigma Shoulderpads"
+        },
+        {
+          "id": 16917,
+          "name": "Netherwind Mantle"
+        },
+        {
+          "id": 19845,
+          "name": "Zandalar Illusionist's Mantle"
+        },
+        {
+          "id": 11782,
+          "name": "Boreal Mantle"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 22731,
+          "name": "Cloak of the Devoured"
+        },
+        {
+          "id": 19857,
+          "name": "Cloak of Consumption"
+        },
+        {
+          "id": 19430,
+          "name": "Cloak of the Brood Lord"
+        },
+        {
+          "id": 13386,
+          "name": "Archivist Cape of the Black Baron"
+        },
+        {
+          "id": 17078,
+          "name": "Sapphiron Drape"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21343,
+          "name": "Enigma Robes"
+        },
+        {
+          "id": 14152,
+          "name": "Robe of the Archmage"
+        },
+        {
+          "id": 19682,
+          "name": "Bloodvine Vest"
+        },
+        {
+          "id": 19145,
+          "name": "Robe of Volatile Power"
+        },
+        {
+          "id": 1716,
+          "name": "Robe of the Magi"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21186,
+          "name": "Rockfury Bracers"
+        },
+        {
+          "id": 19374,
+          "name": "Bracers of Arcane Accuracy"
+        },
+        {
+          "id": 21464,
+          "name": "Shackles of the Unscarred"
+        },
+        {
+          "id": 11766,
+          "name": "Flameweave Cuffs"
+        },
+        {
+          "id": 18497,
+          "name": "Sublime Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21585,
+          "name": "Dark Storm Gauntlets"
+        },
+        {
+          "id": 18808,
+          "name": "Gloves of the Hypnotic Flame"
+        },
+        {
+          "id": 16913,
+          "name": "Netherwind Gloves"
+        },
+        {
+          "id": 14146,
+          "name": "Gloves of Spell Mastery"
+        },
+        {
+          "id": 13253,
+          "name": "Hands of Power"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 22730,
+          "name": "Eyestalk Waist Cord"
+        },
+        {
+          "id": 19136,
+          "name": "Mana Igniting Cord"
+        },
+        {
+          "id": 18405,
+          "name": "Belt of the Archmage"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 18809,
+          "name": "Sash of Whispered Secrets"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21676,
+          "name": "Leggings of the Festering Swarm"
+        },
+        {
+          "id": 21346,
+          "name": "Enigma Leggings"
+        },
+        {
+          "id": 19683,
+          "name": "Bloodvine Leggings"
+        },
+        {
+          "id": 16915,
+          "name": "Netherwind Pants"
+        },
+        {
+          "id": 11841,
+          "name": "Senior Designer's Pantaloons"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21344,
+          "name": "Enigma Boots"
+        },
+        {
+          "id": 19684,
+          "name": "Bloodvine Boots"
+        },
+        {
+          "id": 16912,
+          "name": "Netherwind Boots"
+        },
+        {
+          "id": 19131,
+          "name": "Snowblind Shoes"
+        },
+        {
+          "id": 18735,
+          "name": "Maleki's Footwraps"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        },
+        {
+          "id": 19382,
+          "name": "Pure Elementium Band"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        },
+        {
+          "id": 19382,
+          "name": "Pure Elementium Band"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19339,
+          "name": "Mind Quickening Gem"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 12930,
+          "name": "Briarwood Reed"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19339,
+          "name": "Mind Quickening Gem"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 12930,
+          "name": "Briarwood Reed"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 21622,
+          "name": "Sharpened Silithid Femur"
+        },
+        {
+          "id": 19347,
+          "name": "Claw of Chromaggus"
+        },
+        {
+          "id": 21413,
+          "name": "Blade of Vaulted Secrets"
+        },
+        {
+          "id": 17070,
+          "name": "Fang of the Mystics"
+        },
+        {
+          "id": 23451,
+          "name": "Grand Marshal's Mageblade"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor"
+        },
+        {
+          "id": 19366,
+          "name": "Master Dragonslayer's Orb"
+        },
+        {
+          "id": 19891,
+          "name": "Jin'do's Bag of Whammies"
+        },
+        {
+          "id": 13385,
+          "name": "Tome of Knowledge"
+        },
+        {
+          "id": 15857,
+          "name": "Magebane Scion"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 21273,
+          "name": "Blessed Qiraji Acolyte Staff"
+        },
+        {
+          "id": 19356,
+          "name": "Staff of the Shadow Flame"
+        },
+        {
+          "id": 21128,
+          "name": "Staff of the Qiraji Prophets"
+        },
+        {
+          "id": 18842,
+          "name": "Staff of Dominance"
+        },
+        {
+          "id": 21452,
+          "name": "Staff of the Ruins"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 21603,
+          "name": "Wand of Qiraji Nobility"
+        },
+        {
+          "id": 19861,
+          "name": "Touch of Chaos"
+        },
+        {
+          "id": 19108,
+          "name": "Wand of Biting Cold"
+        },
+        {
+          "id": 13396,
+          "name": "Skul's Ghastly Touch"
+        },
+        {
+          "id": 13938,
+          "name": "Bonecreeper Stylus"
+        }
+      ]
+    },
+    "Frost": {
+      "HeadSlot": [
+        {
+          "id": 19375,
+          "name": "Mish'undare, Circlet of the Mind Flayer"
+        },
+        {
+          "id": 21347,
+          "name": "Enigma Circlet"
+        },
+        {
+          "id": 16914,
+          "name": "Netherwind Crown"
+        },
+        {
+          "id": 22267,
+          "name": "Spellweaver's Turban"
+        },
+        {
+          "id": 18727,
+          "name": "Crimson Felt Hat"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21608,
+          "name": "Amulet of Vek'nilash"
+        },
+        {
+          "id": 18814,
+          "name": "Choker of the Fire Lord"
+        },
+        {
+          "id": 21507,
+          "name": "Charm of the Shifting Sands"
+        },
+        {
+          "id": 19885,
+          "name": "Jin'do's Evil Eye"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 19370,
+          "name": "Mantle of the Blackwing Cabal"
+        },
+        {
+          "id": 21345,
+          "name": "Enigma Shoulderpads"
+        },
+        {
+          "id": 16917,
+          "name": "Netherwind Mantle"
+        },
+        {
+          "id": 19845,
+          "name": "Zandalar Illusionist's Mantle"
+        },
+        {
+          "id": 11782,
+          "name": "Boreal Mantle"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 22731,
+          "name": "Cloak of the Devoured"
+        },
+        {
+          "id": 19857,
+          "name": "Cloak of Consumption"
+        },
+        {
+          "id": 19430,
+          "name": "Cloak of the Brood Lord"
+        },
+        {
+          "id": 13386,
+          "name": "Archivist Cape of the Black Baron"
+        },
+        {
+          "id": 17078,
+          "name": "Sapphiron Drape"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21343,
+          "name": "Enigma Robes"
+        },
+        {
+          "id": 14152,
+          "name": "Robe of the Archmage"
+        },
+        {
+          "id": 19682,
+          "name": "Bloodvine Vest"
+        },
+        {
+          "id": 19145,
+          "name": "Robe of Volatile Power"
+        },
+        {
+          "id": 1716,
+          "name": "Robe of the Magi"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21186,
+          "name": "Rockfury Bracers"
+        },
+        {
+          "id": 19374,
+          "name": "Bracers of Arcane Accuracy"
+        },
+        {
+          "id": 21464,
+          "name": "Shackles of the Unscarred"
+        },
+        {
+          "id": 11766,
+          "name": "Flameweave Cuffs"
+        },
+        {
+          "id": 18497,
+          "name": "Sublime Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21585,
+          "name": "Dark Storm Gauntlets"
+        },
+        {
+          "id": 18808,
+          "name": "Gloves of the Hypnotic Flame"
+        },
+        {
+          "id": 16913,
+          "name": "Netherwind Gloves"
+        },
+        {
+          "id": 14146,
+          "name": "Gloves of Spell Mastery"
+        },
+        {
+          "id": 13253,
+          "name": "Hands of Power"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 22730,
+          "name": "Eyestalk Waist Cord"
+        },
+        {
+          "id": 19136,
+          "name": "Mana Igniting Cord"
+        },
+        {
+          "id": 18405,
+          "name": "Belt of the Archmage"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 18809,
+          "name": "Sash of Whispered Secrets"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21676,
+          "name": "Leggings of the Festering Swarm"
+        },
+        {
+          "id": 21346,
+          "name": "Enigma Leggings"
+        },
+        {
+          "id": 19683,
+          "name": "Bloodvine Leggings"
+        },
+        {
+          "id": 16915,
+          "name": "Netherwind Pants"
+        },
+        {
+          "id": 11841,
+          "name": "Senior Designer's Pantaloons"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21344,
+          "name": "Enigma Boots"
+        },
+        {
+          "id": 19684,
+          "name": "Bloodvine Boots"
+        },
+        {
+          "id": 16912,
+          "name": "Netherwind Boots"
+        },
+        {
+          "id": 19131,
+          "name": "Snowblind Shoes"
+        },
+        {
+          "id": 18735,
+          "name": "Maleki's Footwraps"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        },
+        {
+          "id": 19382,
+          "name": "Pure Elementium Band"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        },
+        {
+          "id": 19382,
+          "name": "Pure Elementium Band"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19339,
+          "name": "Mind Quickening Gem"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 12930,
+          "name": "Briarwood Reed"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19339,
+          "name": "Mind Quickening Gem"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 12930,
+          "name": "Briarwood Reed"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 21622,
+          "name": "Sharpened Silithid Femur"
+        },
+        {
+          "id": 19347,
+          "name": "Claw of Chromaggus"
+        },
+        {
+          "id": 21413,
+          "name": "Blade of Vaulted Secrets"
+        },
+        {
+          "id": 17070,
+          "name": "Fang of the Mystics"
+        },
+        {
+          "id": 23451,
+          "name": "Grand Marshal's Mageblade"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor"
+        },
+        {
+          "id": 19366,
+          "name": "Master Dragonslayer's Orb"
+        },
+        {
+          "id": 19891,
+          "name": "Jin'do's Bag of Whammies"
+        },
+        {
+          "id": 13385,
+          "name": "Tome of Knowledge"
+        },
+        {
+          "id": 15857,
+          "name": "Magebane Scion"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 21273,
+          "name": "Blessed Qiraji Acolyte Staff"
+        },
+        {
+          "id": 19356,
+          "name": "Staff of the Shadow Flame"
+        },
+        {
+          "id": 21128,
+          "name": "Staff of the Qiraji Prophets"
+        },
+        {
+          "id": 18842,
+          "name": "Staff of Dominance"
+        },
+        {
+          "id": 21452,
+          "name": "Staff of the Ruins"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 21603,
+          "name": "Wand of Qiraji Nobility"
+        },
+        {
+          "id": 19861,
+          "name": "Touch of Chaos"
+        },
+        {
+          "id": 19108,
+          "name": "Wand of Biting Cold"
+        },
+        {
+          "id": 13396,
+          "name": "Skul's Ghastly Touch"
+        },
+        {
+          "id": 13938,
+          "name": "Bonecreeper Stylus"
+        }
+      ]
+    }
+  },
+  "WARLOCK": {
+    "DM/SM ruin": {
+      "HeadSlot": [
+        {
+          "id": 21337,
+          "name": "Doomcaller's Circlet"
+        },
+        {
+          "id": 19375,
+          "name": "Mish'undare, Circlet of the Mind Flayer"
+        },
+        {
+          "id": 22267,
+          "name": "Spellweaver's Turban"
+        },
+        {
+          "id": 19886,
+          "name": "The Hexxer's Cover"
+        },
+        {
+          "id": 16929,
+          "name": "Nemesis Skullcap"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21608,
+          "name": "Amulet of Vek'nilash"
+        },
+        {
+          "id": 18814,
+          "name": "Choker of the Fire Lord"
+        },
+        {
+          "id": 21507,
+          "name": "Charm of the Shifting Sands"
+        },
+        {
+          "id": 22403,
+          "name": "Nacreous Shell Necklace"
+        },
+        {
+          "id": 19923,
+          "name": "Jeklik's Opaline Talisman"
+        },
+        {
+          "id": 19426,
+          "name": "Orb of the Darkmoon"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21335,
+          "name": "Doomcaller's Mantle"
+        },
+        {
+          "id": 19370,
+          "name": "Mantle of the Blackwing Cabal"
+        },
+        {
+          "id": 17580,
+          "name": "Field Marshal's Dreadweave Shoulders"
+        },
+        {
+          "id": 23311,
+          "name": "Lieutenant Commander's Dreadweave Spaulders"
+        },
+        {
+          "id": 16932,
+          "name": "Nemesis Spaulders"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 22731,
+          "name": "Cloak of the Devoured"
+        },
+        {
+          "id": 19857,
+          "name": "Cloak of Consumption"
+        },
+        {
+          "id": 19378,
+          "name": "Cloak of the Brood Lord"
+        },
+        {
+          "id": 22711,
+          "name": "Cloak of the Hakkari Worshippers"
+        },
+        {
+          "id": 20697,
+          "name": "Crystalline Threaded Cape"
+        },
+        {
+          "id": 17078,
+          "name": "Sapphiron Drape"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 19682,
+          "name": "Bloodvine Vest"
+        },
+        {
+          "id": 21838,
+          "name": "Garb of Royal Ascension"
+        },
+        {
+          "id": 21334,
+          "name": "Doomcaller's Robes"
+        },
+        {
+          "id": 19145,
+          "name": "Robe of Volatile Power"
+        },
+        {
+          "id": 21499,
+          "name": "Vestments of the Shifting Sands"
+        },
+        {
+          "id": 20635,
+          "name": "Jade Inlaid Vestments"
+        },
+        {
+          "id": 16931,
+          "name": "Nemesis Robes"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21186,
+          "name": "Rockfury Bracers"
+        },
+        {
+          "id": 19374,
+          "name": "Bracers of Arcane Accuracy"
+        },
+        {
+          "id": 20626,
+          "name": "Black Bark Wristbands"
+        },
+        {
+          "id": 19595,
+          "name": "Dryad's Wrist Bindings"
+        },
+        {
+          "id": 19848,
+          "name": "Zandalar Demoniac's Wraps"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21585,
+          "name": "Dark Storm Gauntlets"
+        },
+        {
+          "id": 19407,
+          "name": "Ebony Flame Gloves"
+        },
+        {
+          "id": 19929,
+          "name": "Bloodtinged Gloves"
+        },
+        {
+          "id": 20618,
+          "name": "Gloves of Delusional Power"
+        },
+        {
+          "id": 22077,
+          "name": "Deathmist Wraps"
+        },
+        {
+          "id": 16928,
+          "name": "Nemesis Gloves"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 22730,
+          "name": "Eyestalk Waist Cord"
+        },
+        {
+          "id": 16933,
+          "name": "Nemesis Belt"
+        },
+        {
+          "id": 19136,
+          "name": "Mana Igniting Cord"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 18809,
+          "name": "Sash of Whispered Secrets"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 19683,
+          "name": "Bloodvine Leggings"
+        },
+        {
+          "id": 21461,
+          "name": "Leggings of the Black Blizzard"
+        },
+        {
+          "id": 21336,
+          "name": "Doomcaller's Trousers"
+        },
+        {
+          "id": 19133,
+          "name": "Fel Infused Leggings"
+        },
+        {
+          "id": 16930,
+          "name": "Nemesis Leggings"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 19684,
+          "name": "Bloodvine Boots"
+        },
+        {
+          "id": 21338,
+          "name": "Doomcaller's Footwraps"
+        },
+        {
+          "id": 19131,
+          "name": "Snowblind Shoes"
+        },
+        {
+          "id": 19897,
+          "name": "Betrayer's Boots"
+        },
+        {
+          "id": 17583,
+          "name": "Marshal's Dreadweave Boots"
+        },
+        {
+          "id": 16927,
+          "name": "Nemesis Boots"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21417,
+          "name": "Ring of Unspoken Names"
+        },
+        {
+          "id": 19403,
+          "name": "Band of Forced Concentration"
+        },
+        {
+          "id": 20632,
+          "name": "Mindtear Band"
+        },
+        {
+          "id": 19434,
+          "name": "Band of Dark Dominion"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21417,
+          "name": "Ring of Unspoken Names"
+        },
+        {
+          "id": 19403,
+          "name": "Band of Forced Concentration"
+        },
+        {
+          "id": 20632,
+          "name": "Mindtear Band"
+        },
+        {
+          "id": 19434,
+          "name": "Band of Dark Dominion"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 18820,
+          "name": "Talisman of Ephemeral Power"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 12930,
+          "name": "Briarwood Reed"
+        },
+        {
+          "id": 13968,
+          "name": "Eye of the Beast"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 18820,
+          "name": "Talisman of Ephemeral Power"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 12930,
+          "name": "Briarwood Reed"
+        },
+        {
+          "id": 13968,
+          "name": "Eye of the Beast"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 21622,
+          "name": "Sharpened Silithid Femur"
+        },
+        {
+          "id": 23467,
+          "name": "High Warlord's Spellblade"
+        },
+        {
+          "id": 19347,
+          "name": "Claw of Chromaggus"
+        },
+        {
+          "id": 17103,
+          "name": "Azuresong Mageblade"
+        },
+        {
+          "id": 19864,
+          "name": "Bloodcaller"
+        },
+        {
+          "id": 21413,
+          "name": "Blade of Vaulted Secrets"
+        },
+        {
+          "id": 17070,
+          "name": "Fang of the Mystics"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor"
+        },
+        {
+          "id": 22329,
+          "name": "Scepter of Interminable Focus"
+        },
+        {
+          "id": 19891,
+          "name": "Jin'do's Bag of Whammies"
+        },
+        {
+          "id": 19366,
+          "name": "Master Dragonslayer's Orb"
+        },
+        {
+          "id": 20582,
+          "name": "Trance Stone"
+        },
+        {
+          "id": 19309,
+          "name": "Tome of Shadow Force"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 21273,
+          "name": "Blessed Qiraji Acolyte Staff"
+        },
+        {
+          "id": 19356,
+          "name": "Staff of the Shadow Flame"
+        },
+        {
+          "id": 21452,
+          "name": "Staff of the Ruins"
+        },
+        {
+          "id": 18873,
+          "name": "Grand Marshal's Stave"
+        },
+        {
+          "id": 19355,
+          "name": "Shadow Wing Focus Staff"
+        },
+        {
+          "id": 21128,
+          "name": "Staff of the Qiraji Prophets"
+        },
+        {
+          "id": 20069,
+          "name": "Ironbark Staff"
+        },
+        {
+          "id": 18842,
+          "name": "Staff of Dominance"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 21603,
+          "name": "Wand of Qiraji Nobility"
+        },
+        {
+          "id": 19861,
+          "name": "Touch of Chaos"
+        },
+        {
+          "id": 13396,
+          "name": "Skul's Ghastly Touch"
+        },
+        {
+          "id": 13938,
+          "name": "Bonecreeper Stylus"
+        },
+        {
+          "id": 19367,
+          "name": "Dragon's Touch"
+        },
+        {
+          "id": 22408,
+          "name": "Ritssyn's Wand of Bad Mojo"
+        }
+      ]
+    }
+  },
+  "PRIEST": {
+    "Shadow": {
+      "HeadSlot": [
+        {
+          "id": 19375,
+          "name": "Mish'undare, Circlet of the Mind Flayer"
+        },
+        {
+          "id": 21348,
+          "name": "Tiara of the Oracle"
+        },
+        {
+          "id": 16921,
+          "name": "Halo of Transcendence"
+        },
+        {
+          "id": 22267,
+          "name": "Spellweaver's Turban"
+        },
+        {
+          "id": 18727,
+          "name": "Crimson Felt Hat"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21608,
+          "name": "Amulet of Vek'nilash"
+        },
+        {
+          "id": 21507,
+          "name": "Charm of the Shifting Sands"
+        },
+        {
+          "id": 18814,
+          "name": "Choker of the Fire Lord"
+        },
+        {
+          "id": 19885,
+          "name": "Jin'do's Evil Eye"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21350,
+          "name": "Mantle of the Oracle"
+        },
+        {
+          "id": 19370,
+          "name": "Mantle of the Blackwing Cabal"
+        },
+        {
+          "id": 16924,
+          "name": "Pauldrons of Transcendence"
+        },
+        {
+          "id": 19841,
+          "name": "Zandalar Confessor's Mantle"
+        },
+        {
+          "id": 11782,
+          "name": "Boreal Mantle"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 22731,
+          "name": "Cloak of the Devoured"
+        },
+        {
+          "id": 19857,
+          "name": "Cloak of Consumption"
+        },
+        {
+          "id": 19378,
+          "name": "Cloak of the Brood Lord"
+        },
+        {
+          "id": 13386,
+          "name": "Archivist Cape of the Black Baron"
+        },
+        {
+          "id": 17078,
+          "name": "Sapphiron Drape"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21351,
+          "name": "Vestments of the Oracle"
+        },
+        {
+          "id": 19682,
+          "name": "Bloodvine Vest"
+        },
+        {
+          "id": 16923,
+          "name": "Robes of Transcendence"
+        },
+        {
+          "id": 19145,
+          "name": "Robe of Volatile Power"
+        },
+        {
+          "id": 14136,
+          "name": "Robe of Winter Night"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21186,
+          "name": "Rockfury Bracers"
+        },
+        {
+          "id": 19374,
+          "name": "Bracers of Arcane Accuracy"
+        },
+        {
+          "id": 21464,
+          "name": "Shackles of the Unscarred"
+        },
+        {
+          "id": 11766,
+          "name": "Flameweave Cuffs"
+        },
+        {
+          "id": 18497,
+          "name": "Sublime Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21585,
+          "name": "Dark Storm Gauntlets"
+        },
+        {
+          "id": 16920,
+          "name": "Handguards of Transcendence"
+        },
+        {
+          "id": 21462,
+          "name": "Gloves of Dark Wisdom"
+        },
+        {
+          "id": 18808,
+          "name": "Gloves of the Hypnotic Flame"
+        },
+        {
+          "id": 13253,
+          "name": "Hands of Power"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21582,
+          "name": "Eyestalk Waist Cord"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 19136,
+          "name": "Mana Igniting Cord"
+        },
+        {
+          "id": 18405,
+          "name": "Belt of the Archmage"
+        },
+        {
+          "id": 18809,
+          "name": "Sash of Whispered Secrets"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21352,
+          "name": "Trousers of the Oracle"
+        },
+        {
+          "id": 21676,
+          "name": "Leggings of the Festering Swarm"
+        },
+        {
+          "id": 19683,
+          "name": "Bloodvine Leggings"
+        },
+        {
+          "id": 16922,
+          "name": "Leggings of Transcendence"
+        },
+        {
+          "id": 11841,
+          "name": "Senior Designer's Pantaloons"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21349,
+          "name": "Footwraps of the Oracle"
+        },
+        {
+          "id": 19131,
+          "name": "Snowblind Shoes"
+        },
+        {
+          "id": 19897,
+          "name": "Betrayer's Boots"
+        },
+        {
+          "id": 19684,
+          "name": "Bloodvine Boots"
+        },
+        {
+          "id": 18735,
+          "name": "Maleki's Footwraps"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 19434,
+          "name": "Band of Dark Dominion"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 21836,
+          "name": "Ritssyn's Ring of Chaos"
+        },
+        {
+          "id": 19434,
+          "name": "Band of Dark Dominion"
+        },
+        {
+          "id": 19147,
+          "name": "Ring of Spell Power"
+        },
+        {
+          "id": 21210,
+          "name": "Signet Ring of the Bronze Dragonflight"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 18820,
+          "name": "Talisman of Ephemeral Power"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 19379,
+          "name": "Neltharion's Tear"
+        },
+        {
+          "id": 19950,
+          "name": "Zandalarian Hero Charm"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 18467,
+          "name": "Royal Seal of Eldre'Thalas"
+        },
+        {
+          "id": 18820,
+          "name": "Talisman of Ephemeral Power"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 21622,
+          "name": "Sharpened Silithid Femur"
+        },
+        {
+          "id": 19347,
+          "name": "Claw of Chromaggus"
+        },
+        {
+          "id": 21407,
+          "name": "Mace of Unending Life"
+        },
+        {
+          "id": 17070,
+          "name": "Fang of the Mystics"
+        },
+        {
+          "id": 23451,
+          "name": "Grand Marshal's Mageblade"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor"
+        },
+        {
+          "id": 19366,
+          "name": "Master Dragonslayer's Orb"
+        },
+        {
+          "id": 19891,
+          "name": "Jin'do's Bag of Whammies"
+        },
+        {
+          "id": 13385,
+          "name": "Tome of Knowledge"
+        },
+        {
+          "id": 15857,
+          "name": "Magebane Scion"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 21273,
+          "name": "Blessed Qiraji Acolyte Staff"
+        },
+        {
+          "id": 19356,
+          "name": "Staff of the Shadow Flame"
+        },
+        {
+          "id": 21128,
+          "name": "Staff of the Qiraji Prophets"
+        },
+        {
+          "id": 18842,
+          "name": "Staff of Dominance"
+        },
+        {
+          "id": 18608,
+          "name": "Benediction"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 21603,
+          "name": "Wand of Qiraji Nobility"
+        },
+        {
+          "id": 19861,
+          "name": "Touch of Chaos"
+        },
+        {
+          "id": 19108,
+          "name": "Wand of Biting Cold"
+        },
+        {
+          "id": 13396,
+          "name": "Skul's Ghastly Touch"
+        },
+        {
+          "id": 13938,
+          "name": "Bonecreeper Stylus"
+        }
+      ]
+    },
+    "Holy/Disc": {
+      "HeadSlot": [
+        {
+          "id": 21348,
+          "name": "Tiara of the Oracle"
+        },
+        {
+          "id": 16921,
+          "name": "Halo of Transcendence"
+        },
+        {
+          "id": 20628,
+          "name": "Deviate Growth Cap"
+        },
+        {
+          "id": 22080,
+          "name": "Virtuous Crown"
+        },
+        {
+          "id": 18727,
+          "name": "Crimson Felt Hat"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21712,
+          "name": "Amulet of the Fallen God"
+        },
+        {
+          "id": 21507,
+          "name": "Charm of the Shifting Sands"
+        },
+        {
+          "id": 18723,
+          "name": "Animated Chain Necklace"
+        },
+        {
+          "id": 19371,
+          "name": "Pendant of the Fallen Dragon"
+        },
+        {
+          "id": 19885,
+          "name": "Jin'do's Evil Eye"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21350,
+          "name": "Mantle of the Oracle"
+        },
+        {
+          "id": 16924,
+          "name": "Pauldrons of Transcendence"
+        },
+        {
+          "id": 19841,
+          "name": "Zandalar Confessor's Mantle"
+        },
+        {
+          "id": 22082,
+          "name": "Virtuous Mantle"
+        },
+        {
+          "id": 11782,
+          "name": "Boreal Mantle"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21583,
+          "name": "Cloak of Clarity"
+        },
+        {
+          "id": 19430,
+          "name": "Shroud of Pure Thought"
+        },
+        {
+          "id": 18510,
+          "name": "Hide of the Wild"
+        },
+        {
+          "id": 13386,
+          "name": "Archivist Cape of the Black Baron"
+        },
+        {
+          "id": 17078,
+          "name": "Sapphiron Drape"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21351,
+          "name": "Vestments of the Oracle"
+        },
+        {
+          "id": 16923,
+          "name": "Robes of Transcendence"
+        },
+        {
+          "id": 22083,
+          "name": "Virtuous Robe"
+        },
+        {
+          "id": 14154,
+          "name": "Truefaith Vestments"
+        },
+        {
+          "id": 13346,
+          "name": "Robes of the Exalted"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 19842,
+          "name": "Zandalar Confessor's Wraps"
+        },
+        {
+          "id": 19595,
+          "name": "Dryad's Wrist Bindings"
+        },
+        {
+          "id": 20626,
+          "name": "Black Bark Wristbands"
+        },
+        {
+          "id": 11766,
+          "name": "Flameweave Cuffs"
+        },
+        {
+          "id": 18497,
+          "name": "Sublime Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21462,
+          "name": "Gloves of Dark Wisdom"
+        },
+        {
+          "id": 16920,
+          "name": "Handguards of Transcendence"
+        },
+        {
+          "id": 22081,
+          "name": "Virtuous Gloves"
+        },
+        {
+          "id": 18808,
+          "name": "Gloves of the Hypnotic Flame"
+        },
+        {
+          "id": 13253,
+          "name": "Hands of Power"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21582,
+          "name": "Eyestalk Waist Cord"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 19136,
+          "name": "Mana Igniting Cord"
+        },
+        {
+          "id": 18327,
+          "name": "Whisperwalk Boots (Belt substitute: NOT USED)"
+        },
+        {
+          "id": 14553,
+          "name": "Sash of Mercy"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21352,
+          "name": "Trousers of the Oracle"
+        },
+        {
+          "id": 16922,
+          "name": "Leggings of Transcendence"
+        },
+        {
+          "id": 22085,
+          "name": "Virtuous Skirt"
+        },
+        {
+          "id": 18386,
+          "name": "Padre's Trousers"
+        },
+        {
+          "id": 14137,
+          "name": "Mooncloth Leggings"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21600,
+          "name": "Boots of Epiphany"
+        },
+        {
+          "id": 19437,
+          "name": "Boots of Pure Thought"
+        },
+        {
+          "id": 16919,
+          "name": "Boots of Transcendence"
+        },
+        {
+          "id": 22084,
+          "name": "Virtuous Sandals"
+        },
+        {
+          "id": 18735,
+          "name": "Maleki's Footwraps"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21620,
+          "name": "Ring of the Martyr"
+        },
+        {
+          "id": 19376,
+          "name": "Ring of the Martyr"
+        },
+        {
+          "id": 19140,
+          "name": "Cauterizing Band"
+        },
+        {
+          "id": 19920,
+          "name": "Band of Jin"
+        },
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21620,
+          "name": "Ring of the Martyr"
+        },
+        {
+          "id": 19376,
+          "name": "Ring of the Martyr"
+        },
+        {
+          "id": 19140,
+          "name": "Cauterizing Band"
+        },
+        {
+          "id": 19920,
+          "name": "Band of Jin"
+        },
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 19288,
+          "name": "Darkmoon Card: Blue Dragon"
+        },
+        {
+          "id": 17064,
+          "name": "Shard of the Scale"
+        },
+        {
+          "id": 18469,
+          "name": "Royal Seal of Eldre'Thalas"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 19288,
+          "name": "Darkmoon Card: Blue Dragon"
+        },
+        {
+          "id": 17064,
+          "name": "Shard of the Scale"
+        },
+        {
+          "id": 18469,
+          "name": "Royal Seal of Eldre'Thalas"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 21839,
+          "name": "Scepter of the False Prophet"
+        },
+        {
+          "id": 19360,
+          "name": "Lok'amir il Romathis"
+        },
+        {
+          "id": 19890,
+          "name": "Jin'do's Hexxer"
+        },
+        {
+          "id": 17070,
+          "name": "Fang of the Mystics"
+        },
+        {
+          "id": 23468,
+          "name": "High Warlord's Battle Mace"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19891,
+          "name": "Jin'do's Bag of Whammies"
+        },
+        {
+          "id": 19366,
+          "name": "Master Dragonslayer's Orb"
+        },
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor"
+        },
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor (duplicate token variant)"
+        },
+        {
+          "id": 13385,
+          "name": "Tome of Knowledge"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 18608,
+          "name": "Benediction"
+        },
+        {
+          "id": 21275,
+          "name": "Blessed Qiraji Augur Staff"
+        },
+        {
+          "id": 18842,
+          "name": "Staff of Dominance"
+        },
+        {
+          "id": 22394,
+          "name": "Staff of Metanoia"
+        },
+        {
+          "id": 11932,
+          "name": "Guiding Stave of Wisdom"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 22319,
+          "name": "Tome of Divine Right"
+        },
+        {
+          "id": 22091,
+          "name": "Virtuous Rod"
+        },
+        {
+          "id": 13938,
+          "name": "Bonecreeper Stylus"
+        },
+        {
+          "id": 13396,
+          "name": "Skul's Ghastly Touch"
+        },
+        {
+          "id": 15280,
+          "name": "Wizard's Hand"
+        }
+      ]
+    }
+  },
+  "WARRIOR": {
+    "Fury": {
+      "HeadSlot": [
+        {
+          "id": 21329,
+          "name": "Conqueror's Crown"
+        },
+        {
+          "id": 12640,
+          "name": "Lionheart Helm"
+        },
+        {
+          "id": 19372,
+          "name": "Helm of Endless Rage"
+        },
+        {
+          "id": 16542,
+          "name": "Warlord's Plate Headpiece"
+        },
+        {
+          "id": 18421,
+          "name": "Backwood Helm"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21664,
+          "name": "Barbed Choker"
+        },
+        {
+          "id": 19377,
+          "name": "Prestor's Talisman of Connivery"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        },
+        {
+          "id": 21505,
+          "name": "Choker of the Shifting Sands"
+        },
+        {
+          "id": 15411,
+          "name": "Mark of Fordring"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21330,
+          "name": "Conqueror's Spaulders"
+        },
+        {
+          "id": 19394,
+          "name": "Drake Talon Pauldrons"
+        },
+        {
+          "id": 16480,
+          "name": "Marshal's Plate Shoulders"
+        },
+        {
+          "id": 12927,
+          "name": "Truestrike Shoulders"
+        },
+        {
+          "id": 14552,
+          "name": "Stockade Pauldrons"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21710,
+          "name": "Cloak of the Fallen God"
+        },
+        {
+          "id": 13340,
+          "name": "Cape of the Black Baron"
+        },
+        {
+          "id": 19436,
+          "name": "Cloak of Draconic Might"
+        },
+        {
+          "id": 20073,
+          "name": "Cloak of the Honor Guard"
+        },
+        {
+          "id": 17102,
+          "name": "Cloak of the Shrouded Mists"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21331,
+          "name": "Conqueror's Breastplate"
+        },
+        {
+          "id": 11726,
+          "name": "Savage Gladiator Chain"
+        },
+        {
+          "id": 16477,
+          "name": "Marshal's Plate Armor"
+        },
+        {
+          "id": 19693,
+          "name": "Darksoul Breastplate"
+        },
+        {
+          "id": 22872,
+          "name": "Legionnaire's Plate Armor"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21618,
+          "name": "Hive Defiler Wristguards"
+        },
+        {
+          "id": 19578,
+          "name": "Berserker Bracers"
+        },
+        {
+          "id": 19146,
+          "name": "Wristguards of Stability"
+        },
+        {
+          "id": 16959,
+          "name": "Bracelets of Wrath"
+        },
+        {
+          "id": 12936,
+          "name": "Battleborn Armbraces"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21581,
+          "name": "Gauntlets of Annihilation"
+        },
+        {
+          "id": 16964,
+          "name": "Gauntlets of Wrath"
+        },
+        {
+          "id": 14551,
+          "name": "Edgemaster's Handguards"
+        },
+        {
+          "id": 16548,
+          "name": "General's Plate Gauntlets"
+        },
+        {
+          "id": 21674,
+          "name": "Gauntlets of Steadfast Determination"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21586,
+          "name": "Belt of Never-ending Agony"
+        },
+        {
+          "id": 19137,
+          "name": "Onslaught Girdle"
+        },
+        {
+          "id": 16960,
+          "name": "Waistband of Wrath"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 21503,
+          "name": "Belt of the Sand Reaver"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21332,
+          "name": "Conqueror's Legguards"
+        },
+        {
+          "id": 16962,
+          "name": "Legplates of Wrath"
+        },
+        {
+          "id": 16478,
+          "name": "Marshal's Plate Legguards"
+        },
+        {
+          "id": 19402,
+          "name": "Legguards of the Fallen Crusader"
+        },
+        {
+          "id": 14554,
+          "name": "Cloudkeeper Legplates"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21333,
+          "name": "Conqueror's Greaves"
+        },
+        {
+          "id": 19387,
+          "name": "Chromatic Boots"
+        },
+        {
+          "id": 16965,
+          "name": "Sabatons of Wrath"
+        },
+        {
+          "id": 16545,
+          "name": "General's Plate Boots"
+        },
+        {
+          "id": 12555,
+          "name": "Battlechaser's Greaves"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        },
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19384,
+          "name": "Natural Alignment Crystal"
+        },
+        {
+          "id": 18500,
+          "name": "Tarnished Elven Ring"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        },
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19384,
+          "name": "Natural Alignment Crystal"
+        },
+        {
+          "id": 18500,
+          "name": "Tarnished Elven Ring"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        },
+        {
+          "id": 19406,
+          "name": "Drake Fang Talisman"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        },
+        {
+          "id": 19406,
+          "name": "Drake Fang Talisman"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 19363,
+          "name": "Crul'shorukh, Edge of Chaos"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        },
+        {
+          "id": 21650,
+          "name": "Ancient Qiraji Ripper"
+        },
+        {
+          "id": 19166,
+          "name": "Black Amnesty"
+        },
+        {
+          "id": 17075,
+          "name": "Vis'kag the Bloodletter"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19362,
+          "name": "Doom's Edge"
+        },
+        {
+          "id": 18805,
+          "name": "Core Hound Tooth"
+        },
+        {
+          "id": 17068,
+          "name": "Deathbringer"
+        },
+        {
+          "id": 19168,
+          "name": "Blackguard"
+        },
+        {
+          "id": 22383,
+          "name": "Sageblade"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 19364,
+          "name": "Ashkandi, Greatsword of the Brotherhood"
+        },
+        {
+          "id": 18831,
+          "name": "High Warlord's Battle Axe"
+        },
+        {
+          "id": 21679,
+          "name": "Kalimdor's Revenge"
+        },
+        {
+          "id": 17182,
+          "name": "Sulfuras, Hand of Ragnaros"
+        },
+        {
+          "id": 19323,
+          "name": "The Unstoppable Force"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 21459,
+          "name": "Crossbow of Imminent Doom"
+        },
+        {
+          "id": 19350,
+          "name": "Heartstriker"
+        },
+        {
+          "id": 19107,
+          "name": "Bloodseeker"
+        },
+        {
+          "id": 16996,
+          "name": "Gorewood Bow"
+        },
+        {
+          "id": 18738,
+          "name": "Carapace Spine Crossbow"
+        }
+      ]
+    },
+    "Prot": {
+      "HeadSlot": [
+        {
+          "id": 21674,
+          "name": "Gauntlets of Steadfast Determination"
+        },
+        {
+          "id": 16963,
+          "name": "Helm of Wrath"
+        },
+        {
+          "id": 19372,
+          "name": "Helm of Endless Rage"
+        },
+        {
+          "id": 18421,
+          "name": "Backwood Helm"
+        },
+        {
+          "id": 16542,
+          "name": "Warlord's Plate Headpiece"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 19383,
+          "name": "Master Dragonslayer's Medallion"
+        },
+        {
+          "id": 21506,
+          "name": "Pendant of the Qiraji Guardian"
+        },
+        {
+          "id": 15411,
+          "name": "Mark of Fordring"
+        },
+        {
+          "id": 21664,
+          "name": "Barbed Choker"
+        },
+        {
+          "id": 18673,
+          "name": "Avalanchion's Stony Hide"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21330,
+          "name": "Conqueror's Spaulders"
+        },
+        {
+          "id": 16961,
+          "name": "Pauldrons of Wrath"
+        },
+        {
+          "id": 19394,
+          "name": "Drake Talon Pauldrons"
+        },
+        {
+          "id": 21639,
+          "name": "Pauldrons of the Unrelenting"
+        },
+        {
+          "id": 16480,
+          "name": "Marshal's Plate Shoulders"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 19386,
+          "name": "Elementium Threaded Cloak"
+        },
+        {
+          "id": 21627,
+          "name": "Cloak of Untold Secrets"
+        },
+        {
+          "id": 19888,
+          "name": "Overlord's Embrace"
+        },
+        {
+          "id": 19436,
+          "name": "Cloak of Draconic Might"
+        },
+        {
+          "id": 17102,
+          "name": "Cloak of the Shrouded Mists"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21331,
+          "name": "Conqueror's Breastplate"
+        },
+        {
+          "id": 16966,
+          "name": "Breastplate of Wrath"
+        },
+        {
+          "id": 11726,
+          "name": "Savage Gladiator Chain"
+        },
+        {
+          "id": 19693,
+          "name": "Darksoul Breastplate"
+        },
+        {
+          "id": 16477,
+          "name": "Marshal's Plate Armor"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21618,
+          "name": "Hive Defiler Wristguards"
+        },
+        {
+          "id": 16959,
+          "name": "Bracelets of Wrath"
+        },
+        {
+          "id": 19146,
+          "name": "Wristguards of Stability"
+        },
+        {
+          "id": 19578,
+          "name": "Berserker Bracers"
+        },
+        {
+          "id": 12936,
+          "name": "Battleborn Armbraces"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21674,
+          "name": "Gauntlets of Steadfast Determination"
+        },
+        {
+          "id": 16964,
+          "name": "Gauntlets of Wrath"
+        },
+        {
+          "id": 16548,
+          "name": "General's Plate Gauntlets"
+        },
+        {
+          "id": 14551,
+          "name": "Edgemaster's Handguards"
+        },
+        {
+          "id": 21581,
+          "name": "Gauntlets of Annihilation"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21598,
+          "name": "Royal Qiraji Belt"
+        },
+        {
+          "id": 16960,
+          "name": "Waistband of Wrath"
+        },
+        {
+          "id": 19137,
+          "name": "Onslaught Girdle"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 20204,
+          "name": "Defiler's Plate Girdle"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21332,
+          "name": "Conqueror's Legguards"
+        },
+        {
+          "id": 16962,
+          "name": "Legplates of Wrath"
+        },
+        {
+          "id": 16478,
+          "name": "Marshal's Plate Legguards"
+        },
+        {
+          "id": 19402,
+          "name": "Legguards of the Fallen Crusader"
+        },
+        {
+          "id": 14554,
+          "name": "Cloudkeeper Legplates"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21995,
+          "name": "Boots of Heroism"
+        },
+        {
+          "id": 16965,
+          "name": "Sabatons of Wrath"
+        },
+        {
+          "id": 19387,
+          "name": "Chromatic Boots"
+        },
+        {
+          "id": 16545,
+          "name": "General's Plate Boots"
+        },
+        {
+          "id": 12555,
+          "name": "Battlechaser's Greaves"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 18879,
+          "name": "Heavy Dark Iron Ring"
+        },
+        {
+          "id": 19376,
+          "name": "Archimtiros' Ring of Reckoning"
+        },
+        {
+          "id": 21601,
+          "name": "Ring of Emperor Vek'lor"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        },
+        {
+          "id": 18522,
+          "name": "Band of the Ogre King"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 18879,
+          "name": "Heavy Dark Iron Ring"
+        },
+        {
+          "id": 19376,
+          "name": "Archimtiros' Ring of Reckoning"
+        },
+        {
+          "id": 21601,
+          "name": "Ring of Emperor Vek'lor"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        },
+        {
+          "id": 18522,
+          "name": "Band of the Ogre King"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 19431,
+          "name": "Styleen's Impeding Scarab"
+        },
+        {
+          "id": 18406,
+          "name": "Onyxia Blood Talisman"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        },
+        {
+          "id": 13966,
+          "name": "Mark of Tyranny"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 19431,
+          "name": "Styleen's Impeding Scarab"
+        },
+        {
+          "id": 18406,
+          "name": "Onyxia Blood Talisman"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        },
+        {
+          "id": 13966,
+          "name": "Mark of Tyranny"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 19363,
+          "name": "Crul'shorukh, Edge of Chaos"
+        },
+        {
+          "id": 17068,
+          "name": "Deathbringer"
+        },
+        {
+          "id": 11684,
+          "name": "Ironfoe"
+        },
+        {
+          "id": 18737,
+          "name": "Bone Slicing Hatchet"
+        },
+        {
+          "id": 19961,
+          "name": "Gri'lek's Carver"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19349,
+          "name": "Elementium Reinforced Bulwark"
+        },
+        {
+          "id": 12602,
+          "name": "Draconian Deflector"
+        },
+        {
+          "id": 19321,
+          "name": "The Immovable Object"
+        },
+        {
+          "id": 17106,
+          "name": "Malistar's Defender"
+        },
+        {
+          "id": 10767,
+          "name": "Savage Boar's Guard"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 19364,
+          "name": "Ashkandi, Greatsword of the Brotherhood"
+        },
+        {
+          "id": 21679,
+          "name": "Kalimdor's Revenge"
+        },
+        {
+          "id": 18831,
+          "name": "High Warlord's Battle Axe"
+        },
+        {
+          "id": 17076,
+          "name": "Bonereaver's Edge"
+        },
+        {
+          "id": 19323,
+          "name": "The Unstoppable Force"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 21459,
+          "name": "Crossbow of Imminent Doom"
+        },
+        {
+          "id": 19350,
+          "name": "Heartstriker"
+        },
+        {
+          "id": 16996,
+          "name": "Gorewood Bow"
+        },
+        {
+          "id": 18738,
+          "name": "Carapace Spine Crossbow"
+        },
+        {
+          "id": 19107,
+          "name": "Bloodseeker"
+        }
+      ]
+    }
+  },
+  "ROGUE": {
+    "Combat": {
+      "HeadSlot": [
+        {
+          "id": 21360,
+          "name": "Deathdealer's Helm"
+        },
+        {
+          "id": 16908,
+          "name": "Bloodfang Hood"
+        },
+        {
+          "id": 19984,
+          "name": "Ebon Mask"
+        },
+        {
+          "id": 18817,
+          "name": "Crown of Destruction"
+        },
+        {
+          "id": 16821,
+          "name": "Nightslayer Cover"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 19377,
+          "name": "Prestor's Talisman of Connivery"
+        },
+        {
+          "id": 21664,
+          "name": "Barbed Choker"
+        },
+        {
+          "id": 21505,
+          "name": "Choker of the Shifting Sands"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        },
+        {
+          "id": 15411,
+          "name": "Mark of Fordring"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21361,
+          "name": "Deathdealer's Spaulders"
+        },
+        {
+          "id": 16832,
+          "name": "Bloodfang Spaulders"
+        },
+        {
+          "id": 20186,
+          "name": "Defiler's Leather Shoulders"
+        },
+        {
+          "id": 19834,
+          "name": "Zandalar Madcap's Tunic (Shoulder alt: 19835 Mantle)"
+        },
+        {
+          "id": 16823,
+          "name": "Nightslayer Shoulder Pads"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21710,
+          "name": "Cloak of the Fallen God"
+        },
+        {
+          "id": 21701,
+          "name": "Cloak of Concentrated Hatred"
+        },
+        {
+          "id": 19436,
+          "name": "Cloak of Draconic Might"
+        },
+        {
+          "id": 13340,
+          "name": "Cape of the Black Baron"
+        },
+        {
+          "id": 21406,
+          "name": "Cloak of Veiled Shadows"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21364,
+          "name": "Deathdealer's Vest"
+        },
+        {
+          "id": 16905,
+          "name": "Bloodfang Chestpiece"
+        },
+        {
+          "id": 19834,
+          "name": "Zandalar Madcap's Tunic"
+        },
+        {
+          "id": 16820,
+          "name": "Nightslayer Chestpiece"
+        },
+        {
+          "id": 15056,
+          "name": "Stormshroud Armor"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21602,
+          "name": "Qiraji Execution Bracers"
+        },
+        {
+          "id": 19587,
+          "name": "Forest Stalker Bracers"
+        },
+        {
+          "id": 19836,
+          "name": "Zandalar Madcap's Bracers"
+        },
+        {
+          "id": 18459,
+          "name": "Gallant's Wristguards"
+        },
+        {
+          "id": 12999,
+          "name": "Drakewing Bands"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21672,
+          "name": "Gloves of Enforcement"
+        },
+        {
+          "id": 16907,
+          "name": "Bloodfang Gloves"
+        },
+        {
+          "id": 15063,
+          "name": "Devilsaur Gauntlets"
+        },
+        {
+          "id": 16826,
+          "name": "Nightslayer Gloves"
+        },
+        {
+          "id": 18823,
+          "name": "Aged Core Leather Gloves"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21586,
+          "name": "Belt of Never-ending Agony"
+        },
+        {
+          "id": 20190,
+          "name": "Defiler's Leather Girdle"
+        },
+        {
+          "id": 19149,
+          "name": "Lava Belt"
+        },
+        {
+          "id": 20216,
+          "name": "Belt of Preserved Heads"
+        },
+        {
+          "id": 19044,
+          "name": "Might of the Timbermaw"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21362,
+          "name": "Deathdealer's Leggings"
+        },
+        {
+          "id": 16909,
+          "name": "Bloodfang Pants"
+        },
+        {
+          "id": 19889,
+          "name": "Blooddrenched Leggings"
+        },
+        {
+          "id": 16822,
+          "name": "Nightslayer Pants"
+        },
+        {
+          "id": 20655,
+          "name": "Abyssal Leather Leggings of Striking"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21359,
+          "name": "Deathdealer's Boots"
+        },
+        {
+          "id": 19381,
+          "name": "Boots of the Shadow Flame"
+        },
+        {
+          "id": 19897,
+          "name": "Betrayer's Boots"
+        },
+        {
+          "id": 16906,
+          "name": "Bloodfang Boots"
+        },
+        {
+          "id": 13210,
+          "name": "Pads of the Dread Wolf"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 19954,
+          "name": "Renataki's Charm of Trickery"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 19954,
+          "name": "Renataki's Charm of Trickery"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 19352,
+          "name": "Chromatically Tempered Sword"
+        },
+        {
+          "id": 21650,
+          "name": "Ancient Qiraji Ripper"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        },
+        {
+          "id": 19867,
+          "name": "Bloodlord's Defender"
+        },
+        {
+          "id": 19351,
+          "name": "Maladath, Runed Blade of the Black Flight"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 21650,
+          "name": "Ancient Qiraji Ripper"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        },
+        {
+          "id": 19351,
+          "name": "Maladath, Runed Blade of the Black Flight"
+        },
+        {
+          "id": 17075,
+          "name": "Vis'kag the Bloodletter"
+        },
+        {
+          "id": 19365,
+          "name": "Claw of the Black Drake"
+        }
+      ],
+      "TwoHandSlot": [],
+      "RangedSlot": [
+        {
+          "id": 21616,
+          "name": "Huhuran's Stinger"
+        },
+        {
+          "id": 19350,
+          "name": "Heartstriker"
+        },
+        {
+          "id": 21459,
+          "name": "Crossbow of Imminent Doom"
+        },
+        {
+          "id": 19368,
+          "name": "Dragonbreath Hand Cannon"
+        },
+        {
+          "id": 17069,
+          "name": "Striker's Mark"
+        }
+      ]
+    }
+  },
+  "PALADIN": {
+    "Retribution": {
+      "HeadSlot": [
+        {
+          "id": 21387,
+          "name": "Avenger's Crown"
+        },
+        {
+          "id": 12640,
+          "name": "Lionheart Helm"
+        },
+        {
+          "id": 19372,
+          "name": "Helm of Endless Rage"
+        },
+        {
+          "id": 16955,
+          "name": "Judgement Crown"
+        },
+        {
+          "id": 18817,
+          "name": "Crown of Destruction"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21664,
+          "name": "Barbed Choker"
+        },
+        {
+          "id": 19377,
+          "name": "Prestor's Talisman of Connivery"
+        },
+        {
+          "id": 21505,
+          "name": "Choker of the Shifting Sands"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        },
+        {
+          "id": 15411,
+          "name": "Mark of Fordring"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21391,
+          "name": "Avenger's Pauldrons"
+        },
+        {
+          "id": 19394,
+          "name": "Drake Talon Pauldrons"
+        },
+        {
+          "id": 16953,
+          "name": "Judgement Spaulders"
+        },
+        {
+          "id": 16480,
+          "name": "Marshal's Plate Shoulders"
+        },
+        {
+          "id": 14552,
+          "name": "Stockade Pauldrons"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21710,
+          "name": "Cloak of the Fallen God"
+        },
+        {
+          "id": 19436,
+          "name": "Cloak of Draconic Might"
+        },
+        {
+          "id": 13340,
+          "name": "Cape of the Black Baron"
+        },
+        {
+          "id": 20073,
+          "name": "Cloak of the Honor Guard"
+        },
+        {
+          "id": 17102,
+          "name": "Cloak of the Shrouded Mists"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21389,
+          "name": "Avenger's Breastplate"
+        },
+        {
+          "id": 11726,
+          "name": "Savage Gladiator Chain"
+        },
+        {
+          "id": 16958,
+          "name": "Judgement Breastplate"
+        },
+        {
+          "id": 19693,
+          "name": "Darksoul Breastplate"
+        },
+        {
+          "id": 16477,
+          "name": "Marshal's Plate Armor"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21618,
+          "name": "Hive Defiler Wristguards"
+        },
+        {
+          "id": 19578,
+          "name": "Berserker Bracers"
+        },
+        {
+          "id": 19146,
+          "name": "Wristguards of Stability"
+        },
+        {
+          "id": 16951,
+          "name": "Judgement Bindings"
+        },
+        {
+          "id": 12936,
+          "name": "Battleborn Armbraces"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21581,
+          "name": "Gauntlets of Annihilation"
+        },
+        {
+          "id": 16956,
+          "name": "Judgement Gauntlets"
+        },
+        {
+          "id": 16548,
+          "name": "General's Plate Gauntlets"
+        },
+        {
+          "id": 14551,
+          "name": "Edgemaster's Handguards"
+        },
+        {
+          "id": 19143,
+          "name": "Flameguard Gauntlets"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 19137,
+          "name": "Onslaught Girdle"
+        },
+        {
+          "id": 21598,
+          "name": "Royal Qiraji Belt"
+        },
+        {
+          "id": 16952,
+          "name": "Judgement Belt"
+        },
+        {
+          "id": 20204,
+          "name": "Defiler's Plate Girdle"
+        },
+        {
+          "id": 21503,
+          "name": "Belt of the Sand Reaver"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21390,
+          "name": "Avenger's Legguards"
+        },
+        {
+          "id": 16954,
+          "name": "Judgement Legplates"
+        },
+        {
+          "id": 19402,
+          "name": "Legguards of the Fallen Crusader"
+        },
+        {
+          "id": 16478,
+          "name": "Marshal's Plate Legguards"
+        },
+        {
+          "id": 14554,
+          "name": "Cloudkeeper Legplates"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21388,
+          "name": "Avenger's Greaves"
+        },
+        {
+          "id": 19387,
+          "name": "Chromatic Boots"
+        },
+        {
+          "id": 16957,
+          "name": "Judgement Sabatons"
+        },
+        {
+          "id": 16545,
+          "name": "General's Plate Boots"
+        },
+        {
+          "id": 12555,
+          "name": "Battlechaser's Greaves"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 19406,
+          "name": "Drake Fang Talisman"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 19406,
+          "name": "Drake Fang Talisman"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 19019,
+          "name": "Thunderfury, Blessed Blade of the Windseeker"
+        },
+        {
+          "id": 19363,
+          "name": "Crul'shorukh, Edge of Chaos"
+        },
+        {
+          "id": 17068,
+          "name": "Deathbringer"
+        },
+        {
+          "id": 19351,
+          "name": "Maladath, Runed Blade of the Black Flight"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19349,
+          "name": "Elementium Reinforced Bulwark"
+        },
+        {
+          "id": 12602,
+          "name": "Draconian Deflector"
+        },
+        {
+          "id": 19321,
+          "name": "The Immovable Object"
+        },
+        {
+          "id": 17106,
+          "name": "Malistar's Defender"
+        },
+        {
+          "id": 19915,
+          "name": "Zulian Defender"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 21134,
+          "name": "Dark Edge of Insanity"
+        },
+        {
+          "id": 19364,
+          "name": "Ashkandi, Greatsword of the Brotherhood"
+        },
+        {
+          "id": 17076,
+          "name": "Bonereaver's Edge"
+        },
+        {
+          "id": 21679,
+          "name": "Kalimdor's Revenge"
+        },
+        {
+          "id": 18822,
+          "name": "Obsidian Edged Blade"
+        }
+      ],
+      "RangedSlot": []
+    },
+    "Holy": {
+      "HeadSlot": [
+        {
+          "id": 16955,
+          "name": "Judgement Crown"
+        },
+        {
+          "id": 20628,
+          "name": "Deviate Growth Cap"
+        },
+        {
+          "id": 22091,
+          "name": "Soulforge Helm"
+        },
+        {
+          "id": 18814,
+          "name": "Choker of the Fire Lord (alt head picks lean cloth; keeping plate here)"
+        },
+        {
+          "id": 18870,
+          "name": "Helm of the Lifegiver"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21712,
+          "name": "Amulet of the Fallen God"
+        },
+        {
+          "id": 21507,
+          "name": "Charm of the Shifting Sands"
+        },
+        {
+          "id": 19371,
+          "name": "Pendant of the Fallen Dragon"
+        },
+        {
+          "id": 18723,
+          "name": "Animated Chain Necklace"
+        },
+        {
+          "id": 19885,
+          "name": "Jin'do's Evil Eye"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 16953,
+          "name": "Judgement Spaulders"
+        },
+        {
+          "id": 21639,
+          "name": "Pauldrons of the Unrelenting"
+        },
+        {
+          "id": 22093,
+          "name": "Soulforge Spaulders"
+        },
+        {
+          "id": 19841,
+          "name": "Zandalar Confessor's Mantle"
+        },
+        {
+          "id": 19370,
+          "name": "Mantle of the Blackwing Cabal"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21583,
+          "name": "Cloak of Clarity"
+        },
+        {
+          "id": 19430,
+          "name": "Shroud of Pure Thought"
+        },
+        {
+          "id": 18510,
+          "name": "Hide of the Wild"
+        },
+        {
+          "id": 13386,
+          "name": "Archivist Cape of the Black Baron"
+        },
+        {
+          "id": 17078,
+          "name": "Sapphiron Drape"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 16958,
+          "name": "Judgement Breastplate"
+        },
+        {
+          "id": 22089,
+          "name": "Soulforge Breastplate"
+        },
+        {
+          "id": 13346,
+          "name": "Robes of the Exalted"
+        },
+        {
+          "id": 14154,
+          "name": "Truefaith Vestments"
+        },
+        {
+          "id": 21671,
+          "name": "Robes of the Battleguard"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 19842,
+          "name": "Zandalar Confessor's Wraps"
+        },
+        {
+          "id": 20626,
+          "name": "Black Bark Wristbands"
+        },
+        {
+          "id": 19595,
+          "name": "Dryad's Wrist Bindings"
+        },
+        {
+          "id": 16951,
+          "name": "Judgement Bindings"
+        },
+        {
+          "id": 18497,
+          "name": "Sublime Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21462,
+          "name": "Gloves of Dark Wisdom"
+        },
+        {
+          "id": 16956,
+          "name": "Judgement Gauntlets"
+        },
+        {
+          "id": 22090,
+          "name": "Soulforge Gauntlets"
+        },
+        {
+          "id": 18808,
+          "name": "Gloves of the Hypnotic Flame"
+        },
+        {
+          "id": 13253,
+          "name": "Hands of Power"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21582,
+          "name": "Eyestalk Waist Cord"
+        },
+        {
+          "id": 14553,
+          "name": "Sash of Mercy"
+        },
+        {
+          "id": 19400,
+          "name": "Firemaw's Clutch"
+        },
+        {
+          "id": 16952,
+          "name": "Judgement Belt"
+        },
+        {
+          "id": 19136,
+          "name": "Mana Igniting Cord"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 16954,
+          "name": "Judgement Legplates"
+        },
+        {
+          "id": 22092,
+          "name": "Soulforge Legplates"
+        },
+        {
+          "id": 18386,
+          "name": "Padre's Trousers"
+        },
+        {
+          "id": 14137,
+          "name": "Mooncloth Leggings"
+        },
+        {
+          "id": 20674,
+          "name": "Abyssal Cloth Pants of Restoration"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21600,
+          "name": "Boots of Epiphany"
+        },
+        {
+          "id": 19437,
+          "name": "Boots of Pure Thought"
+        },
+        {
+          "id": 16957,
+          "name": "Judgement Sabatons"
+        },
+        {
+          "id": 22087,
+          "name": "Soulforge Boots"
+        },
+        {
+          "id": 18735,
+          "name": "Maleki's Footwraps"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21620,
+          "name": "Ring of the Martyr"
+        },
+        {
+          "id": 19140,
+          "name": "Cauterizing Band"
+        },
+        {
+          "id": 19920,
+          "name": "Band of Jin"
+        },
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 20632,
+          "name": "Mindtear Band"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21620,
+          "name": "Ring of the Martyr"
+        },
+        {
+          "id": 19140,
+          "name": "Cauterizing Band"
+        },
+        {
+          "id": 19920,
+          "name": "Band of Jin"
+        },
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 20632,
+          "name": "Mindtear Band"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 19288,
+          "name": "Darkmoon Card: Blue Dragon"
+        },
+        {
+          "id": 17064,
+          "name": "Shard of the Scale"
+        },
+        {
+          "id": 18469,
+          "name": "Royal Seal of Eldre'Thalas"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 19288,
+          "name": "Darkmoon Card: Blue Dragon"
+        },
+        {
+          "id": 17064,
+          "name": "Shard of the Scale"
+        },
+        {
+          "id": 18469,
+          "name": "Royal Seal of Eldre'Thalas"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 21839,
+          "name": "Scepter of the False Prophet"
+        },
+        {
+          "id": 19360,
+          "name": "Lok'amir il Romathis"
+        },
+        {
+          "id": 19890,
+          "name": "Jin'do's Hexxer"
+        },
+        {
+          "id": 17070,
+          "name": "Fang of the Mystics"
+        },
+        {
+          "id": 23468,
+          "name": "High Warlord's Battle Mace"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19348,
+          "name": "Red Dragonscale Protector"
+        },
+        {
+          "id": 19915,
+          "name": "Zulian Defender"
+        },
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor"
+        },
+        {
+          "id": 17106,
+          "name": "Malistar's Defender"
+        },
+        {
+          "id": 19366,
+          "name": "Master Dragonslayer's Orb"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 21275,
+          "name": "Blessed Qiraji Augur Staff"
+        },
+        {
+          "id": 18842,
+          "name": "Staff of Dominance"
+        },
+        {
+          "id": 11932,
+          "name": "Guiding Stave of Wisdom"
+        },
+        {
+          "id": 22394,
+          "name": "Staff of Metanoia"
+        },
+        {
+          "id": 17113,
+          "name": "Amberseal Keeper"
+        }
+      ],
+      "RangedSlot": []
+    }
+  },
+  "HUNTER": {
+    "Marksmanship": {
+      "HeadSlot": [
+        {
+          "id": 21366,
+          "name": "Striker's Diadem"
+        },
+        {
+          "id": 16939,
+          "name": "Dragonstalker's Helm"
+        },
+        {
+          "id": 19984,
+          "name": "Ebon Mask"
+        },
+        {
+          "id": 18817,
+          "name": "Crown of Destruction"
+        },
+        {
+          "id": 16846,
+          "name": "Giantstalker's Helmet"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 19377,
+          "name": "Prestor's Talisman of Connivery"
+        },
+        {
+          "id": 21664,
+          "name": "Barbed Choker"
+        },
+        {
+          "id": 21505,
+          "name": "Choker of the Shifting Sands"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        },
+        {
+          "id": 15411,
+          "name": "Mark of Fordring"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21367,
+          "name": "Striker's Pauldrons"
+        },
+        {
+          "id": 16937,
+          "name": "Dragonstalker's Spaulders"
+        },
+        {
+          "id": 12927,
+          "name": "Truestrike Shoulders"
+        },
+        {
+          "id": 16848,
+          "name": "Giantstalker's Epaulets"
+        },
+        {
+          "id": 20176,
+          "name": "Defiler's Mail Pauldrons"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21710,
+          "name": "Cloak of the Fallen God"
+        },
+        {
+          "id": 19436,
+          "name": "Cloak of Draconic Might"
+        },
+        {
+          "id": 13340,
+          "name": "Cape of the Black Baron"
+        },
+        {
+          "id": 21412,
+          "name": "Drape of the Faceless General"
+        },
+        {
+          "id": 17102,
+          "name": "Cloak of the Shrouded Mists"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21370,
+          "name": "Striker's Hauberk"
+        },
+        {
+          "id": 16942,
+          "name": "Dragonstalker's Breastplate"
+        },
+        {
+          "id": 19834,
+          "name": "Zandalar Predator's Mantle (use: ZG set chest alternative is not chest; best mail chest here is T1/T2/T2.5)"
+        },
+        {
+          "id": 11726,
+          "name": "Savage Gladiator Chain"
+        },
+        {
+          "id": 16845,
+          "name": "Giantstalker's Breastplate"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21602,
+          "name": "Qiraji Execution Bracers"
+        },
+        {
+          "id": 16935,
+          "name": "Dragonstalker's Bracers"
+        },
+        {
+          "id": 19836,
+          "name": "Zandalar Predator's Bracers"
+        },
+        {
+          "id": 19587,
+          "name": "Forest Stalker Bracers"
+        },
+        {
+          "id": 18459,
+          "name": "Gallant's Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21672,
+          "name": "Gloves of Enforcement"
+        },
+        {
+          "id": 15063,
+          "name": "Devilsaur Gauntlets"
+        },
+        {
+          "id": 16852,
+          "name": "Giantstalker's Gloves"
+        },
+        {
+          "id": 18823,
+          "name": "Aged Core Leather Gloves"
+        },
+        {
+          "id": 16940,
+          "name": "Dragonstalker's Gauntlets"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21586,
+          "name": "Belt of Never-ending Agony"
+        },
+        {
+          "id": 20216,
+          "name": "Belt of Preserved Heads"
+        },
+        {
+          "id": 19044,
+          "name": "Might of the Timbermaw"
+        },
+        {
+          "id": 16936,
+          "name": "Dragonstalker's Belt"
+        },
+        {
+          "id": 20184,
+          "name": "Defiler's Mail Girdle"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21368,
+          "name": "Striker's Leggings"
+        },
+        {
+          "id": 16938,
+          "name": "Dragonstalker's Legguards"
+        },
+        {
+          "id": 19889,
+          "name": "Blooddrenched Leggings"
+        },
+        {
+          "id": 16847,
+          "name": "Giantstalker's Leggings"
+        },
+        {
+          "id": 20655,
+          "name": "Abyssal Leather Leggings of Striking"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21365,
+          "name": "Striker's Footguards"
+        },
+        {
+          "id": 19381,
+          "name": "Boots of the Shadow Flame"
+        },
+        {
+          "id": 19897,
+          "name": "Betrayer's Boots"
+        },
+        {
+          "id": 16941,
+          "name": "Dragonstalker's Greaves"
+        },
+        {
+          "id": 16849,
+          "name": "Giantstalker's Boots"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 21670,
+          "name": "Badge of the Swarmguard"
+        },
+        {
+          "id": 21180,
+          "name": "Earthstrike"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 19954,
+          "name": "Renataki's Charm of Trickery"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 21670,
+          "name": "Badge of the Swarmguard"
+        },
+        {
+          "id": 21180,
+          "name": "Earthstrike"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 19954,
+          "name": "Renataki's Charm of Trickery"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 19352,
+          "name": "Chromatically Tempered Sword"
+        },
+        {
+          "id": 21650,
+          "name": "Ancient Qiraji Ripper"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        },
+        {
+          "id": 19865,
+          "name": "Warblade of the Hakkari (Main Hand)"
+        },
+        {
+          "id": 17075,
+          "name": "Vis'kag the Bloodletter"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19351,
+          "name": "Maladath, Runed Blade of the Black Flight"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        },
+        {
+          "id": 19866,
+          "name": "Warblade of the Hakkari (Off Hand)"
+        },
+        {
+          "id": 21650,
+          "name": "Ancient Qiraji Ripper"
+        },
+        {
+          "id": 17071,
+          "name": "Gutgore Ripper"
+        }
+      ],
+      "TwoHandSlot": [],
+      "RangedSlot": [
+        {
+          "id": 21616,
+          "name": "Huhuran's Stinger"
+        },
+        {
+          "id": 19350,
+          "name": "Heartstriker"
+        },
+        {
+          "id": 21459,
+          "name": "Crossbow of Imminent Doom"
+        },
+        {
+          "id": 19368,
+          "name": "Dragonbreath Hand Cannon"
+        },
+        {
+          "id": 17069,
+          "name": "Striker's Mark"
+        }
+      ]
+    },
+    "Beast Mastery": {
+      "HeadSlot": [
+        {
+          "id": 21366,
+          "name": "Striker's Diadem"
+        },
+        {
+          "id": 16939,
+          "name": "Dragonstalker's Helm"
+        },
+        {
+          "id": 19984,
+          "name": "Ebon Mask"
+        },
+        {
+          "id": 18817,
+          "name": "Crown of Destruction"
+        },
+        {
+          "id": 16846,
+          "name": "Giantstalker's Helmet"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 19377,
+          "name": "Prestor's Talisman of Connivery"
+        },
+        {
+          "id": 21664,
+          "name": "Barbed Choker"
+        },
+        {
+          "id": 21505,
+          "name": "Choker of the Shifting Sands"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        },
+        {
+          "id": 15411,
+          "name": "Mark of Fordring"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21367,
+          "name": "Striker's Pauldrons"
+        },
+        {
+          "id": 16937,
+          "name": "Dragonstalker's Spaulders"
+        },
+        {
+          "id": 12927,
+          "name": "Truestrike Shoulders"
+        },
+        {
+          "id": 16848,
+          "name": "Giantstalker's Epaulets"
+        },
+        {
+          "id": 20176,
+          "name": "Defiler's Mail Pauldrons"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21710,
+          "name": "Cloak of the Fallen God"
+        },
+        {
+          "id": 19436,
+          "name": "Cloak of Draconic Might"
+        },
+        {
+          "id": 13340,
+          "name": "Cape of the Black Baron"
+        },
+        {
+          "id": 21412,
+          "name": "Drape of the Faceless General"
+        },
+        {
+          "id": 17102,
+          "name": "Cloak of the Shrouded Mists"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21370,
+          "name": "Striker's Hauberk"
+        },
+        {
+          "id": 16942,
+          "name": "Dragonstalker's Breastplate"
+        },
+        {
+          "id": 11726,
+          "name": "Savage Gladiator Chain"
+        },
+        {
+          "id": 16845,
+          "name": "Giantstalker's Breastplate"
+        },
+        {
+          "id": 15066,
+          "name": "Ironfeather Breastplate (leather agi alt)"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21602,
+          "name": "Qiraji Execution Bracers"
+        },
+        {
+          "id": 16935,
+          "name": "Dragonstalker's Bracers"
+        },
+        {
+          "id": 19836,
+          "name": "Zandalar Predator's Bracers"
+        },
+        {
+          "id": 19587,
+          "name": "Forest Stalker Bracers"
+        },
+        {
+          "id": 18459,
+          "name": "Gallant's Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21672,
+          "name": "Gloves of Enforcement"
+        },
+        {
+          "id": 15063,
+          "name": "Devilsaur Gauntlets"
+        },
+        {
+          "id": 16852,
+          "name": "Giantstalker's Gloves"
+        },
+        {
+          "id": 18823,
+          "name": "Aged Core Leather Gloves"
+        },
+        {
+          "id": 16940,
+          "name": "Dragonstalker's Gauntlets"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21586,
+          "name": "Belt of Never-ending Agony"
+        },
+        {
+          "id": 20216,
+          "name": "Belt of Preserved Heads"
+        },
+        {
+          "id": 19044,
+          "name": "Might of the Timbermaw"
+        },
+        {
+          "id": 16936,
+          "name": "Dragonstalker's Belt"
+        },
+        {
+          "id": 20184,
+          "name": "Defiler's Mail Girdle"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21368,
+          "name": "Striker's Leggings"
+        },
+        {
+          "id": 16938,
+          "name": "Dragonstalker's Legguards"
+        },
+        {
+          "id": 19889,
+          "name": "Blooddrenched Leggings"
+        },
+        {
+          "id": 16847,
+          "name": "Giantstalker's Leggings"
+        },
+        {
+          "id": 20655,
+          "name": "Abyssal Leather Leggings of Striking"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21365,
+          "name": "Striker's Footguards"
+        },
+        {
+          "id": 19381,
+          "name": "Boots of the Shadow Flame"
+        },
+        {
+          "id": 19897,
+          "name": "Betrayer's Boots"
+        },
+        {
+          "id": 16941,
+          "name": "Dragonstalker's Greaves"
+        },
+        {
+          "id": 16849,
+          "name": "Giantstalker's Boots"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        },
+        {
+          "id": 19325,
+          "name": "Don Julio's Band"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 18821,
+          "name": "Quick Strike Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 21670,
+          "name": "Badge of the Swarmguard"
+        },
+        {
+          "id": 21180,
+          "name": "Earthstrike"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 19954,
+          "name": "Renataki's Charm of Trickery"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 21670,
+          "name": "Badge of the Swarmguard"
+        },
+        {
+          "id": 21180,
+          "name": "Earthstrike"
+        },
+        {
+          "id": 23570,
+          "name": "Jom Gabbar"
+        },
+        {
+          "id": 19954,
+          "name": "Renataki's Charm of Trickery"
+        },
+        {
+          "id": 13965,
+          "name": "Blackhand's Breadth"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 19352,
+          "name": "Chromatically Tempered Sword"
+        },
+        {
+          "id": 21650,
+          "name": "Ancient Qiraji Ripper"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        },
+        {
+          "id": 19865,
+          "name": "Warblade of the Hakkari (Main Hand)"
+        },
+        {
+          "id": 17075,
+          "name": "Vis'kag the Bloodletter"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19351,
+          "name": "Maladath, Runed Blade of the Black Flight"
+        },
+        {
+          "id": 18832,
+          "name": "Brutality Blade"
+        },
+        {
+          "id": 19866,
+          "name": "Warblade of the Hakkari (Off Hand)"
+        },
+        {
+          "id": 21650,
+          "name": "Ancient Qiraji Ripper"
+        },
+        {
+          "id": 17071,
+          "name": "Gutgore Ripper"
+        }
+      ],
+      "TwoHandSlot": [],
+      "RangedSlot": [
+        {
+          "id": 21616,
+          "name": "Huhuran's Stinger"
+        },
+        {
+          "id": 19350,
+          "name": "Heartstriker"
+        },
+        {
+          "id": 21459,
+          "name": "Crossbow of Imminent Doom"
+        },
+        {
+          "id": 19368,
+          "name": "Dragonbreath Hand Cannon"
+        },
+        {
+          "id": 17069,
+          "name": "Striker's Mark"
+        }
+      ]
+    }
+  },
+  "DRUID": {
+    "Feral Bear": {
+      "HeadSlot": [
+        {
+          "id": 8345,
+          "name": "Wolfshead Helm"
+        },
+        {
+          "id": 21693,
+          "name": "Guise of the Devourer"
+        },
+        {
+          "id": 20623,
+          "name": "Circlet of Restless Dreams"
+        },
+        {
+          "id": 19372,
+          "name": "Helm of Endless Rage"
+        },
+        {
+          "id": 16908,
+          "name": "Bloodfang Hood"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21664,
+          "name": "Barbed Choker"
+        },
+        {
+          "id": 19383,
+          "name": "Master Dragonslayer's Medallion"
+        },
+        {
+          "id": 21506,
+          "name": "Pendant of the Qiraji Guardian"
+        },
+        {
+          "id": 15411,
+          "name": "Mark of Fordring"
+        },
+        {
+          "id": 18404,
+          "name": "Onyxia Tooth Pendant"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 19389,
+          "name": "Taut Dragonhide Shoulderpads"
+        },
+        {
+          "id": 21698,
+          "name": "Legionnaire's Dragonhide Spaulders"
+        },
+        {
+          "id": 21354,
+          "name": "Genesis Shoulderpads"
+        },
+        {
+          "id": 20194,
+          "name": "Defiler's Dragonhide Spaulders"
+        },
+        {
+          "id": 16718,
+          "name": "Wildheart Spaulders"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21710,
+          "name": "Cloak of the Fallen God"
+        },
+        {
+          "id": 19378,
+          "name": "Cloak of the Brood Lord"
+        },
+        {
+          "id": 21297,
+          "name": "Cloak of the Shrouded Mists"
+        },
+        {
+          "id": 20691,
+          "name": "Windshear Cape"
+        },
+        {
+          "id": 18495,
+          "name": "Redoubt Cloak"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 15059,
+          "name": "Living Breastplate"
+        },
+        {
+          "id": 15066,
+          "name": "Ironfeather Breastplate"
+        },
+        {
+          "id": 16833,
+          "name": "Cenarion Vestments"
+        },
+        {
+          "id": 15064,
+          "name": "Warbear Harness"
+        },
+        {
+          "id": 21680,
+          "name": "Vest of Swift Execution"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 19587,
+          "name": "Forest Stalker Bracers"
+        },
+        {
+          "id": 21602,
+          "name": "Qiraji Execution Bracers"
+        },
+        {
+          "id": 20190,
+          "name": "Defiler's Leather Armguards"
+        },
+        {
+          "id": 18459,
+          "name": "Gallant's Wristguards"
+        },
+        {
+          "id": 16714,
+          "name": "Wildheart Bracers"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21672,
+          "name": "Gloves of Enforcement"
+        },
+        {
+          "id": 18823,
+          "name": "Aged Core Leather Gloves"
+        },
+        {
+          "id": 15063,
+          "name": "Devilsaur Gauntlets"
+        },
+        {
+          "id": 19390,
+          "name": "Taut Dragonhide Gloves"
+        },
+        {
+          "id": 16555,
+          "name": "Warlord's Dragonhide Gloves"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 20216,
+          "name": "Belt of Preserved Heads"
+        },
+        {
+          "id": 21586,
+          "name": "Belt of Never-ending Agony"
+        },
+        {
+          "id": 19044,
+          "name": "Might of the Timbermaw"
+        },
+        {
+          "id": 16910,
+          "name": "Bloodfang Belt"
+        },
+        {
+          "id": 16716,
+          "name": "Wildheart Belt"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 19157,
+          "name": "Chromatic Leggings"
+        },
+        {
+          "id": 21668,
+          "name": "Scaled Leggings of Qiraji Fury"
+        },
+        {
+          "id": 16909,
+          "name": "Bloodfang Pants"
+        },
+        {
+          "id": 18875,
+          "name": "Salamander Scale Pants"
+        },
+        {
+          "id": 15062,
+          "name": "Devilsaur Leggings"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21645,
+          "name": "Hive Tunneler's Boots"
+        },
+        {
+          "id": 16906,
+          "name": "Bloodfang Boots"
+        },
+        {
+          "id": 16462,
+          "name": "Marshal's Dragonhide Boots"
+        },
+        {
+          "id": 19381,
+          "name": "Boots of the Shadow Flame"
+        },
+        {
+          "id": 16829,
+          "name": "Cenarion Boots"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 19376,
+          "name": "Archimtiros' Ring of Reckoning"
+        },
+        {
+          "id": 18879,
+          "name": "Heavy Dark Iron Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 19376,
+          "name": "Archimtiros' Ring of Reckoning"
+        },
+        {
+          "id": 18879,
+          "name": "Heavy Dark Iron Ring"
+        },
+        {
+          "id": 19432,
+          "name": "Circle of Applied Force"
+        },
+        {
+          "id": 17063,
+          "name": "Band of Accuria"
+        },
+        {
+          "id": 21677,
+          "name": "Ring of the Qiraji Fury"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 19431,
+          "name": "Styleen's Impeding Scarab"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 13966,
+          "name": "Mark of Tyranny"
+        },
+        {
+          "id": 18406,
+          "name": "Onyxia Blood Talisman"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 19431,
+          "name": "Styleen's Impeding Scarab"
+        },
+        {
+          "id": 11815,
+          "name": "Hand of Justice"
+        },
+        {
+          "id": 13966,
+          "name": "Mark of Tyranny"
+        },
+        {
+          "id": 18406,
+          "name": "Onyxia Blood Talisman"
+        },
+        {
+          "id": 20130,
+          "name": "Diamond Flask"
+        }
+      ],
+      "MainHandSlot": [],
+      "SecondaryHandSlot": [],
+      "TwoHandSlot": [
+        {
+          "id": 21134,
+          "name": "Dark Edge of Insanity"
+        },
+        {
+          "id": 18831,
+          "name": "High Warlord's Battle Axe"
+        },
+        {
+          "id": 18869,
+          "name": "Grand Marshal's Glaive"
+        },
+        {
+          "id": 19364,
+          "name": "Ashkandi, Greatsword of the Brotherhood"
+        },
+        {
+          "id": 19874,
+          "name": "Halberd of Smiting"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 23198,
+          "name": "Idol of Brutality"
+        },
+        {
+          "id": 22397,
+          "name": "Idol of Ferocity"
+        },
+        {
+          "id": 20872,
+          "name": "Idol of the Moon"
+        },
+        {
+          "id": 22398,
+          "name": "Idol of Rejuvenation"
+        },
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        }
+      ]
+    },
+    "Restoration": {
+      "HeadSlot": [
+        {
+          "id": 21615,
+          "name": "Don Rigoberto's Lost Hat"
+        },
+        {
+          "id": 20628,
+          "name": "Deviate Growth Cap"
+        },
+        {
+          "id": 21460,
+          "name": "Helm of Domination"
+        },
+        {
+          "id": 18814,
+          "name": "Choker of the Fire Lord"
+        },
+        {
+          "id": 20623,
+          "name": "Circlet of Restless Dreams"
+        }
+      ],
+      "NeckSlot": [
+        {
+          "id": 21712,
+          "name": "Amulet of the Fallen God"
+        },
+        {
+          "id": 19885,
+          "name": "Jin'do's Evil Eye"
+        },
+        {
+          "id": 19371,
+          "name": "Pendant of the Fallen Dragon"
+        },
+        {
+          "id": 21608,
+          "name": "Amulet of Vek'nilash"
+        },
+        {
+          "id": 18723,
+          "name": "Animated Chain Necklace"
+        }
+      ],
+      "ShoulderSlot": [
+        {
+          "id": 21694,
+          "name": "Ternary Mantle"
+        },
+        {
+          "id": 18810,
+          "name": "Wild Growth Spaulders"
+        },
+        {
+          "id": 19370,
+          "name": "Mantle of the Blackwing Cabal"
+        },
+        {
+          "id": 18720,
+          "name": "Shroud of the Nathrezim"
+        },
+        {
+          "id": 15061,
+          "name": "Living Shoulders"
+        }
+      ],
+      "BackSlot": [
+        {
+          "id": 21583,
+          "name": "Cloak of Clarity"
+        },
+        {
+          "id": 19857,
+          "name": "Cloak of Consumption"
+        },
+        {
+          "id": 19378,
+          "name": "Cloak of the Brood Lord"
+        },
+        {
+          "id": 21456,
+          "name": "Sandstorm Cloak"
+        },
+        {
+          "id": 20697,
+          "name": "Crystalline Threaded Cape"
+        }
+      ],
+      "ChestSlot": [
+        {
+          "id": 21663,
+          "name": "Robes of the Guardian Saint"
+        },
+        {
+          "id": 14154,
+          "name": "Truefaith Vestments"
+        },
+        {
+          "id": 19682,
+          "name": "Bloodvine Vest"
+        },
+        {
+          "id": 19145,
+          "name": "Robe of Volatile Power"
+        },
+        {
+          "id": 15056,
+          "name": "Stormshroud Armor"
+        }
+      ],
+      "WristSlot": [
+        {
+          "id": 21604,
+          "name": "Bracelets of Royal Redemption"
+        },
+        {
+          "id": 19595,
+          "name": "Dryad's Wrist Bindings"
+        },
+        {
+          "id": 19374,
+          "name": "Bracers of Arcane Accuracy"
+        },
+        {
+          "id": 20626,
+          "name": "Black Bark Wristbands"
+        },
+        {
+          "id": 18709,
+          "name": "Arena Wristguards"
+        }
+      ],
+      "HandsSlot": [
+        {
+          "id": 21619,
+          "name": "Gloves of the Messiah"
+        },
+        {
+          "id": 19390,
+          "name": "Taut Dragonhide Gloves"
+        },
+        {
+          "id": 19407,
+          "name": "Ebony Flame Gloves"
+        },
+        {
+          "id": 20618,
+          "name": "Gloves of Delusional Power"
+        },
+        {
+          "id": 18808,
+          "name": "Gloves of the Hypnotic Flame"
+        }
+      ],
+      "WaistSlot": [
+        {
+          "id": 21582,
+          "name": "Grasp of the Old God"
+        },
+        {
+          "id": 19162,
+          "name": "Corehound Belt"
+        },
+        {
+          "id": 19388,
+          "name": "Angelista's Grasp"
+        },
+        {
+          "id": 14553,
+          "name": "Sash of Mercy"
+        },
+        {
+          "id": 18327,
+          "name": "Whipvine Cord"
+        }
+      ],
+      "LegsSlot": [
+        {
+          "id": 21676,
+          "name": "Leggings of the Festering Swarm"
+        },
+        {
+          "id": 19433,
+          "name": "Emberweave Leggings"
+        },
+        {
+          "id": 18875,
+          "name": "Salamander Scale Pants"
+        },
+        {
+          "id": 19165,
+          "name": "Flarecore Leggings"
+        },
+        {
+          "id": 20699,
+          "name": "Cenarion Resar's Leggings"
+        }
+      ],
+      "FeetSlot": [
+        {
+          "id": 21704,
+          "name": "Boots of the Redeemed Prophecy"
+        },
+        {
+          "id": 19391,
+          "name": "Shimmering Geta"
+        },
+        {
+          "id": 20634,
+          "name": "Boots of Fright"
+        },
+        {
+          "id": 18322,
+          "name": "Waterspout Boots"
+        },
+        {
+          "id": 20621,
+          "name": "Boots of the Endless Moor"
+        }
+      ],
+      "Finger0Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 19382,
+          "name": "Pure Elementium Band"
+        },
+        {
+          "id": 19898,
+          "name": "Seal of Jin"
+        },
+        {
+          "id": 19140,
+          "name": "Cauterizing Band"
+        },
+        {
+          "id": 16058,
+          "name": "Fordring's Seal"
+        }
+      ],
+      "Finger1Slot": [
+        {
+          "id": 21709,
+          "name": "Ring of the Fallen God"
+        },
+        {
+          "id": 19382,
+          "name": "Pure Elementium Band"
+        },
+        {
+          "id": 19898,
+          "name": "Seal of Jin"
+        },
+        {
+          "id": 19140,
+          "name": "Cauterizing Band"
+        },
+        {
+          "id": 16058,
+          "name": "Fordring's Seal"
+        }
+      ],
+      "Trinket0Slot": [
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        },
+        {
+          "id": 17064,
+          "name": "Shard of the Scale"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 18371,
+          "name": "Mindtap Talisman"
+        },
+        {
+          "id": 19288,
+          "name": "Darkmoon Card: Blue Dragon"
+        }
+      ],
+      "Trinket1Slot": [
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        },
+        {
+          "id": 17064,
+          "name": "Shard of the Scale"
+        },
+        {
+          "id": 19395,
+          "name": "Rejuvenating Gem"
+        },
+        {
+          "id": 18371,
+          "name": "Mindtap Talisman"
+        },
+        {
+          "id": 19288,
+          "name": "Darkmoon Card: Blue Dragon"
+        }
+      ],
+      "MainHandSlot": [
+        {
+          "id": 21839,
+          "name": "Scepter of the False Prophet"
+        },
+        {
+          "id": 19360,
+          "name": "Lok'amir il Romathis"
+        },
+        {
+          "id": 19884,
+          "name": "Jin'do's Judgement"
+        },
+        {
+          "id": 19356,
+          "name": "Staff of the Shadow Flame"
+        },
+        {
+          "id": 19890,
+          "name": "Jin'do's Hexxer"
+        }
+      ],
+      "SecondaryHandSlot": [
+        {
+          "id": 19366,
+          "name": "Master Dragonslayer's Orb"
+        },
+        {
+          "id": 21597,
+          "name": "Royal Scepter of Vek'lor"
+        },
+        {
+          "id": 19891,
+          "name": "Jin'do's Bag of Whammies"
+        },
+        {
+          "id": 19312,
+          "name": "Lei of the Lifegiver"
+        },
+        {
+          "id": 19142,
+          "name": "Fire Runed Grimoire"
+        }
+      ],
+      "TwoHandSlot": [
+        {
+          "id": 21839,
+          "name": "Scepter of the False Prophet"
+        },
+        {
+          "id": 19356,
+          "name": "Staff of the Shadow Flame"
+        },
+        {
+          "id": 19884,
+          "name": "Jin'do's Judgement"
+        },
+        {
+          "id": 19909,
+          "name": "Will of Arlokk"
+        },
+        {
+          "id": 22799,
+          "name": "Soulseeker"
+        }
+      ],
+      "RangedSlot": [
+        {
+          "id": 22398,
+          "name": "Idol of Rejuvenation"
+        },
+        {
+          "id": 22397,
+          "name": "Idol of Ferocity"
+        },
+        {
+          "id": 23197,
+          "name": "Idol of the Moon"
+        },
+        {
+          "id": 20873,
+          "name": "Alabaster Idol"
+        },
+        {
+          "id": 21625,
+          "name": "Scarab Brooch"
+        }
+      ]
+    }
+  }
+}

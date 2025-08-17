@@ -90,10 +90,10 @@ export class ClassTabsComponent implements OnDestroy {
       Hunter: ["hunter", "marksmanship"],
       Mage: ["mage", "fire"],
       Paladin: ["paladin", "holy"],
-      Priest: ["priest", "holy"],
+      Priest: ["priest", "holy/disc"],
       Rogue: ["rogue", "combat"],
-      Warlock: ["warlock", "destruction"],
-      Warrior: ["warrior", "protection"],
+      Warlock: ["warlock", "dm/sm ruin"],
+      Warrior: ["warrior", "prot"],
     };
     const pair = map[cls] || [
       cls.toLowerCase(),
@@ -178,7 +178,7 @@ export class ClassTabsComponent implements OnDestroy {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "gear-data.json";
+    a.download = "gear_library.json";
     a.click();
     window.URL.revokeObjectURL(url);
   }

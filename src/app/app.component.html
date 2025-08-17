@@ -7,13 +7,11 @@
         <span style="margin-left: 15px;"><a routerLink="/bis-list">BiS List</a> </span>
       </div>
       <div class="gh-right">
-        <ng-container>
-          <span><a routerLink="/bis-admin">Admin</a> </span>
-          <button mat-button *ngIf="!($user | async)" (click)="login()">Login</button>
-          <img *ngIf="$user | async as user"
-            [src]="'https://cdn.discordapp.com/avatars/' + user.id + '/' + user.avatar + '.png'" class="profile-pic"
-            alt="Profile" />
-        </ng-container>
+        <span><a routerLink="/bis-admin">Admin</a> </span>
+        <button style="margin-left: 15px;" *ngIf="!($user | async)" (click)="login()">Login</button>
+        <img style="margin-left: 15px;" *ngIf="$user | async as user"
+          [src]="'https://cdn.discordapp.com/avatars/' + user.id + '/' + user.avatar + '.png'" class="profile-pic"
+          alt="Profile" />
       </div>
     </div>
   </div>

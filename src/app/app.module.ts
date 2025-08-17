@@ -11,7 +11,7 @@ import { AppComponent } from "./app.component";
 import { ClassTabsComponent } from "./bis-admin/class-tabs/class-tabs.component";
 import { SpecDetailComponent } from "./bis-admin/spec-details/spec-detail.component";
 import { LogsComponent } from "./logs/logs.component";
-import { CeilPipe } from './ceil.pipe';
+import { CeilPipe } from "./ceil.pipe";
 import { BisListComponent } from "./bis-list/bis-list.component";
 
 @NgModule({
@@ -21,20 +21,22 @@ import { BisListComponent } from "./bis-list/bis-list.component";
     AppComponent,
     ClassTabsComponent,
     SpecDetailComponent,
-    CeilPipe
+    CeilPipe,
+    BisListComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     DragDropModule,
+
     RouterModule.forRoot([
-      // { path: "", component: LandingPageComponent },
       { path: "logs", component: LogsComponent },
       { path: "bis-list", component: BisListComponent },
       { path: "bis-admin/:cls", component: ClassTabsComponent },
       { path: "bis-admin/:cls/:spec", component: ClassTabsComponent },
-      { path: "bis-admin", redirectTo: "bis-admin/warrior/protection" },
+      { path: "bis-admin", redirectTo: "bis-admin/warrior/prot" },
+      { path: "", redirectTo: "bis-admin/warrior/prot", pathMatch: "full" },
       { path: "**", redirectTo: "" },
     ]),
   ],

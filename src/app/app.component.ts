@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { AuthService, User } from "./auth.service";
+import { GearService } from "./gear.service";
 @Component({
   selector: "app-root",
   templateUrl: `app.component.html`,

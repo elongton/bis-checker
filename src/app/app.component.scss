@@ -1,10 +1,14 @@
-
 .app-title {
   font-weight: bold;
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0px auto;
 }
 
 .profile-pic {
@@ -15,22 +19,11 @@
   margin-left: 12px;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
-
 .header-wrapper {
   position: fixed;
   width: 100%;
   background: lightskyblue;
   top: 0;
-}
-
-.header-container {
-  max-width: 1100px;
-  margin: 0px auto;
 }
 
 .global-header {
@@ -41,12 +34,22 @@
   padding: 10px 0;
 }
 
-.gh-right, .gh-left{
+.gh-right,
+.gh-left {
   display: flex;
   align-items: center;
 }
 
-.logo{
+@media (max-width: 1100px) {
+  .gh-right {
+    padding-right: 16px;
+  }
+  .gh-left {
+    padding-left: 16px;
+  }
+}
+
+.logo {
   font-weight: 800;
   color: black;
   font-size: 24px;

@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const gearRoutes = require("./routes/gear");
 const blizzardRoutes = require("./routes/blizzard");
+const playerRoutes = require("./routes/player");
 
 dotenv.config();
 const app = express();
@@ -28,8 +29,6 @@ passport.use(new DiscordStrategy({
   return done(null, profile);
 }));
 
-
-
 app.use(session({ secret: "secret", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,6 +40,7 @@ app.use(passport.session());
 app.use(express.json());
 app.use("/api/gear", gearRoutes);
 app.use("/api/blizzard", blizzardRoutes);
+app.use("/api/player", playerRoutes);
 
 // Discord auth routes
 app.get('/api/auth/discord', passport.authenticate('discord'));

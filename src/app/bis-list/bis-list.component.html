@@ -1,3 +1,39 @@
 <div class="container">
-    <p>Coming soon!</p>
+  <div class="filter mb-4">
+    <label for="classFilter">Filter by Class:</label>
+    <select style="margin-left: 10px" id="classFilter" [(ngModel)]="classFilter">
+      <option value="">All Classes</option>
+      <option *ngFor="let cls of filteredClasses" [value]="cls">{{ cls }}</option>
+    </select>
+  </div>
+
+  <div *ngFor="let cls of filteredClasses">
+    <ng-container *ngIf="groupedPlayers[cls]?.length">
+      <h3>{{ cls }}</h3>
+      <table class="table" style="width: 50%">
+        <thead>
+          <tr style="text-align: left;">
+            <th style="width: 33%">Name</th>
+            <th style="width: 33%">Last Seen</th>
+            <th style="width: 33%">Spec</th>
+          </tr>
+        </thead> 
+        <tbody>
+          <tr *ngFor="let player of groupedPlayers[cls]">
+            <td>{{ player.name }}</td>
+            <td>{{ player.lastSeen | date:'short' }}</td>
+            <td>
+              <select *ngIf="gear" [(ngModel)]="player.spec" (ngModelChange)="updateSpec(player, $event)">
+                <option *ngFor="let spec of getSpecOptionsForPlayer(player)" [value]="spec">
+                  {{ spec }}
+                </option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  </div>
+
+
 </div>

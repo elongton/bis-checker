@@ -20,7 +20,7 @@ echo "📦 Copying frontend build to $DEPLOY_DIR/dist"
 cp -r $FRONTEND_DIST/* $DEPLOY_DIR/dist/
 
 echo "📦 Copying API to $DEPLOY_DIR/api"
-cp -r $API_SRC/* $DEPLOY_DIR/api/
+rsync -av --exclude='node_modules' $API_SRC/ $DEPLOY_DIR/api/
 
 echo "📦 Copying API node_modules"
 cd $API_SRC
