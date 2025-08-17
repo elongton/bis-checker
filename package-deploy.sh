@@ -30,7 +30,7 @@ cd ..
 
 echo "📄 Copying .env file if present"
 if [ -f .env ]; then
-  cp .env $DEPLOY_DIR/api
+  cp .env_prod $DEPLOY_DIR/api/.env
 fi
 
 echo "✅ Deploy package ready in ./$DEPLOY_DIR"

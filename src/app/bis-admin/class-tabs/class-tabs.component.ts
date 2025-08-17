@@ -28,9 +28,8 @@ export class ClassTabsComponent implements OnDestroy {
     private gear: GearService,
     private route: ActivatedRoute,
     private router: Router,
-    private auth: AuthService,
+    private auth: AuthService
   ) {
-
     const classes$ = this.gear.getClasses();
     const params$ = this.route.paramMap;
 
@@ -108,7 +107,11 @@ export class ClassTabsComponent implements OnDestroy {
     this.selectedClass = cls;
     this.selectedSpec = spec;
     if (pushRoute)
-      this.router.navigate(["/bis-admin/", cls.toLowerCase(), spec.toLowerCase()]);
+      this.router.navigate([
+        "/bis-admin/",
+        cls.toLowerCase(),
+        spec.toLowerCase(),
+      ]);
     this.gear.getSpecBlock(cls, spec).subscribe((block) => {
       this.selectedBlock = block;
       this.computeDirty();
@@ -118,13 +121,13 @@ export class ClassTabsComponent implements OnDestroy {
   // Sticky header actions
   tryToggleEdit() {
     if (!this.editMode) {
-      if (localStorage.getItem('edit_pw') == 'grox'){
+      if (localStorage.getItem("edit_pw") == "grox") {
         this.editMode = true;
-        return; 
+        return;
       }
       const pw = window.prompt("Enter password to enable edit mode:");
       if (pw === "grox") {
-        localStorage.setItem('edit_pw', 'grox');
+        localStorage.setItem("edit_pw", "grox");
         this.editMode = true;
       } else {
         alert("Incorrect password.");
@@ -165,5 +168,18 @@ export class ClassTabsComponent implements OnDestroy {
     const lower = needle.toLowerCase();
     for (const h of hay) if (h.toLowerCase() === lower) return h;
     return null;
+  }
+
+  downloadGearJson() {
+    const gear = this.gear.getAllGear();
+    const blob = new Blob([JSON.stringify(gear, null, 2)], {
+      type: "application/json",
+    });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "gear-data.json";
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
 }

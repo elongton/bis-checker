@@ -121,4 +121,8 @@ constructor(private http: HttpClient) {
   }
 
   static wowheadUrl(id: number) { return `https://www.wowhead.com/classic/item=${id}`; }
+
+  getAllGear(){
+    return this.subject.getValue();
+  }
 }

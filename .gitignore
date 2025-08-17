@@ -17,6 +17,7 @@ Thumbs.db
 
 # Environment variables
 .env
+.env_prod
 
 # Deployment
 /deploy
