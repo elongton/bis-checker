@@ -22,7 +22,7 @@ passport.deserializeUser((obj, done) => done(null, obj));
 passport.use(new DiscordStrategy({
   clientID: process.env.DISCORD_CLIENT_ID,
   clientSecret: process.env.DISCORD_CLIENT_SECRET,
-  callbackURL: "/api/auth/discord/callback",
+  callbackURL: `${process.env.APP_URL}/api/auth/discord/callback`,
   scope: ['identify']
 }, (accessToken, refreshToken, profile, done) => {
   return done(null, profile);

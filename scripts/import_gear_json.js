@@ -16,7 +16,7 @@ async function run() {
   await col.deleteMany({});
 
   // Load and transform the JSON
-  const rawData = fs.readFileSync("../src/assets/gear_library.json");
+  const rawData = fs.readFileSync("gear_library.json");
   const data = JSON.parse(rawData);
 
   const docs = [];
