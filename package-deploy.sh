@@ -25,7 +25,7 @@ cp -r $API_SRC/* $DEPLOY_DIR/api/
 echo "📦 Copying API node_modules"
 cd $API_SRC
 # npm install --omit=dev
-cp -r node_modules ../$DEPLOY_DIR/api/node_modules
+# cp -r node_modules ../$DEPLOY_DIR/api/node_modules
 cd ..
 
 echo "📄 Copying .env file if present"

@@ -47,7 +47,7 @@ app.get('/api/auth/discord', passport.authenticate('discord'));
 app.get('/api/auth/discord/callback',
   passport.authenticate('discord', { failureRedirect: '/' }),
   (req, res) => {
-    res.redirect(`${process.env.APP_URL}/druid/restoration?user=${encodeURIComponent(JSON.stringify(req.user))}`);
+    res.redirect(`${process.env.APP_URL}?user=${encodeURIComponent(JSON.stringify(req.user))}`);
   }
 );
 

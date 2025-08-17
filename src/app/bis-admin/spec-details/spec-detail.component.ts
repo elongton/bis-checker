@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { GearService } from './gear.service';
-import { SpecBlock, SlotName, ItemRef } from './models';
-import { BlizzardService, ItemResult } from './blizzard.service';
+import { GearService } from '../../gear.service';
+import { SpecBlock, SlotName, ItemRef } from '../../models';
+import { BlizzardService, ItemResult } from '../../blizzard.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { firstValueFrom } from 'rxjs';
 

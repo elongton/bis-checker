@@ -14,3 +14,40 @@
   object-fit: cover;
   margin-left: 12px;
 }
+
+.container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.header-wrapper {
+  position: fixed;
+  width: 100%;
+  background: lightskyblue;
+  top: 0;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+.global-header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.gh-right, .gh-left{
+  display: flex;
+  align-items: center;
+}
+
+.logo{
+  font-weight: 800;
+  color: black;
+  font-size: 24px;
+}

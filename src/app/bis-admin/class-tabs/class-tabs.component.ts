@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from "@angular/core";
-import { GearService } from "./gear.service";
-import { SpecBlock } from "./models";
+import { GearService } from "../../gear.service";
+import { SpecBlock } from "../../models";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 import { Subscription, combineLatest } from "rxjs";
+import { AuthService } from "src/app/auth.service";
 
 @Component({
   selector: "app-class-tabs",
@@ -21,27 +22,14 @@ export class ClassTabsComponent implements OnDestroy {
 
   private sub?: Subscription;
   private libSub?: Subscription;
-  user: any = null;
+  $user = this.auth.$user;
 
   constructor(
     private gear: GearService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private auth: AuthService,
   ) {
-
-    const userJson = localStorage.getItem('discord_user');
-    if (userJson) {
-      this.user = JSON.parse(userJson);
-    }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const userParam = urlParams.get('user');
-    if (userParam) {
-      this.user = JSON.parse(userParam);
-      localStorage.setItem('discord_user', JSON.stringify(this.user));
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
-
 
     const classes$ = this.gear.getClasses();
     const params$ = this.route.paramMap;
@@ -112,15 +100,15 @@ export class ClassTabsComponent implements OnDestroy {
       cls.toLowerCase(),
       this.classSpecs(cls)[0]?.toLowerCase() || "",
     ];
-    if (pair[1]) this.router.navigate(["/", pair[0], pair[1]]);
-    else this.router.navigate(["/", pair[0]]);
+    if (pair[1]) this.router.navigate(["/bis-admin/", pair[0], pair[1]]);
+    else this.router.navigate(["/bis-admin/", pair[0]]);
   }
 
   openSpec(cls: string, spec: string, pushRoute: boolean = true) {
     this.selectedClass = cls;
     this.selectedSpec = spec;
     if (pushRoute)
-      this.router.navigate(["/", cls.toLowerCase(), spec.toLowerCase()]);
+      this.router.navigate(["/bis-admin/", cls.toLowerCase(), spec.toLowerCase()]);
     this.gear.getSpecBlock(cls, spec).subscribe((block) => {
       this.selectedBlock = block;
       this.computeDirty();
@@ -177,9 +165,5 @@ export class ClassTabsComponent implements OnDestroy {
     const lower = needle.toLowerCase();
     for (const h of hay) if (h.toLowerCase() === lower) return h;
     return null;
-  }
-
-  login() {
-    window.location.href = "api/auth/discord";
   }
 }

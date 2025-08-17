@@ -38,9 +38,13 @@ h1 {
 
 .tabs {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.tabs-classes {
+  display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 12px;
 }
 
 .tabs button {
@@ -103,31 +107,16 @@ h1 {
 
 .save-btn {
   background: #28a745;
-  color: #fff;
+  /* color: #fff; */
   border-color: #28a745;
 }
 
 .cancel-btn {
   background: #dc3545;
-  color: #fff;
+  /* color: #fff; */
   border-color: #dc3545;
 }
 
-
-
 .dashed {
   border: 1px dashed red;
-}
-
-.profile-pic {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-left: 12px;
-}
-
-.gh-right {
-  display: flex;
-  align-items: center;
 }
