@@ -9,6 +9,11 @@ interface Player {
   spec: string;
 }
 
+export interface Item {
+  id: number;
+  name: string;
+}
+
 @Component({
   selector: "app-bis-list",
   templateUrl: "./bis-list.component.html",
@@ -74,5 +79,54 @@ export class BisListComponent implements OnInit {
     if (!this.gear) return [];
     const classEntry = this.gear[player.class];
     return classEntry ? Object.keys(classEntry) : [];
+  }
+
+  getSoftBisCount(player: Player): number {
+    if (!player.spec || !this.gear) return 0;
+
+    const classGear = this.gear[player.class];
+    const specGear = classGear?.[player.spec];
+    if (!specGear) return 0;
+
+    let count = 0;
+    const playerItems = (player as any).items || {};
+
+    for (const slot of Object.keys(specGear)) {
+      const bisItems = specGear[slot];
+      const playerSlotItems: Item[] = playerItems[slot] || [];
+
+      if (
+        playerSlotItems.some((item) =>
+          bisItems.some((bis: Item) => bis.id === item.id)
+        )
+      ) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+
+  getHardBisCount(player: Player): number {
+    if (!player.spec || !this.gear) return 0;
+
+    const classGear = this.gear[player.class];
+    const specGear = classGear?.[player.spec];
+    if (!specGear) return 0;
+
+    let count = 0;
+    const playerItems = (player as any).items || {};
+
+    for (const slot of Object.keys(specGear)) {
+      const bestItem = specGear[slot][0];
+      if (!bestItem) continue;
+
+      const playerSlotItems: Item[] = playerItems[slot] || [];
+      if (playerSlotItems.some((item) => item.id === bestItem.id)) {
+        count++;
+      }
+    }
+
+    return count;
   }
 }
