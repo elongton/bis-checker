@@ -3,3 +3,7 @@
   margin: 24px auto;
   padding: 0 16px;
 }
+
+.table tr{
+  padding: 3px 0;
+}

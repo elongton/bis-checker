@@ -1,30 +1,23 @@
 <div class="container">
   <div style="display: flex; justify-content: space-between;">
-
-    <div class="filter mb-4">
+    <div class="filter" style="margin-bottom: 16px;">
       <label for="classFilter">Filter by Class:</label>
-      <select style="margin-left: 2px;" id="classFilter" [(ngModel)]="classFilter" (change)="updateQueryParams()">
+      <select style="margin-left: 10px;" id="classFilter" [(ngModel)]="classFilter">
         <option value="">All Classes</option>
         <option *ngFor="let cls of filteredClasses" [value]="cls">{{ cls }}</option>
       </select>
-
-      <label style="margin-left: 10px;" for="nameSearch">Search by Name:</label>
-      <input style="margin-left: 2px;" id="nameSearch" [(ngModel)]="nameSearch" (input)="updateQueryParams()" />
     </div>
-
-    <button (click)="copyTableToClipboard()">
-      {{ copied ? 'Copied!!!' : 'ASCII' }}
-    </button>
-
+    <div>
+      <button (click)="copyTableToClipboard()">
+        {{ copied ? 'Copied!!!' : 'Copy ASCII' }}
+      </button>
+    </div>
   </div>
 
-  <table class="table" style="table-layout: fixed; width: 100%; margin-top: 16px;">
+
+  <table class="table" style="width: 100%;">
     <thead>
       <tr style="text-align: left;">
-        <th style="width: 25px;">
-          <input type="checkbox" [checked]="areAllFilteredSelected()"
-            (change)="toggleSelectAll($event.target.checked)" />
-        </th>
         <th style="width: 14%" (click)="setSort('name')">
           Name
           <span *ngIf="sortColumn === 'name'">
@@ -34,6 +27,12 @@
         <th style="width: 14%" (click)="setSort('class')">
           Class
           <span *ngIf="sortColumn === 'class'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th style="width: 14%" (click)="setSort('lastSeen')">
+          Last Seen
+          <span *ngIf="sortColumn === 'lastSeen'">
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
@@ -52,20 +51,13 @@
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
-        <th  (click)="setSort('lastSeen')">
-          Last Seen
-          <span *ngIf="sortColumn === 'lastSeen'">
-            {{ sortDirection === 'asc' ? '↑' : '↓' }}
-          </span>
-        </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let player of filteredPlayers">
-        <td style="width: 25px;"><input type="checkbox" [checked]="isSelected(player.name)"
-            (change)="toggleSelection(player.name)" /></td>
         <td>{{ player.name }}</td>
         <td>{{ player.class }}</td>
+        <td>{{ player.lastSeen | date:'short' }}</td>
         <td>
           <select [(ngModel)]="player.spec" (ngModelChange)="updateSpec(player, $event)">
             <option *ngFor="let spec of getSpecOptionsForPlayer(player)" [value]="spec">{{ spec }}</option>
@@ -73,7 +65,6 @@
         </td>
         <td>{{ getSoftBisCount(player) }}</td>
         <td>{{ getHardBisCount(player) }}</td>
-        <td>{{ player.lastSeen | date:'short' }}</td>
       </tr>
     </tbody>
   </table>

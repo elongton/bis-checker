@@ -1,12 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { GearService } from "../gear.service";
 import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute, Router } from "@angular/router";
 
 interface Player {
   name: string;
   class: string;
   lastSeen: string;
   spec: string;
+  items?: Record<string, Item[]>;
 }
 
 export interface Item {
@@ -21,13 +23,28 @@ export interface Item {
 })
 export class BisListComponent implements OnInit {
   players: Player[] = [];
-  classFilter: string = "";
-  dummySpecs = ["Spec A", "Spec B", "Spec C"];
-  gear: any;
+  gear: any | null = null;
 
-  constructor(private http: HttpClient, private gearService: GearService) {}
+  classFilter: string = "";
+  nameSearch: string = "";
+  sortColumn: "name" | "class" | "lastSeen" | "softBis" | "hardBis" = "name";
+  sortDirection: "asc" | "desc" = "asc";
+  selectedNames = new Set<string>();
+  copied = false;
+
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router,
+    private gearService: GearService
+  ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.classFilter = params["class"] || "";
+      this.nameSearch = params["name"] || "";
+    });
+
     this.gearService.getLibrary().subscribe((lib) => {
       this.gear = lib;
       console.log(this.gear);
@@ -51,82 +68,189 @@ export class BisListComponent implements OnInit {
     return Array.from(classes).sort();
   }
 
-  get groupedPlayers(): Record<string, Player[]> {
-    const grouped: Record<string, Player[]> = {};
+  get filteredPlayers(): Player[] {
+    let filtered = this.players;
 
-    for (const player of this.players) {
-      if (this.classFilter && player.class !== this.classFilter) continue;
-      if (!grouped[player.class]) grouped[player.class] = [];
-      grouped[player.class].push(player);
+    if (this.classFilter) {
+      filtered = filtered.filter(
+        (p) => p.class.toLowerCase() === this.classFilter.toLowerCase()
+      );
     }
 
-    return grouped;
+    if (this.nameSearch.trim()) {
+      const lowerName = this.nameSearch.toLowerCase();
+      filtered = filtered.filter((p) =>
+        p.name.toLowerCase().includes(lowerName)
+      );
+    }
+
+    return filtered.sort((a, b) => {
+      const aVal = this.getSortValue(a);
+      const bVal = this.getSortValue(b);
+      if (aVal < bVal) return this.sortDirection === "asc" ? -1 : 1;
+      if (aVal > bVal) return this.sortDirection === "asc" ? 1 : -1;
+      return 0;
+    });
   }
 
-  updateSpec(player: Player, newSpec: string): void {
-    this.http
-      .patch(`/api/player/${encodeURIComponent(player.name)}/spec`, {
-        spec: newSpec,
-      })
-      .subscribe({
-        next: () => {}, // `player.spec` already updated by ngModel
-        error: (err) =>
-          console.error(`Failed to update spec for ${player.name}:`, err),
-      });
+  getSortValue(player: Player): any {
+    switch (this.sortColumn) {
+      case "lastSeen":
+        return new Date(player.lastSeen).getTime();
+      case "softBis":
+        return this.getSoftBisCount(player);
+      case "hardBis":
+        return this.getHardBisCount(player);
+      case "class":
+        return player.class.toLowerCase();
+      default:
+        return player.name.toLowerCase();
+    }
+  }
+
+  setSort(column: typeof this.sortColumn): void {
+    if (this.sortColumn === column) {
+      this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
+    } else {
+      this.sortColumn = column;
+      this.sortDirection = "asc";
+    }
   }
 
   getSpecOptionsForPlayer(player: Player): string[] {
     if (!this.gear) return [];
-    const classEntry = this.gear[player.class];
-    return classEntry ? Object.keys(classEntry) : [];
+    const classGear = this.gear[player.class];
+    return classGear ? Object.keys(classGear) : [];
+  }
+
+  updateSpec(player: Player, newSpec: string): void {
+    this.http
+      .patch(`/api/players/${encodeURIComponent(player.name)}/spec`, {
+        spec: newSpec,
+      })
+      .subscribe({
+        next: () => (player.spec = newSpec),
+        error: (err) => console.error("Failed to update spec:", err),
+      });
   }
 
   getSoftBisCount(player: Player): number {
     if (!player.spec || !this.gear) return 0;
-
-    const classGear = this.gear[player.class];
-    const specGear = classGear?.[player.spec];
+    const specGear = this.gear[player.class]?.[player.spec];
     if (!specGear) return 0;
-
     let count = 0;
-    const playerItems = (player as any).items || {};
-
-    for (const slot of Object.keys(specGear)) {
-      const bisItems = specGear[slot];
-      const playerSlotItems: Item[] = playerItems[slot] || [];
-
+    for (const slot in specGear) {
+      const playerItems = player.items?.[slot] || [];
       if (
-        playerSlotItems.some((item) =>
-          bisItems.some((bis: Item) => bis.id === item.id)
+        playerItems.some((item) =>
+          specGear[slot].some((bis: Item) => bis.id === item.id)
         )
       ) {
         count++;
       }
     }
-
     return count;
   }
 
   getHardBisCount(player: Player): number {
     if (!player.spec || !this.gear) return 0;
-
-    const classGear = this.gear[player.class];
-    const specGear = classGear?.[player.spec];
+    const specGear = this.gear[player.class]?.[player.spec];
     if (!specGear) return 0;
-
     let count = 0;
-    const playerItems = (player as any).items || {};
-
-    for (const slot of Object.keys(specGear)) {
-      const bestItem = specGear[slot][0];
-      if (!bestItem) continue;
-
-      const playerSlotItems: Item[] = playerItems[slot] || [];
-      if (playerSlotItems.some((item) => item.id === bestItem.id)) {
+    for (const slot in specGear) {
+      const topItem = specGear[slot][0];
+      if (!topItem) continue;
+      const playerItems = player.items?.[slot] || [];
+      if (playerItems.some((item) => item.id === topItem.id)) {
         count++;
       }
     }
-
     return count;
   }
+
+copyTableToClipboard(): void {
+  const headers = [
+    "Name",
+    "Class",
+    "Spec",
+    "Soft BiS",
+    "Hard BiS",
+    "Last Seen",
+  ];
+
+  const source = [...this.filteredPlayers].filter(
+    (p) => this.selectedNames.size === 0 || this.selectedNames.has(p.name)
+  );
+
+  const rows = source.map((player) => [
+    player.name,
+    player.class,
+    player.spec || "",
+    this.getSoftBisCount(player).toString(),
+    this.getHardBisCount(player).toString(),
+    new Date(player.lastSeen).toLocaleString(),
+  ]);
+
+  const allRows = [headers, ...rows];
+  const colWidths = headers.map((_, i) =>
+    Math.max(...allRows.map((row) => row[i].length))
+  );
+
+  const formatRow = (row: string[]) =>
+    "| " + row.map((cell, i) => cell.padEnd(colWidths[i])).join(" | ") + " |";
+
+  const divider =
+    "+-" + colWidths.map((w) => "-".repeat(w)).join("-+-") + "-+";
+
+  const tableLines = [
+    divider,
+    formatRow(headers),
+    divider,
+    ...rows.map(formatRow),
+    divider,
+  ];
+
+  const tableString = tableLines.join("\n"); // ✅ Fix here
+
+  navigator.clipboard.writeText(tableString).then(() => {
+    this.copied = true;
+    setTimeout(() => (this.copied = false), 3000);
+  });
+}
+
+  updateQueryParams(): void {
+    this.router.navigate([], {
+      queryParams: {
+        class: this.classFilter || null,
+        name: this.nameSearch || null,
+      },
+      queryParamsHandling: "merge",
+    });
+  }
+
+  toggleSelection(name: string): void {
+    if (this.selectedNames.has(name)) {
+      this.selectedNames.delete(name);
+    } else {
+      this.selectedNames.add(name);
+    }
+  }
+
+  isSelected(name: string): boolean {
+    return this.selectedNames.has(name);
+  }
+
+  areAllFilteredSelected(): boolean {
+  return this.filteredPlayers.every(player => this.selectedNames.has(player.name));
+}
+
+toggleSelectAll(checked: boolean): void {
+  if (checked) {
+    for (const player of this.filteredPlayers) {
+      this.selectedNames.add(player.name);
+    }
+  } else {
+    this.selectedNames.clear(); // uncheck all, globally
+  }
+}
 }

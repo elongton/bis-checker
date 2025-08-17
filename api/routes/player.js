@@ -120,7 +120,7 @@ async function upsertPlayers(players) {
   }
 }
 
-router.post("/", express.text({ type: "*/*" }), async (req, res) => {
+router.post("/", express.text({ type: "*/*", limit: "2mb" }), async (req, res) => {
   const luaText = req.body;
   if (typeof luaText !== "string") {
     return res
