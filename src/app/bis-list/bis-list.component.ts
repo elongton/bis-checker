@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { GearService } from "../gear.service";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
+import { AuthService } from "../auth.service";
 
 interface Player {
   name: string;
@@ -9,6 +10,7 @@ interface Player {
   lastSeen: string;
   spec: string;
   items?: Record<string, Item[]>;
+  core: boolean
 }
 
 export interface Item {
@@ -31,12 +33,14 @@ export class BisListComponent implements OnInit {
   sortDirection: "asc" | "desc" = "asc";
   selectedNames = new Set<string>();
   copied = false;
+  $user = this.auth.$user;
 
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-    private gearService: GearService
+    private gearService: GearService,
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -168,55 +172,57 @@ export class BisListComponent implements OnInit {
     return count;
   }
 
-copyTableToClipboard(): void {
-  const headers = [
-    "Name",
-    "Class",
-    "Spec",
-    "Soft BiS",
-    "Hard BiS",
-    "Last Seen",
-  ];
+  copyTableToClipboard(): void {
+    const headers = [
+      "Name",
+      "Class",
+      "Spec",
+      "Soft BiS",
+      "Hard BiS",
+      "Last Seen",
+      "Core Raider"
+    ];
 
-  const source = [...this.filteredPlayers].filter(
-    (p) => this.selectedNames.size === 0 || this.selectedNames.has(p.name)
-  );
+    const source = [...this.filteredPlayers].filter(
+      (p) => this.selectedNames.size === 0 || this.selectedNames.has(p.name)
+    );
 
-  const rows = source.map((player) => [
-    player.name,
-    player.class,
-    player.spec || "",
-    this.getSoftBisCount(player).toString(),
-    this.getHardBisCount(player).toString(),
-    new Date(player.lastSeen).toLocaleString(),
-  ]);
+    const rows = source.map((player) => [
+      player.name,
+      player.class,
+      player.spec || "",
+      this.getSoftBisCount(player).toString(),
+      this.getHardBisCount(player).toString(),
+      new Date(player.lastSeen).toLocaleString(),
+      player.core ? "Yes" : "No"
+    ]);
 
-  const allRows = [headers, ...rows];
-  const colWidths = headers.map((_, i) =>
-    Math.max(...allRows.map((row) => row[i].length))
-  );
+    const allRows = [headers, ...rows];
+    const colWidths = headers.map((_, i) =>
+      Math.max(...allRows.map((row) => row[i].length))
+    );
 
-  const formatRow = (row: string[]) =>
-    "| " + row.map((cell, i) => cell.padEnd(colWidths[i])).join(" | ") + " |";
+    const formatRow = (row: string[]) =>
+      "| " + row.map((cell, i) => cell.padEnd(colWidths[i])).join(" | ") + " |";
 
-  const divider =
-    "+-" + colWidths.map((w) => "-".repeat(w)).join("-+-") + "-+";
+    const divider =
+      "+-" + colWidths.map((w) => "-".repeat(w)).join("-+-") + "-+";
 
-  const tableLines = [
-    divider,
-    formatRow(headers),
-    divider,
-    ...rows.map(formatRow),
-    divider,
-  ];
+    const tableLines = [
+      divider,
+      formatRow(headers),
+      divider,
+      ...rows.map(formatRow),
+      divider,
+    ];
 
-  const tableString = tableLines.join("\n"); // ✅ Fix here
+    const tableString = tableLines.join("\n"); // ✅ Fix here
 
-  navigator.clipboard.writeText(tableString).then(() => {
-    this.copied = true;
-    setTimeout(() => (this.copied = false), 3000);
-  });
-}
+    navigator.clipboard.writeText(tableString).then(() => {
+      this.copied = true;
+      setTimeout(() => (this.copied = false), 3000);
+    });
+  }
 
   updateQueryParams(): void {
     this.router.navigate([], {
@@ -241,16 +247,34 @@ copyTableToClipboard(): void {
   }
 
   areAllFilteredSelected(): boolean {
-  return this.filteredPlayers.every(player => this.selectedNames.has(player.name));
-}
-
-toggleSelectAll(checked: boolean): void {
-  if (checked) {
-    for (const player of this.filteredPlayers) {
-      this.selectedNames.add(player.name);
-    }
-  } else {
-    this.selectedNames.clear(); // uncheck all, globally
+    return this.filteredPlayers.every((player) =>
+      this.selectedNames.has(player.name)
+    );
   }
-}
+
+  toggleSelectAll(checked: boolean): void {
+    if (checked) {
+      for (const player of this.filteredPlayers) {
+        this.selectedNames.add(player.name);
+      }
+    } else {
+      this.selectedNames.clear(); // uncheck all, globally
+    }
+  }
+
+  toggleCore(player: any): void {
+    const newValue = !player.core;
+
+    this.http
+      .patch(`/api/player/${player.name}/core`, { core: newValue })
+      .subscribe({
+        next: () => {
+          player.core = newValue; // optimistically update UI
+        },
+        error: (err) => {
+          console.error(`Failed to update core for ${player.name}`, err);
+          // Optionally revert checkbox state or show error to user
+        },
+      });
+  }
 }

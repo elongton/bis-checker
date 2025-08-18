@@ -91,6 +91,7 @@ async function upsertPlayers(players) {
         name,
         class: playerClass,
         spec: "", // add default spec
+        core: false, // add default core
       },
       $set: {},
     };
@@ -196,6 +197,35 @@ router.get("/", async (req, res) => {
   } catch (err) {
     console.error("Failed to fetch all players:", err);
     res.status(500).json({ error: "Failed to retrieve players" });
+  }
+});
+
+router.patch("/:name/core", async (req, res) => {
+  const playerName = req.params.name;
+  const { core } = req.body;
+
+  if (typeof core !== "boolean") {
+    return res.status(400).json({ error: "`core` must be a boolean" });
+  }
+
+  try {
+    const db = await connect();
+    const collection = db.collection("players");
+
+    const result = await collection.findOneAndUpdate(
+      { name: playerName },
+      { $set: { core } },
+      { returnDocument: "after" }
+    );
+
+    if (!result) {
+      return res.status(404).json({ error: `Player '${playerName}' not found` });
+    }
+
+    res.json(result);
+  } catch (err) {
+    console.error("Failed to update core status:", err);
+    res.status(500).json({ error: "Failed to update core status" });
   }
 });
 

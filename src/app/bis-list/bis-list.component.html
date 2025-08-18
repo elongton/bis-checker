@@ -52,12 +52,13 @@
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
-        <th  (click)="setSort('lastSeen')">
+        <th (click)="setSort('lastSeen')">
           Last Seen
           <span *ngIf="sortColumn === 'lastSeen'">
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
+        <th style="text-align: center;">Core Raider</th>
       </tr>
     </thead>
     <tbody>
@@ -67,13 +68,18 @@
         <td>{{ player.name }}</td>
         <td>{{ player.class }}</td>
         <td>
-          <select [(ngModel)]="player.spec" (ngModelChange)="updateSpec(player, $event)">
+          <select *ngIf="$user | async as user" [(ngModel)]="player.spec" (ngModelChange)="updateSpec(player, $event)">
             <option *ngFor="let spec of getSpecOptionsForPlayer(player)" [value]="spec">{{ spec }}</option>
           </select>
+          <span *ngIf="!( $user | async )">{{ player.spec }}</span>
         </td>
         <td>{{ getSoftBisCount(player) }}</td>
         <td>{{ getHardBisCount(player) }}</td>
         <td>{{ player.lastSeen | date:'short' }}</td>
+        <td style="text-align: center;">
+          <input *ngIf="$user | async as user" type="checkbox" [checked]="player.core" (change)="toggleCore(player)" />
+          <span *ngIf="!( $user | async )">{{ player.core ? '✔' : 'No' }}</span>
+        </td>
       </tr>
     </tbody>
   </table>
