@@ -29,11 +29,12 @@ export class BisListComponent implements OnInit {
 
   classFilter: string = "";
   nameSearch: string = "";
-  sortColumn: "name" | "class" | "lastSeen" | "softBis" | "hardBis" = "name";
+  sortColumn: "coreRaider" | "name" | "class" | "lastSeen" | "softBis" | "hardBis" = "name";
   sortDirection: "asc" | "desc" = "asc";
   selectedNames = new Set<string>();
   copied = false;
   $user = this.auth.$user;
+  editMode = false;
 
   constructor(
     private http: HttpClient,
@@ -44,6 +45,10 @@ export class BisListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (localStorage.getItem("edit_pw") == "crashout!"){
+      this.editMode = true;
+    }
+
     this.route.queryParams.subscribe((params) => {
       this.classFilter = params["class"] || "";
       this.nameSearch = params["name"] || "";
@@ -107,6 +112,8 @@ export class BisListComponent implements OnInit {
         return this.getHardBisCount(player);
       case "class":
         return player.class.toLowerCase();
+      case "coreRaider":
+        return player.core ? 1 : 0; // Sort core raiders first
       default:
         return player.name.toLowerCase();
     }
@@ -130,7 +137,7 @@ export class BisListComponent implements OnInit {
   updateSpec(player: Player, newSpec: string): void {
     this.http
       .patch(`/api/player/${encodeURIComponent(player.name)}/spec`, {
-        spec: newSpec,
+        spec: newSpec
       })
       .subscribe({
         next: () => (player.spec = newSpec),
@@ -277,4 +284,24 @@ export class BisListComponent implements OnInit {
         },
       });
   }
+
+    tryToggleEdit() {
+    if (!this.editMode) {
+      if (localStorage.getItem("edit_pw") == "crashout!") {
+        this.editMode = true;
+        return;
+      }
+      const pw = window.prompt("Enter password to enable edit mode:");
+      if (pw === "crashout!") {
+        localStorage.setItem("edit_pw", "crashout!");
+        this.editMode = true;
+      } else {
+        alert("Incorrect password.");
+      }
+    } else {
+      // turning off edit mode without saving
+      this.editMode = false;
+    }
+  }
+
 }

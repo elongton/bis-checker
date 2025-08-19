@@ -12,9 +12,12 @@
       <input style="margin-left: 2px;" id="nameSearch" [(ngModel)]="nameSearch" (input)="updateQueryParams()" />
     </div>
 
-    <button (click)="copyTableToClipboard()">
-      {{ copied ? 'Copied!!!' : 'ASCII' }}
-    </button>
+    <div style="display: flex; align-items: center;">
+      <button *ngIf="!editMode && ($user | async)" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
+      <button style="margin-left: 10px;" (click)="copyTableToClipboard()">
+        {{ copied ? 'Copied!!!' : 'ASCII' }}
+      </button>
+    </div>
 
   </div>
 
@@ -58,28 +61,35 @@
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
-        <th style="text-align: center;">Core Raider</th>
+        <th (click)="setSort('coreRaider')" style="text-align: center;">Core Raider
+          <span *ngIf="sortColumn === 'coreRaider'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let player of filteredPlayers">
         <td style="width: 25px;"><input type="checkbox" [checked]="isSelected(player.name)"
             (change)="toggleSelection(player.name)" /></td>
-        <td><a style="text-decoration: none;" [routerLink]="['/bis-list/player', player.name]">{{ player.name }}</a></td>
+        <td><a style="text-decoration: none;" [routerLink]="['/bis-list/player', player.name]">{{ player.name }}</a>
+        </td>
         <td>{{ player.class }}</td>
         <td>
-          <select *ngIf="$user | async as user" [(ngModel)]="player.spec" (ngModelChange)="updateSpec(player, $event)">
+          <select *ngIf="editMode && ($user | async) as user" [(ngModel)]="player.spec"
+            (ngModelChange)="updateSpec(player, $event)">
             <option [value]="spec"></option>
             <option *ngFor="let spec of getSpecOptionsForPlayer(player)" [value]="spec">{{ spec }}</option>
           </select>
-          <span *ngIf="!( $user | async )">{{ player.spec }}</span>
+          <span *ngIf="!( $user | async ) || !editMode">{{ player.spec == "undefined" ? null : player.spec }}</span>
         </td>
         <td>{{ getSoftBisCount(player) }}</td>
         <td>{{ getHardBisCount(player) }}</td>
         <td>{{ player.lastSeen | date:'short' }}</td>
         <td style="text-align: center;">
-          <input *ngIf="$user | async as user" type="checkbox" [checked]="player.core" (change)="toggleCore(player)" />
-          <span *ngIf="!( $user | async )">{{ player.core ? '✔' : 'No' }}</span>
+          <input *ngIf="editMode && ($user | async) as userr" type="checkbox" [checked]="player.core"
+            (change)="toggleCore(player)" />
+          <span *ngIf="!( $user | async ) || !editMode">{{ player.core ? '✔' : 'No' }}</span>
         </td>
       </tr>
     </tbody>
