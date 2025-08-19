@@ -13,6 +13,7 @@ import { SpecDetailComponent } from "./bis-admin/spec-details/spec-detail.compon
 import { LogsComponent } from "./logs/logs.component";
 import { CeilPipe } from "./ceil.pipe";
 import { BisListComponent } from "./bis-list/bis-list.component";
+import { PlayerComponent } from "./bis-list/player/player.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BisListComponent } from "./bis-list/bis-list.component";
     SpecDetailComponent,
     CeilPipe,
     BisListComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { BisListComponent } from "./bis-list/bis-list.component";
     RouterModule.forRoot([
       { path: "logs", component: LogsComponent },
       { path: "bis-list", component: BisListComponent },
+      { path: "bis-list/player/:name", component: PlayerComponent },
       { path: "bis-admin/:cls", component: ClassTabsComponent },
       { path: "bis-admin/:cls/:spec", component: ClassTabsComponent },
       { path: "bis-admin", redirectTo: "bis-admin/warrior/prot" },

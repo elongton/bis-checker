@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngIf="loading">Loading...</div>
+    <div *ngIf="error">{{ error }}</div>
+
+    <div *ngIf="player && !loading">
+        <h2>{{ player.name }} <span>({{ player.class }})</span></h2>
+        <p><strong>Last Seen:</strong> {{ player.lastSeen | date: 'medium' }}</p>
+        <p><strong>Spec:</strong> {{ player.spec || 'Not set' }}</p>
+        <p><strong>Core:</strong> {{ player.core ? 'Yes' : 'No' }}</p>
+
+        <h3>Gear</h3>
+        <div *ngFor="let slot of getItemSlots(player.items)">
+            <h4>{{ slot }}</h4>
+            <ul>
+                <li *ngFor="let item of player.items[slot]">
+                    <a [href]="wowhead(item.id)" target="_blank" rel="noopener">{{ item.name }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

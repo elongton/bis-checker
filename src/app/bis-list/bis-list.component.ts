@@ -129,7 +129,7 @@ export class BisListComponent implements OnInit {
 
   updateSpec(player: Player, newSpec: string): void {
     this.http
-      .patch(`/api/players/${encodeURIComponent(player.name)}/spec`, {
+      .patch(`/api/player/${encodeURIComponent(player.name)}/spec`, {
         spec: newSpec,
       })
       .subscribe({

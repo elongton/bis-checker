@@ -121,24 +121,28 @@ async function upsertPlayers(players) {
   }
 }
 
-router.post("/", express.text({ type: "*/*", limit: "2mb" }), async (req, res) => {
-  const luaText = req.body;
-  if (typeof luaText !== "string") {
-    return res
-      .status(400)
-      .json({ error: "Expected raw Lua file text in the body" });
-  }
+router.post(
+  "/",
+  express.text({ type: "*/*", limit: "2mb" }),
+  async (req, res) => {
+    const luaText = req.body;
+    if (typeof luaText !== "string") {
+      return res
+        .status(400)
+        .json({ error: "Expected raw Lua file text in the body" });
+    }
 
-  try {
-    const players = extractPlayersFromLua(luaText);
-    // res.json(players)
-    await upsertPlayers(players);
-    res.json({ message: "Players processed", count: players.length });
-  } catch (error) {
-    console.error("Error parsing Lua file:", error);
-    res.status(500).json({ error: "Failed to parse players" });
+    try {
+      const players = extractPlayersFromLua(luaText);
+      // res.json(players)
+      await upsertPlayers(players);
+      res.json({ message: "Players processed", count: players.length });
+    } catch (error) {
+      console.error("Error parsing Lua file:", error);
+      res.status(500).json({ error: "Failed to parse players" });
+    }
   }
-});
+);
 
 router.get("/:className", async (req, res) => {
   const className = req.params.className.toUpperCase();
@@ -219,13 +223,36 @@ router.patch("/:name/core", async (req, res) => {
     );
 
     if (!result) {
-      return res.status(404).json({ error: `Player '${playerName}' not found` });
+      return res
+        .status(404)
+        .json({ error: `Player '${playerName}' not found` });
     }
 
     res.json(result);
   } catch (err) {
     console.error("Failed to update core status:", err);
     res.status(500).json({ error: "Failed to update core status" });
+  }
+});
+
+router.get("/:name/details", async (req, res) => {
+  const playerName = req.params.name;
+
+  try {
+    const db = await connect();
+    const collection = db.collection("players");
+    const player = await collection.findOne({ name: playerName });
+
+    if (!player) {
+      return res
+        .status(404)
+        .json({ error: `Player '${playerName}' not found` });
+    }
+
+    res.json(player);
+  } catch (err) {
+    console.error("Failed to fetch player details:", err);
+    res.status(500).json({ error: "Failed to retrieve player details" });
   }
 });
 
