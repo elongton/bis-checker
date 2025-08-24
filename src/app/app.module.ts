@@ -13,7 +13,9 @@ import { SpecDetailComponent } from "./bis-admin/spec-details/spec-detail.compon
 import { LogsComponent } from "./logs/logs.component";
 import { CeilPipe } from "./ceil.pipe";
 import { BisListComponent } from "./bis-list/bis-list.component";
-import { PlayerComponent } from "./bis-list/player/player.component";
+import { PlayerComponent } from "./player-detail/player.component";
+import { GearImageComponent } from "./components/gear-image/gear-image.component";
+import { CharacterSheetComponent, SlotComponent } from "./components/character-sheet/character-sheet.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +27,9 @@ import { PlayerComponent } from "./bis-list/player/player.component";
     CeilPipe,
     BisListComponent,
     PlayerComponent,
+    GearImageComponent,
+    CharacterSheetComponent,
+    SlotComponent
   ],
   imports: [
     BrowserModule,

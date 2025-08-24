@@ -8,14 +8,18 @@
         <p><strong>Spec:</strong> {{ player.spec || 'Not set' }}</p>
         <p><strong>Core:</strong> {{ player.core ? 'Yes' : 'No' }}</p>
 
-        <h3>Gear</h3>
+
+        <character-sheet [player]="player"></character-sheet>
+        <!-- <h3>Gear</h3>
         <div *ngFor="let slot of getItemSlots(player.items)">
+            
             <h4>{{ slot }}</h4>
             <ul>
                 <li *ngFor="let item of player.items[slot]">
+                    <gear-image [itemId]="item.id"/>
                     <a [href]="wowhead(item.id)" target="_blank" rel="noopener">{{ item.name }}</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </div>

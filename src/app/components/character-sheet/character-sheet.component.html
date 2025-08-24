@@ -1,0 +1,44 @@
+<div class="character-sheet" *ngIf="player">
+    <div style="display: flex;">
+        <div class="left-column">
+            <slot-component [bisListItems]="getBisListItems('HeadSlot')" [slot]="player.items.HeadSlot" />
+            <slot-component [bisListItems]="getBisListItems('NeckSlot')" [slot]="player.items.NeckSlot" />
+            <slot-component [bisListItems]="getBisListItems('ShoulderSlot')" [slot]="player.items.ShoulderSlot" />
+            <slot-component [bisListItems]="getBisListItems('BackSlot')" [slot]="player.items.BackSlot" />
+            <slot-component [bisListItems]="getBisListItems('ChestSlot')" [slot]="player.items.ChestSlot" />
+            <slot-component [bisListItems]="getBisListItems('ShirtSlot')" [slot]="player.items.ShirtSlot" />
+            <div class="frame iron" id="tabard-slot"></div>
+            <slot-component [bisListItems]="getBisListItems('WristSlot')" [slot]="player.items.WristSlot" />
+        </div>
+        <div class="right-column">
+            <slot-component [bisListItems]="getBisListItems('HandsSlot')" [slot]="player.items.HandsSlot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('WaistSlot')" [slot]="player.items.WaistSlot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('LegsSlot')" [slot]="player.items.LegsSlot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('FeetSlot')" [slot]="player.items.FeetSlot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('Finger0Slot')" [slot]="player.items.Finger0Slot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('Finger1Slot')" [slot]="player.items.Finger1Slot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('Trinket0Slot')" [slot]="player.items.Trinket0Slot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('Trinket1Slot')" [slot]="player.items.Trinket1Slot" [right]="true" />
+        </div>
+    </div>
+    <div style="margin-top: 25px;" class="row">
+        <div>
+            <div class="frame iron" id="main-hand-slot"><gear-image [itemId]="player.items.MainHandSlot?.[0]?.id" /></div>
+            <div class="gear-options">
+                <div *ngFor="let item of player.items.MainHandSlot"><a [href]="wowhead(item.id)" target="_blank">{{item.name}}</a></div>
+            </div>
+        </div>
+        <div>
+            <div class="frame iron" id="off-hand-slot"><gear-image [itemId]="player.items.SecondaryHandSlot?.[0]?.id" /></div>
+            <div class="gear-options">
+                <div *ngFor="let item of player.items.SecondaryHandSlot"><a [href]="wowhead(item.id)" target="_blank">{{item.name}}</a></div>
+            </div>
+        </div>
+        <div>
+            <div class="frame iron" id="ranged-slot"><gear-image [itemId]="player.items.RangedSlot?.[0]?.id" /></div>
+            <div class="gear-options">
+                <div *ngFor="let item of player.items.RangedSlot"><a [href]="wowhead(item.id)" target="_blank">{{item.name}}</a></div>
+            </div>
+        </div>
+    </div>
+</div>

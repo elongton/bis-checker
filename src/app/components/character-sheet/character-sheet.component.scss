@@ -1,0 +1,96 @@
+.character-sheet {
+  display: inline-flex;  
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;;
+}
+.left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.left-column > slot-component, .right-column > slot-component {
+  display: flex;
+  width: auto;
+}
+
+.frame {
+  width: 64px;
+  height: 64px;
+}
+.iron {
+  display: inline-block;
+  padding: 3px; /* border thickness */
+  border-radius: 3px; /* optional */
+
+  /* Metallic gradient border */
+  background: linear-gradient(
+    to bottom,
+    #dcdcdc 0%,
+    /* light gray highlight */ #b0b0b0 30%,
+    /* brushed steel midtone */ #7f8c8d 70%,
+    /* deeper gray */ #4d4d4d 100% /* shadow base */
+  );
+}
+
+.iron > img {
+  display: block;
+  border-radius: 6px;
+  background: #000;
+}
+
+.gold {
+  display: inline-block;
+  padding: 3px; /* thickness of the border */
+  border-radius: 3px; /* optional, can combine with chamfer trick */
+
+  background: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    /* bright gold */ #f7e27e 25%,
+    /* light highlight */ #d4af37 50%,
+    /* core gold */ #b8860b 75%,
+    /* darker shadow */ #f7e27e 100% /* highlight again */
+  );
+  background-size: 200% 200%; /* for animation */
+}
+
+.gold > img {
+  display: block;
+  border-radius: 8px;
+  background: #000;
+  /* Make sure the image sits “inside” the border */
+}
+
+
+.gear-options a{
+    color: darkviolet;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.gear-options div:not(:first-child) a {
+  font-size: 0.8em;   /* slightly smaller */
+  color: #777;        /* grey */
+  font-weight: normal;
+}
+
+.hard-bis-indicator {
+  color: gold;
+}
+.soft-bis-indicator {
+  color: silver;
+}

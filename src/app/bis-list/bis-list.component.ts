@@ -56,9 +56,7 @@ export class BisListComponent implements OnInit {
 
     this.gearService.getLibrary().subscribe((lib) => {
       this.gear = lib;
-      console.log(this.gear);
       this.loadPlayers();
-      console.log(this.players);
     });
   }
 
@@ -66,7 +64,6 @@ export class BisListComponent implements OnInit {
     this.http.get<Player[]>("/api/player").subscribe({
       next: (data) => {
         this.players = data;
-        console.log(data);
       },
       error: (err) => console.error("Failed to fetch players:", err),
     });
