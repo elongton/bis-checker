@@ -72,7 +72,7 @@
       <tr *ngFor="let player of filteredPlayers">
         <td style="width: 25px;"><input type="checkbox" [checked]="isSelected(player.name)"
             (change)="toggleSelection(player.name)" /></td>
-        <td><a style="text-decoration: none;" [routerLink]="['/bis-list/player', player.name]">{{ player.name }}</a>
+        <td><a style="text-decoration: none;" [routerLink]="['/players', player.name]">{{ player.name }}</a>
         </td>
         <td>{{ player.class }}</td>
         <td>

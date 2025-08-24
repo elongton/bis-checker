@@ -30,13 +30,13 @@ export class CharacterSheetComponent implements OnInit {
 @Component({
   selector: "slot-component",
   template: `
-    <div *ngIf="!right" class="frame iron" id="head-slot">
+    <div *ngIf="position == 'left' || position == 'bottom'" class="frame iron" id="head-slot">
       <gear-image [itemId]="slot?.[0]?.id" />
     </div>
     <div
       class="gear-options"
-      style="padding: 5px;"
-      [style.textAlign]="right ? 'right' : 'left'"
+      [style.padding]= "position == 'right' || position == 'left' ? '5px' : '5px 0'"
+      [style.textAlign]="position == 'right' ? 'right' : 'left'"
     >
       <div *ngFor="let item of slot">
         <span *ngIf="isHardBis(item)" class="hard-bis-indicator" title="Hard BiS">★</span>
@@ -44,7 +44,7 @@ export class CharacterSheetComponent implements OnInit {
         <a [href]="wowhead(item.id)" target="_blank">{{ item.name }}</a>
       </div>
     </div>
-    <div *ngIf="right" class="frame iron" id="head-slot">
+    <div *ngIf="position == 'right'" class="frame iron" id="head-slot">
       <gear-image [itemId]="slot?.[0]?.id" />
     </div>
   `,
@@ -53,7 +53,7 @@ export class CharacterSheetComponent implements OnInit {
 export class SlotComponent {
   wowhead = GearService.wowheadUrl;
   @Input() slot: Item[] | null = null;
-  @Input() right: boolean = false;
+  @Input() position: 'left' | 'right' | 'bottom' = 'left';
   @Input() bisListItems: any | null = null;
   constructor() {}
 

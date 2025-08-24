@@ -11,34 +11,19 @@
             <slot-component [bisListItems]="getBisListItems('WristSlot')" [slot]="player.items.WristSlot" />
         </div>
         <div class="right-column">
-            <slot-component [bisListItems]="getBisListItems('HandsSlot')" [slot]="player.items.HandsSlot" [right]="true" />
-            <slot-component [bisListItems]="getBisListItems('WaistSlot')" [slot]="player.items.WaistSlot" [right]="true" />
-            <slot-component [bisListItems]="getBisListItems('LegsSlot')" [slot]="player.items.LegsSlot" [right]="true" />
-            <slot-component [bisListItems]="getBisListItems('FeetSlot')" [slot]="player.items.FeetSlot" [right]="true" />
-            <slot-component [bisListItems]="getBisListItems('Finger0Slot')" [slot]="player.items.Finger0Slot" [right]="true" />
-            <slot-component [bisListItems]="getBisListItems('Finger1Slot')" [slot]="player.items.Finger1Slot" [right]="true" />
-            <slot-component [bisListItems]="getBisListItems('Trinket0Slot')" [slot]="player.items.Trinket0Slot" [right]="true" />
-            <slot-component [bisListItems]="getBisListItems('Trinket1Slot')" [slot]="player.items.Trinket1Slot" [right]="true" />
+            <slot-component [bisListItems]="getBisListItems('HandsSlot')" [slot]="player.items.HandsSlot" position="right" />
+            <slot-component [bisListItems]="getBisListItems('WaistSlot')" [slot]="player.items.WaistSlot" position="right" />
+            <slot-component [bisListItems]="getBisListItems('LegsSlot')" [slot]="player.items.LegsSlot" position="right" />
+            <slot-component [bisListItems]="getBisListItems('FeetSlot')" [slot]="player.items.FeetSlot" position="right" />
+            <slot-component [bisListItems]="getBisListItems('Finger0Slot')" [slot]="player.items.Finger0Slot" position="right" />
+            <slot-component [bisListItems]="getBisListItems('Finger1Slot')" [slot]="player.items.Finger1Slot" position="right" />
+            <slot-component [bisListItems]="getBisListItems('Trinket0Slot')" [slot]="player.items.Trinket0Slot" position="right" />
+            <slot-component [bisListItems]="getBisListItems('Trinket1Slot')" [slot]="player.items.Trinket1Slot" position="right" />
         </div>
     </div>
     <div style="margin-top: 25px;" class="row">
-        <div>
-            <div class="frame iron" id="main-hand-slot"><gear-image [itemId]="player.items.MainHandSlot?.[0]?.id" /></div>
-            <div class="gear-options">
-                <div *ngFor="let item of player.items.MainHandSlot"><a [href]="wowhead(item.id)" target="_blank">{{item.name}}</a></div>
-            </div>
-        </div>
-        <div>
-            <div class="frame iron" id="off-hand-slot"><gear-image [itemId]="player.items.SecondaryHandSlot?.[0]?.id" /></div>
-            <div class="gear-options">
-                <div *ngFor="let item of player.items.SecondaryHandSlot"><a [href]="wowhead(item.id)" target="_blank">{{item.name}}</a></div>
-            </div>
-        </div>
-        <div>
-            <div class="frame iron" id="ranged-slot"><gear-image [itemId]="player.items.RangedSlot?.[0]?.id" /></div>
-            <div class="gear-options">
-                <div *ngFor="let item of player.items.RangedSlot"><a [href]="wowhead(item.id)" target="_blank">{{item.name}}</a></div>
-            </div>
-        </div>
+        <slot-component [bisListItems]="getBisListItems('MainHandSlot')" [slot]="player.items.MainHandSlot" position="bottom" />
+        <slot-component [bisListItems]="getBisListItems('SecondaryHandSlot')" [slot]="player.items.SecondaryHandSlot" position="bottom" />
+        <slot-component [bisListItems]="getBisListItems('RangedSlot')" [slot]="player.items.RangedSlot" position="bottom" />
     </div>
 </div>

@@ -39,12 +39,12 @@ import { CharacterSheetComponent, SlotComponent } from "./components/character-s
 
     RouterModule.forRoot([
       { path: "logs", component: LogsComponent },
-      { path: "bis-list", component: BisListComponent },
-      { path: "bis-list/player/:name", component: PlayerComponent },
-      { path: "bis-admin/:cls", component: ClassTabsComponent },
-      { path: "bis-admin/:cls/:spec", component: ClassTabsComponent },
-      { path: "bis-admin", redirectTo: "bis-admin/warrior/prot" },
-      { path: "", redirectTo: "bis-admin/warrior/prot", pathMatch: "full" },
+      { path: "players", component: BisListComponent },
+      { path: "players/:name", component: PlayerComponent },
+      { path: "bis-list/:cls", component: ClassTabsComponent },
+      { path: "bis-list/:cls/:spec", component: ClassTabsComponent },
+      { path: "bis-list", redirectTo: "bis-list/warrior/prot" },
+      { path: "", redirectTo: "bis-list/warrior/prot", pathMatch: "full" },
       { path: "**", redirectTo: "" },
     ]),
   ],

@@ -4,10 +4,10 @@
     <div class="global-header">
       <div class="gh-left">
         <span class="logo">CRASHOUT</span>
-        <span style="margin-left: 15px;"><a routerLink="/bis-list">BiS List</a> </span>
+        <span style="margin-left: 15px;"><a routerLink="/players">Players</a> </span>
       </div>
       <div class="gh-right">
-        <span><a routerLink="/bis-admin">Admin</a> </span>
+        <span><a routerLink="/bis-list">BiS Lists</a> </span>
         <button style="margin-left: 15px;" *ngIf="!($user | async)" (click)="login()">Login</button>
         <img style="margin-left: 15px;" *ngIf="$user | async as user"
           [src]="'https://cdn.discordapp.com/avatars/' + user.id + '/' + user.avatar + '.png'" class="profile-pic"
