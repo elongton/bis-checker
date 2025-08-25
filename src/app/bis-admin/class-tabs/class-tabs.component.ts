@@ -99,8 +99,8 @@ export class ClassTabsComponent implements OnDestroy {
       cls.toLowerCase(),
       this.classSpecs(cls)[0]?.toLowerCase() || "",
     ];
-    if (pair[1]) this.router.navigate(["/bis-admin/", pair[0], pair[1]]);
-    else this.router.navigate(["/bis-admin/", pair[0]]);
+    if (pair[1]) this.router.navigate(["/bis-list/", pair[0], pair[1]]);
+    else this.router.navigate(["/bis-list/", pair[0]]);
   }
 
   openSpec(cls: string, spec: string, pushRoute: boolean = true) {
@@ -108,7 +108,7 @@ export class ClassTabsComponent implements OnDestroy {
     this.selectedSpec = spec;
     if (pushRoute)
       this.router.navigate([
-        "/bis-admin/",
+        "/bis-list/",
         cls.toLowerCase(),
         spec.toLowerCase(),
       ]);

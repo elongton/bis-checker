@@ -44,7 +44,7 @@ import { CharacterSheetComponent, SlotComponent } from "./components/character-s
       { path: "bis-list/:cls", component: ClassTabsComponent },
       { path: "bis-list/:cls/:spec", component: ClassTabsComponent },
       { path: "bis-list", redirectTo: "bis-list/warrior/prot" },
-      { path: "", redirectTo: "bis-list/warrior/prot", pathMatch: "full" },
+      { path: "", redirectTo: "players", pathMatch: "full" },
       { path: "**", redirectTo: "" },
     ]),
   ],
