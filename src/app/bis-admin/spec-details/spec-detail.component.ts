@@ -32,17 +32,17 @@ export class SpecDetailComponent implements OnChanges, OnInit {
   busy: Record<string, boolean> = {};
   error: Record<string, string> = {};
 
-  constructor(private gear: GearService, private blizz: BlizzardService, private route: ActivatedRoute,) {}
+  constructor(private gear: GearService, private blizz: BlizzardService, private route: ActivatedRoute,) { }
 
 
   ngOnInit() {
-    this.cls = this.route.snapshot.paramMap.get('cls');
-    this.spec = this.route.snapshot.paramMap.get('spec');
-
-    console.log('SpecDetail init')
-    console.log(this.cls)
-    console.log(this.spec)
-
+    this.route.paramMap.subscribe((params) => {
+      this.cls = params.get('cls');
+      this.spec = params.get('spec');
+      console.log('SpecDetail paramMap change')
+      console.log(this.cls)
+      console.log(this.spec)
+    })
   }
 
   ngOnChanges(_: SimpleChanges) {
@@ -79,7 +79,7 @@ export class SpecDetailComponent implements OnChanges, OnInit {
       arr[idx] = { id: item.id, name: item.name };
       this.gear.mutateSlot(this.cls, this.spec, slot, arr);
       this.cancelEdit(slot, idx);
-    } catch (e:any) {
+    } catch (e: any) {
       this.error[k] = 'Lookup failed. Check the ID.';
     } finally {
       this.busy[k] = false;
@@ -112,7 +112,7 @@ export class SpecDetailComponent implements OnChanges, OnInit {
       arr.push({ id: item.id, name: item.name });
       this.gear.mutateSlot(this.cls, this.spec, slot, arr);
       this.cancelAdd(slot);
-    } catch (e:any) {
+    } catch (e: any) {
       this.error[k] = 'Lookup failed. Check the ID.';
     } finally {
       this.busy[k] = false;

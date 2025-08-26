@@ -49,7 +49,7 @@ import { LowerCasePipe } from "./pipes/lowercase.pipe";
       { path: "players/:name", component: PlayerDetailComponent },
       { path: "bis-list/:cls", component: ClassTabsComponent },
       { path: "bis-list/:cls/:spec", component: ClassTabsComponent },
-      { path: "bis-list", redirectTo: "bis-list/WARRIOR/fury" },
+      { path: "bis-list", redirectTo: "bis-list/WARRIOR/Fury" },
       { path: "", redirectTo: "players", pathMatch: "full" },
       { path: "**", redirectTo: "" },
     ]),
