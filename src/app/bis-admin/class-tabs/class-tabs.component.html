@@ -3,36 +3,26 @@
 
     <!-- Class Buttons -->
     <div class="tabs-classes">
-      <button *ngFor="let cls of classes; index as i; trackBy: trackByClass"
-        [ngStyle]="{ 'background-color': i === active ? '#1E88E5' : 'transparent', 'color': i === active ? 'white' : 'inherit' }"
-        (click)="active=i; openClass(cls)" role="tab" [attr.aria-selected]="i===active">
-        {{ cls }}
-      </button>
+      <a *ngFor="let cls of classes" [routerLink]="['/bis-list', cls, getFirstSpec(cls)]" routerLinkActive="active-spec">{{cls | capitalizeFirst}}</a>
 
     </div>
     <div>
-      <button class="json-btn" (click)="downloadGearJson()" title="Get JSON">📋 JSON</button>
+      <button *ngIf="!editMode" appButton class="json-btn" (click)="downloadGearJson()" title="Get JSON">📋 JSON</button>
       <ng-container *ngIf="$user | async as user">
-        <button *ngIf="!editMode" class="edit-btn" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
+        <button appButton *ngIf="!editMode" margin="0 0 0 10px" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
         <ng-container *ngIf="editMode">
-          <button class="save-btn" (click)="saveEdits()" title="Save"
+          <button appButton (click)="saveEdits()" title="Save"
             [disabled]="!selectedClass || !selectedSpec || !isDirty">💾 Save</button>
-          <button class="cancel-btn" (click)="cancelEdits()" title="Cancel">✖️ Cancel</button>
+          <button appButton (click)="cancelEdits()" margin="0 0 0 10px" title="Cancel">✖️ Cancel</button>
         </ng-container>
       </ng-container>
     </div>
-    <!-- <button *ngFor="let cls of classes; index as i; trackBy: trackByClass" [class.active]="i===active"
-      (click)="active=i; openClass(cls)" role="tab" [attr.aria-selected]="i===active">
-      {{ cls }}
-    </button> -->
   </div>
 
   <div class="panel" *ngIf="classes.length">
     <ng-container *ngIf="classes[active] as current">
       <div class="spec-list">
-        <a *ngFor="let spec of classSpecs(current); trackBy: trackBySpec"
-          [ngStyle]="{ 'background-color': selectedSpec === spec ? '#FF4081' : 'transparent', 'color': selectedSpec === spec ? 'white' : 'inherit', 'padding': '4px 8px', 'border-radius': '4px' }"
-          (click)="openSpec(current, spec)">
+        <a *ngFor="let spec of classSpecs(current); trackBy: trackBySpec" [routerLink]="['/bis-list', current, spec]" routerLinkActive="active-spec">
           {{ spec }}
         </a>
       </div>

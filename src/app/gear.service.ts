@@ -22,6 +22,8 @@ constructor(private http: HttpClient) {
     const saved = localStorage.getItem(STORAGE_KEY);
     this.http.get<GearLibrary>('/api/gear', { headers: this.getHeaders() }).subscribe({
       next: (lib) => {
+        console.log('Fetched gear library from server.'); 
+        console.log(lib);
         this.currentLib = JSON.parse(JSON.stringify(lib));
         this.pristineLib = JSON.parse(JSON.stringify(lib));
         if (this.currentLib) this.subject.next(this.currentLib);
@@ -66,8 +68,10 @@ constructor(private http: HttpClient) {
     }
   }
 
-  mutateSlot(cls: string, spec: string, slot: SlotName, items: ItemRef[]) {
+  mutateSlot(cls: string | null, spec: string | null, slot: SlotName, items: ItemRef[]) {
     if (!this.currentLib) return;
+    if (!cls) return;
+    if (!spec) return;
     (this.currentLib[cls][spec] as SpecBlock)[slot] = items;
     if (this.currentLib) this.subject.next(this.currentLib);
   }

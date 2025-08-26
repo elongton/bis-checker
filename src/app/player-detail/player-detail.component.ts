@@ -38,10 +38,10 @@ export interface Player {
 
 @Component({
   selector: "app-player",
-  templateUrl: "./player.component.html",
-  styleUrl: "./player.component.scss",
+  templateUrl: "./player-detail.component.html",
+  styleUrl: "./player-detail.component.scss",
 })
-export class PlayerComponent implements OnInit {
+export class PlayerDetailComponent implements OnInit {
   player: any = null;
   loading = true;
   error: string | null = null;

@@ -1,9 +1,10 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GearService } from '../../gear.service';
 import { SpecBlock, SlotName, ItemRef } from '../../models';
 import { BlizzardService, ItemResult } from '../../blizzard.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { firstValueFrom } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 interface Row { slot: SlotName; items: ItemRef[]; }
 
@@ -12,9 +13,9 @@ interface Row { slot: SlotName; items: ItemRef[]; }
   templateUrl: './spec-detail.component.html',
   styleUrls: ['./spec-detail.component.css']
 })
-export class SpecDetailComponent implements OnChanges {
-  @Input() cls = '';
-  @Input() spec = '';
+export class SpecDetailComponent implements OnChanges, OnInit {
+  cls: string | null = null;
+  spec: string | null = null;
   @Input() specBlock!: SpecBlock;
   @Input() editMode = false;
 
@@ -31,7 +32,18 @@ export class SpecDetailComponent implements OnChanges {
   busy: Record<string, boolean> = {};
   error: Record<string, string> = {};
 
-  constructor(private gear: GearService, private blizz: BlizzardService) {}
+  constructor(private gear: GearService, private blizz: BlizzardService, private route: ActivatedRoute,) {}
+
+
+  ngOnInit() {
+    this.cls = this.route.snapshot.paramMap.get('cls');
+    this.spec = this.route.snapshot.paramMap.get('spec');
+
+    console.log('SpecDetail init')
+    console.log(this.cls)
+    console.log(this.spec)
+
+  }
 
   ngOnChanges(_: SimpleChanges) {
     const order = this.slotOrder.filter(s => this.specBlock && this.specBlock[s as SlotName]);

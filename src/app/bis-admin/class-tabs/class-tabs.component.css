@@ -51,7 +51,7 @@ h1 {
   padding: 8px 12px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  background: #fafafa;
+  /* background: #fafafa; */
   cursor: pointer;
 }
 
@@ -62,31 +62,34 @@ h1 {
 }
 
 .panel {
-  border: 1px solid #eee;
-  border-radius: 12px;
+  /* border: 1px solid #eee; */
+  border-radius: 3px;
   padding: 16px;
-  background: #fff;
+  background: #181818;
 }
 
 .spec-list {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  align-items: center;
 }
 
-.spec-list a {
+.active-spec{
+  color: #fff;
+}
+
+/* .spec-list a {
   padding: 6px 10px;
   border-radius: 8px;
-  background: #f4f7ff;
   text-decoration: none;
   border: 1px solid #cfe0ff;
   cursor: pointer;
-}
+} */
 
-.spec-list a:hover {
+/* .spec-list a:hover {
   background: #e9f0ff;
-}
+} */
 
 .edit-controls {
   display: flex;

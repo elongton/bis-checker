@@ -3,18 +3,18 @@
 
     <div class="filter mb-4">
       <label for="classFilter">Filter by Class:</label>
-      <select style="margin-left: 2px;" id="classFilter" [(ngModel)]="classFilter" (change)="updateQueryParams()">
+      <select style="margin-left: 8px; background-color: #181818; color: #fff" id="classFilter" [(ngModel)]="classFilter" (change)="updateQueryParams()">
         <option value="">All Classes</option>
         <option *ngFor="let cls of filteredClasses" [value]="cls">{{ cls }}</option>
       </select>
 
       <label style="margin-left: 10px;" for="nameSearch">Search by Name:</label>
-      <input style="margin-left: 2px;" id="nameSearch" [(ngModel)]="nameSearch" (input)="updateQueryParams()" />
+      <input style="margin-left: 8px; background-color: #181818; color: #fff" id="nameSearch" [(ngModel)]="nameSearch" (input)="updateQueryParams()" />
     </div>
 
     <div style="display: flex; align-items: center;">
-      <button *ngIf="!editMode && ($user | async)" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
-      <button style="margin-left: 10px;" (click)="copyTableToClipboard()">
+      <button appButton *ngIf="!editMode && ($user | async)" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
+      <button appButton style="margin-left: 10px;" (click)="copyTableToClipboard()">
         {{ copied ? 'Copied!!!' : 'ASCII' }}
       </button>
     </div>

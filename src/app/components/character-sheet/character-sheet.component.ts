@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { GearService } from "src/app/gear.service";
-import { Item, Player } from "src/app/player-detail/player.component";
+import { Item, Player } from "src/app/player-detail/player-detail.component";
 
 @Component({
   selector: "character-sheet",

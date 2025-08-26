@@ -19,11 +19,11 @@ export interface Item {
 }
 
 @Component({
-  selector: "app-bis-list",
-  templateUrl: "./bis-list.component.html",
-  styleUrl: "./bis-list.component.css",
+  selector: "app-players",
+  templateUrl: "./players.component.html",
+  styleUrl: "./players.component.css",
 })
-export class BisListComponent implements OnInit {
+export class PlayersComponent implements OnInit {
   players: Player[] = [];
   gear: any | null = null;
 

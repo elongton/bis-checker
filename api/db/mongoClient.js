@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const uri = process.env.MONGO_URI || "mongodb://localhost:27017";
+const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/bischecker';
 const dbName = "wow_gear";
 
 let client;

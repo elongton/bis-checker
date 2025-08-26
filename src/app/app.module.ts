@@ -11,11 +11,14 @@ import { AppComponent } from "./app.component";
 import { ClassTabsComponent } from "./bis-admin/class-tabs/class-tabs.component";
 import { SpecDetailComponent } from "./bis-admin/spec-details/spec-detail.component";
 import { LogsComponent } from "./logs/logs.component";
-import { CeilPipe } from "./ceil.pipe";
-import { BisListComponent } from "./bis-list/bis-list.component";
-import { PlayerComponent } from "./player-detail/player.component";
+import { CeilPipe } from "./pipes/ceil.pipe";
 import { GearImageComponent } from "./components/gear-image/gear-image.component";
 import { CharacterSheetComponent, SlotComponent } from "./components/character-sheet/character-sheet.component";
+import { PlayersComponent } from "./players/players.component";
+import { PlayerDetailComponent } from "./player-detail/player-detail.component";
+import { ButtonDirective } from "./directives/button.directive";
+import { CapitalizeFirstPipe } from "./pipes/capitalize-first.pipe";
+import { LowerCasePipe } from "./pipes/lowercase.pipe";
 
 @NgModule({
   declarations: [
@@ -25,11 +28,14 @@ import { CharacterSheetComponent, SlotComponent } from "./components/character-s
     ClassTabsComponent,
     SpecDetailComponent,
     CeilPipe,
-    BisListComponent,
-    PlayerComponent,
     GearImageComponent,
     CharacterSheetComponent,
-    SlotComponent
+    SlotComponent,
+    PlayersComponent,
+    PlayerDetailComponent ,
+    ButtonDirective,
+    CapitalizeFirstPipe,
+    LowerCasePipe,
   ],
   imports: [
     BrowserModule,
@@ -39,11 +45,11 @@ import { CharacterSheetComponent, SlotComponent } from "./components/character-s
 
     RouterModule.forRoot([
       { path: "logs", component: LogsComponent },
-      { path: "players", component: BisListComponent },
-      { path: "players/:name", component: PlayerComponent },
+      { path: "players", component: PlayersComponent },
+      { path: "players/:name", component: PlayerDetailComponent },
       { path: "bis-list/:cls", component: ClassTabsComponent },
       { path: "bis-list/:cls/:spec", component: ClassTabsComponent },
-      { path: "bis-list", redirectTo: "bis-list/warrior/prot" },
+      { path: "bis-list", redirectTo: "bis-list/WARRIOR/fury" },
       { path: "", redirectTo: "players", pathMatch: "full" },
       { path: "**", redirectTo: "" },
     ]),

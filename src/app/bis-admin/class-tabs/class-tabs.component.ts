@@ -4,6 +4,7 @@ import { SpecBlock } from "../../models";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 import { Subscription, combineLatest } from "rxjs";
 import { AuthService } from "src/app/auth.service";
+import { capitalizeFirst } from "src/app/pipes/capitalize-first.pipe";
 
 @Component({
   selector: "app-class-tabs",
@@ -20,6 +21,7 @@ export class ClassTabsComponent implements OnDestroy {
   editMode = false;
   isDirty = false;
 
+  caps = capitalizeFirst;
   private sub?: Subscription;
   private libSub?: Subscription;
   $user = this.auth.$user;
@@ -36,6 +38,7 @@ export class ClassTabsComponent implements OnDestroy {
     this.sub = combineLatest([classes$, params$]).subscribe(
       ([clsList, params]: [string[], ParamMap]) => {
         this.classes = clsList;
+        console.log("Available classes:", clsList);
         clsList.forEach((cls) =>
           this.gear.getSpecsForClass(cls).subscribe((s) => {
             this.specs[cls] = s;
@@ -82,6 +85,11 @@ export class ClassTabsComponent implements OnDestroy {
 
   classSpecs(cls: string) {
     return this.specs[cls] ?? [];
+  }
+
+
+  getFirstSpec(cls: string) {
+    return this.classSpecs(cls)[0] ?? null;
   }
 
   openClass(cls: string) {
