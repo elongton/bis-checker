@@ -29,6 +29,7 @@ export class PlayersComponent implements OnInit {
 
   classFilter: string = "";
   nameSearch: string = "";
+  corePlayers: string = "";
   sortColumn: "coreRaider" | "name" | "class" | "lastSeen" | "softBis" | "hardBis" = "name";
   sortDirection: "asc" | "desc" = "asc";
   selectedNames = new Set<string>();
@@ -52,6 +53,7 @@ export class PlayersComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.classFilter = params["class"] || "";
       this.nameSearch = params["name"] || "";
+      this.corePlayers = params["core"] || "";
     });
 
     this.gearService.getLibrary().subscribe((lib) => {
@@ -81,6 +83,10 @@ export class PlayersComponent implements OnInit {
       filtered = filtered.filter(
         (p) => p.class.toLowerCase() === this.classFilter.toLowerCase()
       );
+    }
+
+    if (this.corePlayers === "true") {
+      filtered = filtered.filter((p) => p.core);
     }
 
     if (this.nameSearch.trim()) {
@@ -233,6 +239,7 @@ export class PlayersComponent implements OnInit {
       queryParams: {
         class: this.classFilter || null,
         name: this.nameSearch || null,
+        core: this.corePlayers || null,
       },
       queryParamsHandling: "merge",
     });
