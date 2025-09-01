@@ -18,13 +18,13 @@
         <span *ngIf="row.HARD_BIS.length == 0" style="color: grey">No Hard BiS items.</span>
         <li *ngFor="let it of row.HARD_BIS; index as i; trackBy: trackByItem">
           <a [href]="wowhead(it.id)" target="_blank" rel="noopener">{{ it.name }}</a>
-          <span class="hard_bis_star">★</span>
+          <span class="hard_bis_star">🥇</span>
         </li>
         <hr>
         <span *ngIf="row.SOFT_BIS.length == 0" style="color: grey">No Soft BiS items.</span>
         <li *ngFor="let it of row.SOFT_BIS; index as i; trackBy: trackByItem">
           <a [href]="wowhead(it.id)" target="_blank" rel="noopener">{{ it.name }}</a>
-          <span class="soft_bis_star">★</span>
+          <span class="soft_bis_star">🥈</span>
         </li>
 
       </ol>

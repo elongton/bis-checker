@@ -4,6 +4,7 @@ const gearRoutes = require("./routes/gear");
 const blizzardRoutes = require("./routes/blizzard");
 const playerRoutes = require("./routes/player");
 
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,9 @@ const session = require('express-session');
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
 const path = require('path');
+const { getGuildAttendance } = require("./controllers/warcraftLogsController");
+const { fourWeeksAgoMs, findClassNameById } = require("./utility");
+const { upsertLatestItems, fetchAndUpdatePlayers } = require("./controllers/playerController");
 
 // Discord OAuth config
 passport.serializeUser((user, done) => done(null, user));
@@ -32,15 +36,11 @@ passport.use(new DiscordStrategy({
 app.use(session({ secret: "secret", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-
-
 app.use(express.json());
 app.use("/api/gear", gearRoutes);
 app.use("/api/blizzard", blizzardRoutes);
 app.use("/api/player", playerRoutes);
+require("./scheduler"); // Import to start the cron job
 
 // Discord auth routes
 app.get('/api/auth/discord', passport.authenticate('discord'));
@@ -50,6 +50,21 @@ app.get('/api/auth/discord/callback',
     res.redirect(`${process.env.APP_URL}?user=${encodeURIComponent(JSON.stringify(req.user))}`);
   }
 );
+
+//Routes that require multiple services
+app.get('/api/refresh-players', async (req, res) => {
+  try {
+    const playerLibrary = await fetchAndUpdatePlayers()
+    res.json(`Players refreshed: ${Object.keys(playerLibrary).length}`);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'internal_error', detail: e.message });
+  }
+})
+
+
+
+
 
 // Serve Angular build
 app.use(express.static(path.join(__dirname, '../dist/classic-bis-browser')));

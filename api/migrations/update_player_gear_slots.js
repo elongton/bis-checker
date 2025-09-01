@@ -2,7 +2,7 @@ const fs = require("fs");
 const { MongoClient } = require("mongodb");
 
 // const uri = "mongodb://localhost:27017";
-const uri = 'mongodb://127.0.0.1:27017/bischecker';
+const uri = "mongodb://127.0.0.1:27017/bischecker";
 const dbName = "wow_gear";
 
 const keyMap = {
@@ -48,10 +48,13 @@ async function run() {
         }
       }
 
-      // overwrite items with new keys
+      // overwrite items with new keys and remove "core"
       await players.updateOne(
         { _id: player._id },
-        { $set: { items: newItems } }
+        {
+          $set: { items: newItems },
+          $unset: { core: "" }
+        }
       );
 
       console.log(`Updated player ${player.name}`);

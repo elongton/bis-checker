@@ -40,8 +40,8 @@ export class CharacterSheetComponent implements OnInit {
       [style.textAlign]="position == 'right' ? 'right' : 'left'"
     >
       <div *ngFor="let item of slot">
-        <span *ngIf="isHardBis(item)" class="hard-bis-indicator" title="Hard BiS">★</span>
-        <span *ngIf="isSoftBis(item) && !isHardBis(item)" class="soft-bis-indicator" title="Soft BiS">★</span>
+        <span *ngIf="isHardBis(item)" class="hard-bis-indicator" title="Hard BiS">🥇</span>
+        <span *ngIf="isSoftBis(item) && !isHardBis(item)" class="soft-bis-indicator" title="Soft BiS">🥈</span>
         <a [href]="wowhead(item.id)" target="_blank">{{ item.name }}</a>
       </div>
     </div>

@@ -58,6 +58,12 @@
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
+        <th (click)="setSort('attendance')">
+          Attendance
+          <span *ngIf="sortColumn === 'attendance'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
         <th (click)="setSort('coreRaider')" style="text-align: center;">Core Raider
           <span *ngIf="sortColumn === 'coreRaider'">
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
@@ -82,10 +88,9 @@
         </td>
         <td>{{ getSoftBisCount(player) }}</td>
         <td>{{ getHardBisCount(player) }}</td>
+        <td>{{ player.attendance.rate | number: '1.0-0'}}</td>
         <td style="text-align: center;">
-          <input *ngIf="editMode && ($user | async) as userr" type="checkbox" [checked]="player.core"
-            (change)="toggleCore(player)" />
-          <span *ngIf="!( $user | async ) || !editMode">{{ player.core ? '✔' : 'No' }}</span>
+          <span>{{ player.rank <=3 ? '✔' : 'No' }}</span>
         </td>
       </tr>
     </tbody>

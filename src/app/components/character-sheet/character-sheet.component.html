@@ -7,7 +7,7 @@
             <slot-component [bisListItems]="getBisListItems('BACK')" [slot]="player.items.BACK" />
             <slot-component [bisListItems]="getBisListItems('CHEST')" [slot]="player.items.CHEST" />
             <slot-component [bisListItems]="getBisListItems('SHIRT')" [slot]="player.items.SHIRT" />
-            <div class="frame iron" id="tabard-slot"></div>
+            <slot-component [bisListItems]="getBisListItems('TABARD')" [slot]="player.items.TABARD" />
             <slot-component [bisListItems]="getBisListItems('WRIST')" [slot]="player.items.WRIST" />
         </div>
         <div class="right-column">

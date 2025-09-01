@@ -10,7 +10,8 @@ interface Player {
   lastSeen: string;
   spec: string;
   items?: Record<string, Item[]>;
-  core: boolean
+  rank: number;
+  attendance: {rate: number, history: any[]};
 }
 
 export interface Item {
@@ -30,7 +31,7 @@ export class PlayersComponent implements OnInit {
   classFilter: string = "";
   nameSearch: string = "";
   corePlayers: string = "";
-  sortColumn: "coreRaider" | "name" | "class" | "lastSeen" | "softBis" | "hardBis" = "name";
+  sortColumn: "attendance" | "coreRaider" | "name" | "class" | "softBis" | "hardBis" = "name";
   sortDirection: "asc" | "desc" = "asc";
   selectedNames = new Set<string>();
   copied = false;
@@ -43,10 +44,10 @@ export class PlayersComponent implements OnInit {
     private router: Router,
     private gearService: GearService,
     private auth: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem("edit_pw") == "crashout!"){
+    if (localStorage.getItem("edit_pw") == "crashout!") {
       this.editMode = true;
     }
 
@@ -86,7 +87,7 @@ export class PlayersComponent implements OnInit {
     }
 
     if (this.corePlayers === "true") {
-      filtered = filtered.filter((p) => p.core);
+      filtered = filtered.filter((p) => p.rank <= 3);
     }
 
     if (this.nameSearch.trim()) {
@@ -107,16 +108,16 @@ export class PlayersComponent implements OnInit {
 
   getSortValue(player: Player): any {
     switch (this.sortColumn) {
-      case "lastSeen":
-        return new Date(player.lastSeen).getTime();
       case "softBis":
         return this.getSoftBisCount(player);
       case "hardBis":
         return this.getHardBisCount(player);
       case "class":
         return player.class.toLowerCase();
+      case "attendance":
+        return player.attendance.rate || 0;
       case "coreRaider":
-        return player.core ? 1 : 0; // Sort core raiders first
+        return player.rank <= 3 ? 1 : 0; // Sort core raiders first
       default:
         return player.name.toLowerCase();
     }
@@ -175,7 +176,7 @@ export class PlayersComponent implements OnInit {
     for (const slot in specGear) {
       const playerItems = player.items?.[slot] || [];
       if (playerItems.some((item) =>
-          specGear[slot].HARD_BIS.some((top: Item) => top.id === item.id))
+        specGear[slot].HARD_BIS.some((top: Item) => top.id === item.id))
       ) {
         count++;
       }
@@ -190,7 +191,7 @@ export class PlayersComponent implements OnInit {
       "Spec",
       "Soft BiS",
       "Hard BiS",
-      "Last Seen",
+      "Attendance",
       "Core Raider"
     ];
 
@@ -204,9 +205,11 @@ export class PlayersComponent implements OnInit {
       player.spec || "",
       this.getSoftBisCount(player).toString(),
       this.getHardBisCount(player).toString(),
-      new Date(player.lastSeen).toLocaleString(),
-      player.core ? "Yes" : "No"
+      String(player.attendance.rate) + '%',
+      player.rank <= 3 ? "Yes" : "No"
     ]);
+    console.log(headers)
+    console.log(rows)
 
     const allRows = [headers, ...rows];
     const colWidths = headers.map((_, i) =>
@@ -227,7 +230,7 @@ export class PlayersComponent implements OnInit {
       divider,
     ];
 
-    const tableString = tableLines.join("\n"); // ✅ Fix here
+    const tableString = "```" + tableLines.join("\n") + "```"; // ✅ Fix here
 
     navigator.clipboard.writeText(tableString).then(() => {
       this.copied = true;
@@ -274,23 +277,7 @@ export class PlayersComponent implements OnInit {
     }
   }
 
-  toggleCore(player: any): void {
-    const newValue = !player.core;
-
-    this.http
-      .patch(`/api/player/${player.name}/core`, { core: newValue })
-      .subscribe({
-        next: () => {
-          player.core = newValue; // optimistically update UI
-        },
-        error: (err) => {
-          console.error(`Failed to update core for ${player.name}`, err);
-          // Optionally revert checkbox state or show error to user
-        },
-      });
-  }
-
-    tryToggleEdit() {
+  tryToggleEdit() {
     if (!this.editMode) {
       if (localStorage.getItem("edit_pw") == "crashout!") {
         this.editMode = true;

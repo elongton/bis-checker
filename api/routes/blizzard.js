@@ -1,65 +1,40 @@
 // blizzard.js
 const express = require("express");
 const axios = require("axios");
-const { LRUCache } = require("lru-cache");
 const router = express.Router();
 const { connect } = require("../db/mongoClient");
-const REGION = process.env.BLIZZ_REGION || "us";
-const API_BASE = `https://${REGION}.api.blizzard.com`;
-const TOKEN_URL = `https://oauth.battle.net/token`;
+const { getGuildRoster, fetchItemFromBlizzard, fetchItemMediaUrlFromBlizzard, getCharacterAppearance } = require("../controllers/blizzardController");
 
-const tokenCache = new LRUCache({ max: 1, ttl: 3300 * 1000 });
 
-async function getAccessToken() {
-  const cached = tokenCache.get("token");
-  if (cached) return cached;
-  const clientId = process.env.BLIZZ_CLIENT_ID;
-  const clientSecret = process.env.BLIZZ_CLIENT_SECRET;
-  const resp = await axios.post(
-    TOKEN_URL,
-    new URLSearchParams({ grant_type: "client_credentials" }),
-    {
-      auth: { username: clientId, password: clientSecret },
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      timeout: 10000,
-    }
-  );
-  const token = resp.data.access_token;
-  tokenCache.set("token", token);
-  return token;
-}
 
-async function fetchItemFromBlizzard(id) {
-  const token = await getAccessToken();
-  const namespace = `static-classic-${REGION}`;
-  const locale = process.env.BLIZZ_LOCALE || "en_US";
-  const url = `${API_BASE}/data/wow/item/${id}`;
-  const params = { namespace, locale };
-  const headers = { Authorization: `Bearer ${token}` };
-  const r = await axios.get(url, { params, headers, timeout: 10000 });
-  return r.data;
-}
 
-async function fetchItemMediaUrlFromBlizzard(id) {
-  // Media for items is usually at /data/wow/media/item/{id}
-  const token = await getAccessToken();
-  const namespace = `static-classic-${REGION}`;
-  const url = `${API_BASE}/data/wow/media/item/${id}`;
-  const headers = { Authorization: `Bearer ${token}` };
-  const params = { namespace };
-  const r = await axios.get(url, { params, headers, timeout: 10000 });
 
-  // Try to find the best asset url (type can vary by endpoint; often 'icon' or first asset)
-  const assets = r?.data?.assets || [];
-  const iconAsset =
-    assets.find((a) => (a.key || a.type) === "icon") ||
-    assets.find((a) => (a.key || a.type) === "image") ||
-    assets[0];
+router.get("/character-appearance/:name", async (req, res) => {
+  try {
+    const characterName = (req.params.name || "").toString().trim(); 
+    if (!characterName) return res.status(400).json({ error: "bad_name" });
+    const data = await getCharacterAppearance(characterName);
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    const code = err.response?.status || 500; 
+    res.status(code).json({ error: "blizzard_proxy_failed", detail: err.message });
+  }
+});
 
-  const imageUrl = iconAsset?.value;
-  if (!imageUrl) throw new Error("media_url_not_found");
-  return imageUrl;
-}
+//unused in this file, but might be useful later
+router.get("/guild-roster", async (req, res) => {
+  try {
+    const data = await getGuildRoster();  
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ error: "blizzard_proxy_failed", detail: err.message });
+  }
+});
+
 
 router.get("/item-search", async (req, res) => {
   try {
