@@ -128,7 +128,7 @@ async function upsertLatestItems(playerName, latest, options = {}) {
 async function fetchAndUpdatePlayers(){
     const players = await getGuildRoster();
     const playerLibrary = {};
-    for (const p of players.members.slice(0, 5)) {
+    for (const p of players.members) {
       //get appearance
       let appearance = null;
       try{
