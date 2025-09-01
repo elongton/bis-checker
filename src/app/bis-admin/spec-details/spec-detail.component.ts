@@ -2,11 +2,12 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { GearService } from '../../gear.service';
 import { SpecBlock, SlotName, ItemRef } from '../../models';
 import { BlizzardService, ItemResult } from '../../blizzard.service';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { firstValueFrom } from 'rxjs';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { firstValueFrom, from } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { GearItem } from 'src/app/player-detail/player-detail.component';
 
-interface Row { slot: SlotName; items: ItemRef[]; }
+interface Row { slot: SlotName; SOFT_BIS: ItemRef[] | undefined; HARD_BIS: ItemRef[] | undefined }
 
 @Component({
   selector: 'app-spec-detail',
@@ -29,7 +30,6 @@ export class SpecDetailComponent implements OnChanges, OnInit {
   editId: Record<string, string> = {};   // key -> text input
   editing: Record<string, boolean> = {};
   adding: Partial<Record<SlotName, boolean>> = {};
-  busy: Record<string, boolean> = {};
   error: Record<string, string> = {};
 
   constructor(private gear: GearService, private blizz: BlizzardService, private route: ActivatedRoute,) { }
@@ -39,15 +39,12 @@ export class SpecDetailComponent implements OnChanges, OnInit {
     this.route.paramMap.subscribe((params) => {
       this.cls = params.get('cls');
       this.spec = params.get('spec');
-      console.log('SpecDetail paramMap change')
-      console.log(this.cls)
-      console.log(this.spec)
     })
   }
 
   ngOnChanges(_: SimpleChanges) {
     const order = this.slotOrder.filter(s => this.specBlock && this.specBlock[s as SlotName]);
-    this.rows = order.map(slot => ({ slot: slot as SlotName, items: this.specBlock[slot as SlotName] as ItemRef[] }));
+    this.rows = order.map(slot => ({ slot: slot as SlotName, HARD_BIS: this.specBlock[slot as SlotName]?.HARD_BIS, SOFT_BIS: this.specBlock[slot as SlotName]?.SOFT_BIS }));
   }
 
   key(slot: SlotName, idx: number) { return slot + ':' + idx; }
@@ -59,31 +56,6 @@ export class SpecDetailComponent implements OnChanges, OnInit {
     this.editing[k] = true;
     this.editId[k] = '';
     this.error[k] = '';
-  }
-  cancelEdit(slot: SlotName, idx: number) {
-    const k = this.key(slot, idx);
-    delete this.editing[k];
-    delete this.editId[k];
-    delete this.error[k];
-    delete this.busy[k];
-  }
-  async confirmEdit(slot: SlotName, idx: number) {
-    const k = this.key(slot, idx);
-    const idNum = parseInt(this.editId[k], 10);
-    if (!idNum) { this.error[k] = 'Enter a valid item ID.'; return; }
-    this.busy[k] = true; this.error[k] = '';
-    try {
-      const item: ItemResult = await firstValueFrom(this.blizz.getItem(idNum));
-      if (!item?.id || !item?.name) throw new Error('Item not found');
-      const arr = this.specBlock[slot] as ItemRef[];
-      arr[idx] = { id: item.id, name: item.name };
-      this.gear.mutateSlot(this.cls, this.spec, slot, arr);
-      this.cancelEdit(slot, idx);
-    } catch (e: any) {
-      this.error[k] = 'Lookup failed. Check the ID.';
-    } finally {
-      this.busy[k] = false;
-    }
   }
 
   // ----- Add new -----
@@ -98,37 +70,49 @@ export class SpecDetailComponent implements OnChanges, OnInit {
     delete this.adding[slot];
     delete this.editId[k];
     delete this.error[k];
-    delete this.busy[k];
   }
   async confirmAdd(slot: SlotName) {
     const k = this.addKey(slot);
-    const idNum = parseInt(this.editId[k], 10);
-    if (!idNum) { this.error[k] = 'Enter a valid item ID.'; return; }
-    this.busy[k] = true; this.error[k] = '';
-    try {
-      const item: ItemResult = await firstValueFrom(this.blizz.getItem(idNum));
-      if (!item?.id || !item?.name) throw new Error('Item not found');
-      const arr = this.specBlock[slot] as ItemRef[];
-      arr.push({ id: item.id, name: item.name });
-      this.gear.mutateSlot(this.cls, this.spec, slot, arr);
-      this.cancelAdd(slot);
-    } catch (e: any) {
-      this.error[k] = 'Lookup failed. Check the ID.';
-    } finally {
-      this.busy[k] = false;
-    }
+    // if (!idNum) { this.error[k] = 'Enter a valid item ID.'; return; }
+    const ids = this.editId[k].split(',')
+      .map(id => id.trim())
+      .filter(id => id)
+      .map(id => parseInt(id, 10))
+
+    ids.forEach(async (idNum) => {
+      try {
+        const item: ItemResult = await firstValueFrom(this.blizz.getItem(idNum));
+        if (!item?.id || !item?.name) throw new Error('Item not found');
+        const arr = this.specBlock[slot]?.SOFT_BIS as ItemRef[];
+        arr.push({ id: item.id, name: item.name });
+        this.gear.mutateSlot(this.cls, this.spec, slot, this.specBlock[slot]!);
+      } catch (e: any) {
+        this.error[k] = 'Lookup failed. Check the ID.';
+      }
+    })
+    this.cancelAdd(slot);
   }
 
-  // DnD / remove
-  dropped(slot: SlotName, event: CdkDragDrop<ItemRef[]>) {
-    const arr = this.specBlock[slot] as ItemRef[];
-    moveItemInArray(arr, event.previousIndex, event.currentIndex);
-    this.gear.mutateSlot(this.cls, this.spec, slot, arr);
+
+  onDrop(event: CdkDragDrop<GearItem[]>) {
+    if (!event.container || !event.previousContainer) return;
+    const [toSlotName, toSection] = (event.container.id || '').split('__') as [SlotName, 'HARD_BIS' | 'SOFT_BIS'];
+    const [fromSlotName, fromSection] = (event.previousContainer.id || '').split('__') as [SlotName, 'HARD_BIS' | 'SOFT_BIS'];
+    const toList = event.container.data as GearItem[];
+    const fromList = event.previousContainer.data as GearItem[];
+    if (event.previousContainer === event.container) {
+      moveItemInArray(toList, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(fromList, toList, event.previousIndex, event.currentIndex);
+    }
+    this.gear.mutateSlot(this.cls, this.spec, toSlotName, this.specBlock[toSlotName]!);
   }
-  remove(slot: SlotName, idx: number) {
-    const arr = this.specBlock[slot] as ItemRef[];
+
+
+  remove(slot: SlotName, type: 'HARD_BIS' | 'SOFT_BIS', idx: number) {
+    const arr = this.specBlock[slot]![type];
     arr.splice(idx, 1);
-    this.gear.mutateSlot(this.cls, this.spec, slot, arr);
+    this.gear.mutateSlot(this.cls, this.spec, slot, this.specBlock[slot]!);
   }
 
   trackByRow = (_: number, r: Row) => r.slot;

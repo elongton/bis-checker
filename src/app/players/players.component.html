@@ -43,24 +43,18 @@
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
-        <th style="width: 14%">
+        <th >
           Spec
         </th>
-        <th style="width: 14%" (click)="setSort('softBis')">
+        <th (click)="setSort('softBis')">
           Soft BiS
           <span *ngIf="sortColumn === 'softBis'">
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
-        <th style="width: 14%" (click)="setSort('hardBis')">
+        <th (click)="setSort('hardBis')">
           Hard BiS
           <span *ngIf="sortColumn === 'hardBis'">
-            {{ sortDirection === 'asc' ? '↑' : '↓' }}
-          </span>
-        </th>
-        <th (click)="setSort('lastSeen')">
-          Last Seen
-          <span *ngIf="sortColumn === 'lastSeen'">
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
@@ -88,7 +82,6 @@
         </td>
         <td>{{ getSoftBisCount(player) }}</td>
         <td>{{ getHardBisCount(player) }}</td>
-        <td>{{ player.lastSeen | date:'short' }}</td>
         <td style="text-align: center;">
           <input *ngIf="editMode && ($user | async) as userr" type="checkbox" [checked]="player.core"
             (change)="toggleCore(player)" />

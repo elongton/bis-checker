@@ -157,8 +157,9 @@ export class PlayersComponent implements OnInit {
       const playerItems = player.items?.[slot] || [];
       if (
         playerItems.some((item) =>
-          specGear[slot].some((bis: Item) => bis.id === item.id)
-        )
+          specGear[slot].SOFT_BIS.some((bis: Item) => bis.id === item.id)
+        ) || playerItems.some((item) =>
+          specGear[slot].HARD_BIS.some((top: Item) => top.id === item.id))
       ) {
         count++;
       }
@@ -172,10 +173,10 @@ export class PlayersComponent implements OnInit {
     if (!specGear) return 0;
     let count = 0;
     for (const slot in specGear) {
-      const topItem = specGear[slot][0];
-      if (!topItem) continue;
       const playerItems = player.items?.[slot] || [];
-      if (playerItems.some((item) => item.id === topItem.id)) {
+      if (playerItems.some((item) =>
+          specGear[slot].HARD_BIS.some((top: Item) => top.id === item.id))
+      ) {
         count++;
       }
     }

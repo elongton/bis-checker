@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { GearService } from "src/app/gear.service";
-import { Item, Player } from "src/app/player-detail/player-detail.component";
+import { GearItem, Player } from "src/app/player-detail/player-detail.component";
 
 @Component({
   selector: "character-sheet",
@@ -23,7 +23,8 @@ export class CharacterSheetComponent implements OnInit {
     if (!this.bisList || !this.player) {
       return [];
     }
-    return this.bisList[this.player.class]?.[this.player.spec]?.[slotName] || [];
+    const bisList = this.bisList[this.player.class]?.[this.player.spec]?.[slotName] || [];
+    return bisList
   }
 }
 
@@ -52,17 +53,17 @@ export class CharacterSheetComponent implements OnInit {
 })
 export class SlotComponent {
   wowhead = GearService.wowheadUrl;
-  @Input() slot: Item[] | null = null;
+  @Input() slot: GearItem[] | null = null;
   @Input() position: 'left' | 'right' | 'bottom' = 'left';
   @Input() bisListItems: any | null = null;
   constructor() {}
 
-  isSoftBis(item: Item): boolean {
-    if (!this.bisListItems) return false;
-    return this.bisListItems.some((bisItem: Item) => bisItem.id === item.id);
+  isSoftBis(item: GearItem): boolean {
+    if (!this.bisListItems || !this.bisListItems.SOFT_BIS) return false;
+    return this.bisListItems.SOFT_BIS.some((bisItem: GearItem) => bisItem.id === item.id);
   }
-  isHardBis(item: Item): boolean {
-    if (!this.bisListItems || this.bisListItems.length == 0) return false;
-    return this.bisListItems[0].id === item.id;
+  isHardBis(item: GearItem): boolean {
+    if (!this.bisListItems || !this.bisListItems.HARD_BIS) return false;
+    return this.bisListItems.HARD_BIS.some((bisItem: GearItem) => bisItem.id === item.id);
   }
 }

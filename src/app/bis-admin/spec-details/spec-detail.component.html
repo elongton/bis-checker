@@ -4,7 +4,9 @@
   </header>
 
   <section class="legend">
-    <div><strong>Top 5 per slot.</strong> Hover items for stats (Wowhead tooltips). <span *ngIf="editMode">Edit mode is ON (drag to reorder, edit, add). <br> When searching for item IDs, use <a href="https://www.wowhead.com/" target="_blank">WowHead</a> and extract the item ID from the URL.</span></div>
+    <div><strong>Top 5 per slot.</strong> Hover items for stats (Wowhead tooltips). <span *ngIf="editMode">Edit mode is
+        ON (drag to reorder, edit, add). <br> When searching for item IDs, use <a href="https://www.wowhead.com/"
+          target="_blank">WowHead</a> and extract the item ID from the URL.</span></div>
   </section>
 
   <section class="grid">
@@ -13,63 +15,100 @@
 
       <!-- View mode -->
       <ol *ngIf="!editMode">
-        <li *ngFor="let it of row.items; index as i; trackBy: trackByItem">
+        <span *ngIf="row.HARD_BIS.length == 0" style="color: grey">No Hard BiS items.</span>
+        <li *ngFor="let it of row.HARD_BIS; index as i; trackBy: trackByItem">
           <a [href]="wowhead(it.id)" target="_blank" rel="noopener">{{ it.name }}</a>
-          <span class="rank">#{{ i+1 }}</span>
+          <span class="hard_bis_star">★</span>
         </li>
+        <hr>
+        <span *ngIf="row.SOFT_BIS.length == 0" style="color: grey">No Soft BiS items.</span>
+        <li *ngFor="let it of row.SOFT_BIS; index as i; trackBy: trackByItem">
+          <a [href]="wowhead(it.id)" target="_blank" rel="noopener">{{ it.name }}</a>
+          <span class="soft_bis_star">★</span>
+        </li>
+
       </ol>
 
       <!-- Edit mode: drag & drop + edit/delete -->
-      <div *ngIf="editMode" cdkDropList [cdkDropListData]="row.items" (cdkDropListDropped)="dropped(row.slot, $event)" class="dnd-list">
-        <div class="item-row" *ngFor="let it of row.items; index as i; trackBy: trackByItem" cdkDrag>
-          <div class="drag-handle" cdkDragHandle title="Drag to reorder">⠿</div>
-          <div class="left">
-            <a [href]="wowhead(it.id)" target="_blank" rel="noopener">{{ it.name }}</a>
-            <span class="muted">(#{{ i+1 }} — ID: {{ it.id }})</span>
-          </div>
-          <div class="right">
-            <button (click)="remove(row.slot, i)" title="Delete">🗑️</button>
-          </div>
-        </div>
 
-        <!-- Inline editor for existing item (by ID) -->
-        <div class="edit-inline" *ngFor="let it of row.items; index as i; trackBy: trackByItem">
-          <div *ngIf="editing[row.slot + ':' + i]" class="editor">
-            <div class="ta-row">
-              <input id="{{'edit-' + (row.slot + ':' + i)}}"
-                     type="number" inputmode="numeric"
-                     placeholder="Enter Item ID (Classic)…"
-                     [(ngModel)]="editId[row.slot + ':' + i]">
-              <div class="ta-actions">
-                <button class="ok" [disabled]="busy[row.slot + ':' + i]" (click)="confirmEdit(row.slot, i)" title="Confirm">✅</button>
-                <button class="cancel" [disabled]="busy[row.slot + ':' + i]" (click)="cancelEdit(row.slot, i)" title="Cancel">❌</button>
+      <div *ngIf="editMode" class="slot-sections" cdkDropListGroup>
+        <section class="slot-section">
+          <h4 [style.margin-bottom]="row.HARD_BIS.length === 0 ? 0 : '15px'">Hard BiS</h4>
+
+          <div class="bis-list"  [id]="row.slot + '__HARD_BIS'" cdkDropList #hardList="cdkDropList" [cdkDropListData]="row.HARD_BIS"
+            [cdkDropListConnectedTo]="[softList]" (cdkDropListDropped)="onDrop($event)">
+            <div class="item-row" *ngFor="let item of row.HARD_BIS; index as i; trackBy: trackById" cdkDrag>
+              <div class="drag-handle" cdkDragHandle title="Drag to reorder">⠿</div>
+              <div class="left">
+                <a [href]="wowhead(item.id)" target="_blank" rel="noopener">{{ item.name }}</a>
               </div>
-            </div>
-            <div class="err" *ngIf="error[row.slot + ':' + i]">{{ error[row.slot + ':' + i] }}</div>
-          </div>
-        </div>
+              <div class="right">
+                <span class="muted">#{{ item.id }}</span>
+                <button (click)="remove(row.slot, 'HARD_BIS', i)" title="Delete">🗑️</button>
+              </div>
 
-        <!-- Add new item section (by ID) -->
+              <ng-template cdkDragPreview>
+                <div class="drag-preview">
+                  {{ item.name }} (#{{ item.id }})
+                </div>
+              </ng-template>
+            </div>
+
+            <div style="height: 15px" *ngIf="row.HARD_BIS.length === 0">
+            </div>
+          </div>
+        </section>
+
+        <section class="slot-section">
+          <h4 [style.margin-bottom]="row.SOFT_BIS.length === 0 ? 0 : '15px'">Soft BiS</h4>
+
+          <div class="bis-list" [id]="row.slot + '__SOFT_BIS'" cdkDropList #softList="cdkDropList" [cdkDropListData]="row.SOFT_BIS"
+            [cdkDropListConnectedTo]="[hardList]" (cdkDropListDropped)="onDrop($event)">
+            <div class="item-row" *ngFor="let item of row.SOFT_BIS; index as i;  trackBy: trackById" cdkDrag>
+              <div class="drag-handle" cdkDragHandle title="Drag to reorder">⠿</div>
+              <div class="left">
+                <a [href]="wowhead(item.id)" target="_blank" rel="noopener">{{ item.name }}</a>
+              </div>
+              <div class="right">
+                <span class="muted">#{{ item.id }}</span>
+                <button (click)="remove(row.slot, 'SOFT_BIS', i)" title="Delete">🗑️</button>
+              </div>
+
+              <ng-template cdkDragPreview>
+                <div class="drag-preview">
+                  {{ item.name }} (#{{ item.id }})
+                </div>
+              </ng-template>
+            </div>
+
+            <div style="height: 15px" *ngIf="row.SOFT_BIS.length === 0">
+            </div>
+          </div>
+        </section>
+
+
         <div class="add-wrap" *ngIf="!adding[row.slot]">
           <button class="add-btn" (click)="startAdd(row.slot)">+ Add item</button>
         </div>
 
         <div class="editor" *ngIf="adding[row.slot]">
-          <a href="https://www.wowhead.com/classic" target="_blank">WowHead</a>
           <div style="margin-top: 10px;" class="ta-row">
-            <input id="{{'add-' + row.slot}}"
-                   type="number" inputmode="numeric"
-                   placeholder="Enter Item ID to add…"
-                   [(ngModel)]="editId['add:' + row.slot]">
+            <textarea style="width: 100%;" id="{{'add-' + row.slot}}" placeholder="Enter comma delimited ID list add…"
+              [(ngModel)]="editId['add:' + row.slot]"></textarea>
             <div class="ta-actions">
-              <button class="ok" [disabled]="busy['add:' + row.slot]" (click)="confirmAdd(row.slot)" title="Add">✅</button>
-              <button class="cancel" [disabled]="busy['add:' + row.slot]" (click)="cancelAdd(row.slot)" title="Cancel">❌</button>
+              <button class="ok" (click)="confirmAdd(row.slot)"
+                title="Add">✅</button>
+              <button class="cancel" (click)="cancelAdd(row.slot)"
+                title="Cancel">❌</button>
             </div>
           </div>
           <div class="err" *ngIf="error['add:' + row.slot]">{{ error['add:' + row.slot] }}</div>
         </div>
 
+
       </div>
+
+
     </div>
   </section>
 </div>

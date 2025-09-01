@@ -70,9 +70,10 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 8px;
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
+  margin-bottom: 4px;
+  /* padding: 6px 8px; */
+  /* border: 1px solid #e6e6e6; */
+  /* border-radius: 10px; */
   /* background: #fbfcff; */
 }
 
@@ -98,31 +99,6 @@ li {
   font-size: 12px;
 }
 
-/* Editor */
-.editor {
-  margin: 8px 0;
-  padding: 8px;
-  border: 1px dashed #bbb;
-  border-radius: 8px;
-  /* background: #fafcff; */
-}
-
-.ta-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.editor input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.ta-actions button {
-  margin-left: 4px;
-}
 
 .err {
   color: #b00020;
@@ -145,6 +121,14 @@ li {
   cursor: pointer;
 }
 
-.add-btn:hover {
+/* .add-btn:hover { */
   /* background: #e6f0ff; */
+/* } */
+
+.hard_bis_star{
+  color: gold;
+}
+
+.soft_bis_star{
+  color: silver;
 }

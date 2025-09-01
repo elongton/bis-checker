@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { GearLibrary, ClassBlock, SpecBlock, SlotName, ItemRef } from './models';
+import { GearLibrary, ClassBlock, SpecBlock, SlotName, ItemRef, ItemLists } from './models';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,16 +13,16 @@ export class GearService {
   private currentLib?: GearLibrary;
   private pristineLib?: GearLibrary;
 
-  
+
   private getHeaders() {
     const userString = localStorage.getItem('discord_user');
     return new HttpHeaders({ 'x-discord-username': (userString ? JSON.parse(userString).username : null) || 'unknown' });
   }
-constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {
     const saved = localStorage.getItem(STORAGE_KEY);
     this.http.get<GearLibrary>('/api/gear', { headers: this.getHeaders() }).subscribe({
       next: (lib) => {
-        console.log('Fetched gear library from server.'); 
+        console.log('Fetched gear library from server.');
         console.log(lib);
         this.currentLib = JSON.parse(JSON.stringify(lib));
         this.pristineLib = JSON.parse(JSON.stringify(lib));
@@ -68,11 +68,11 @@ constructor(private http: HttpClient) {
     }
   }
 
-  mutateSlot(cls: string | null, spec: string | null, slot: SlotName, items: ItemRef[]) {
+  mutateSlot(cls: string | null, spec: string | null, slot: SlotName, itemLists: ItemLists) {
     if (!this.currentLib) return;
     if (!cls) return;
     if (!spec) return;
-    (this.currentLib[cls][spec] as SpecBlock)[slot] = items;
+    (this.currentLib[cls][spec])[slot] = itemLists;
     if (this.currentLib) this.subject.next(this.currentLib);
   }
 
@@ -91,7 +91,7 @@ constructor(private http: HttpClient) {
     }
   }
 
-    // Save only a specific spec slice, POST to /gear/:cls/:spec
+  // Save only a specific spec slice, POST to /gear/:cls/:spec
   async saveAll() {
     if (!this.currentLib) return;
     const slice = (this.currentLib);
@@ -112,20 +112,20 @@ constructor(private http: HttpClient) {
   }
 
   static slotOrder: SlotName[] = [
-    'HeadSlot','NeckSlot','ShoulderSlot','BackSlot','ChestSlot','WristSlot','HandsSlot','WaistSlot',
-    'LegsSlot','FeetSlot','Finger0Slot','Finger1Slot','Trinket0Slot','Trinket1Slot',
-    'MainHandSlot','SecondaryHandSlot','TwoHandSlot','RangedSlot'
+    'HEAD', 'NECK', 'SHOULDER', 'BACK', 'CHEST', 'WRIST', 'HANDS', 'WAIST',
+    'LEGS', 'FEET', 'FINGER_1', 'FINGER_2', 'TRINKET_1', 'TRINKET_2',
+    'MAIN_HAND', 'OFF_HAND', 'RANGED'
   ];
 
   static slotLabel(slot: SlotName) {
     const label = slot.replace(/(0|1)Slot$/, ' Slot').replace(/([A-Z])/g, ' $1').trim();
-    return label.replace('Two Hand Slot','Two-Hand').replace('Main Hand Slot','Main Hand')
-                .replace('Secondary Hand Slot','Off Hand').replace('Ranged Slot','Ranged');
+    return label.replace('Two Hand Slot', 'Two-Hand').replace('Main Hand Slot', 'Main Hand')
+      .replace('Secondary Hand Slot', 'Off Hand').replace('Ranged Slot', 'Ranged');
   }
 
   static wowheadUrl(id: number) { return `https://www.wowhead.com/classic/item=${id}`; }
 
-  getAllGear(){
+  getAllGear() {
     return this.subject.getValue();
   }
 }

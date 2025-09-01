@@ -3,28 +3,28 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { GearService } from "src/app/gear.service";
 
-export type Item = {
+export type GearItem = {
   id: number;
   name: string;
 };
 
 type Items = {
-  WristSlot: Item[];
-  FingerSlot: Item[];
-  Trinket0Slot: Item[];
-  Trinket1Slot: Item[];
-  BackSlot: Item[];
-  MainHandSlot: Item[];
-  SecondaryHandSlot: Item[];
-  RangedSlot: Item[];
-  HeadSlot: Item[];
-  NeckSlot: Item[];
-  ShoulderSlot: Item[];
-  ShirtSlot: Item[];
-  ChestSlot: Item[];
-  WaistSlot: Item[];
-  LegsSlot: Item[];
-  FeetSlot: Item[];
+  WristSlot: GearItem[];
+  FingerSlot: GearItem[];
+  Trinket0Slot: GearItem[];
+  Trinket1Slot: GearItem[];
+  BackSlot: GearItem[];
+  MainHandSlot: GearItem[];
+  SecondaryHandSlot: GearItem[];
+  RangedSlot: GearItem[];
+  HeadSlot: GearItem[];
+  NeckSlot: GearItem[];
+  ShoulderSlot: GearItem[];
+  ShirtSlot: GearItem[];
+  ChestSlot: GearItem[];
+  WaistSlot: GearItem[];
+  LegsSlot: GearItem[];
+  FeetSlot: GearItem[];
 };
 
 export interface Player {

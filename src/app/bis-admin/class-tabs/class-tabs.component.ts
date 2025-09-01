@@ -38,7 +38,6 @@ export class ClassTabsComponent implements OnDestroy {
     this.sub = combineLatest([classes$, params$]).subscribe(
       ([clsList, params]: [string[], ParamMap]) => {
         this.classes = clsList;
-        console.log("Available classes:", clsList);
         clsList.forEach((cls) =>
           this.gear.getSpecsForClass(cls).subscribe((s) => {
             this.specs[cls] = s;
