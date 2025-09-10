@@ -12,13 +12,17 @@
       <input style="margin-left: 8px;" id="nameSearch" [(ngModel)]="nameSearch" (input)="updateQueryParams()" />
 
       <label style="margin-left: 10px;" for="corePlayers">Core Raiders Only:</label>
-      <input style="margin-left: 8px;" type="checkbox" id="corePlayers" [(ngModel)]="corePlayers" (change)="updateQueryParams()" />
+      <input style="margin-left: 8px;" type="checkbox" id="corePlayers" [(ngModel)]="corePlayers"
+        (change)="updateQueryParams()" />
     </div>
 
     <div style="display: flex; align-items: center;">
       <button appButton *ngIf="!editMode && ($user | async)" (click)="tryToggleEdit()" title="Edit">✏️ Edit</button>
-      <button appButton style="margin-left: 10px;" (click)="copyTableToClipboard()">
-        {{ copied ? 'Copied!!!' : 'ASCII' }}
+      <button title="Select rows, then click this to paste parse info into Discord" appButton margin="0 0 0 10px" (click)="copyParseToClipboard()">
+        {{ copiedParse ? 'Copied!!!' : 'Copy Parse' }}
+      </button>
+      <button title="Select rows, then click this to paste gear info into Discord" appButton margin="0 0 0 10px" (click)="copyTableToClipboard()">
+        {{ copied ? 'Copied!!!' : 'Copy Gear' }}
       </button>
     </div>
 
@@ -43,7 +47,7 @@
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
-        <th >
+        <th>
           Spec
         </th>
         <th (click)="setSort('softBis')">
@@ -61,6 +65,18 @@
         <th (click)="setSort('attendance')">
           Attendance
           <span *ngIf="sortColumn === 'attendance'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th style="cursor: help" (click)="setSort('parse')" title="Latest Highest Parse - from most recent logged raid">
+          Parse ⓘ
+          <span *ngIf="sortColumn === 'parse'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th style="cursor: help" (click)="setSort('iparse')" title="Latest Highest iParse - based on similarly geared players">
+          iParse ⓘ
+          <span *ngIf="sortColumn === 'iparse'">
             {{ sortDirection === 'asc' ? '↑' : '↓' }}
           </span>
         </th>
@@ -84,11 +100,15 @@
             <option [value]="spec"></option>
             <option *ngFor="let spec of getSpecOptionsForPlayer(player)" [value]="spec">{{ spec }}</option>
           </select>
-          <span *ngIf="!( $user | async ) || !editMode">{{ player.spec == "undefined" ? null : player.spec }}</span>
+          <a [routerLink]="['/bis-list', player.class, player.spec]" *ngIf="!( $user | async ) || !editMode">{{ player.spec == "undefined" ? null : player.spec }}</a>
         </td>
         <td>{{ getSoftBisCount(player) }}</td>
         <td>{{ getHardBisCount(player) }}</td>
         <td>{{ player.attendance.rate | number: '1.0-0'}}</td>
+        <td appParseColor [title]="getLatestParseTitle(player, 'Parse')" style="cursor: help">{{player.latestPerformance
+          ? player.latestPerformance.bestParse.parse : null}}</td>
+        <td appParseColor [title]="getLatestParseTitle(player, 'iParse')" style="cursor: help">
+          {{player.latestPerformance ? player.latestPerformance.bestIParse.iparse : null}}</td>
         <td style="text-align: center;">
           <span>{{ player.rank <=3 ? '✔' : 'No' }}</span>
         </td>

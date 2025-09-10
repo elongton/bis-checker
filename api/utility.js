@@ -5,6 +5,47 @@ function fourWeeksAgoMs() {
   return now - FOUR_WEEKS_MS;
 }
 
+function getObjectWithHighestStartAndPerformance(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return null; // handle empty or invalid input
+  }
+
+  // Filter out objects that don't have a performance array with length > 0
+  const validObjects = arr.filter(
+    obj => Array.isArray(obj.performance) && obj.performance.length > 0
+  );
+
+  if (validObjects.length === 0) {
+    return null; // no valid objects
+  }
+
+  // Reduce to find the one with the highest start value
+  return validObjects.reduce((maxObj, currentObj) => {
+    return (currentObj.start > maxObj.start) ? currentObj : maxObj;
+  });
+}
+
+function parseMax(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return null; // handle invalid input
+  }
+
+  return arr.reduce((maxObj, currentObj) => {
+    return (currentObj.parse > maxObj.parse) ? currentObj : maxObj;
+  });
+}
+function iparseMax(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return null; // handle invalid input
+  }
+
+  return arr.reduce((maxObj, currentObj) => {
+    return (currentObj.iparse > maxObj.iparse) ? currentObj : maxObj;
+  });
+}
+
+
+
 const playableClasses = [
   {
     "key": {
@@ -90,4 +131,4 @@ function findClassNameById(id) {
   return cls ? cls.name.toUpperCase() : null;
 }
 
-module.exports = { fourWeeksAgoMs,  findClassNameById};
+module.exports = { fourWeeksAgoMs,  findClassNameById, getObjectWithHighestStartAndPerformance, parseMax, iparseMax};

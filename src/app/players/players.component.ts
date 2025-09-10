@@ -3,6 +3,7 @@ import { GearService } from "../gear.service";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AuthService } from "../auth.service";
+import { DatePipe } from "@angular/common";
 
 interface Player {
   name: string;
@@ -11,7 +12,13 @@ interface Player {
   spec: string;
   items?: Record<string, Item[]>;
   rank: number;
-  attendance: {rate: number, history: any[]};
+  attendance: { rate: number, history: any[] };
+  latestPerformance: {
+    bestParse: { boss: string, iparse: number, parse: number };
+    bestIParse: { boss: string, iparse: number, parse: number };
+    dungeon: string;
+    start: number
+  }
 }
 
 export interface Item {
@@ -31,10 +38,12 @@ export class PlayersComponent implements OnInit {
   classFilter: string = "";
   nameSearch: string = "";
   corePlayers: string = "";
-  sortColumn: "attendance" | "coreRaider" | "name" | "class" | "softBis" | "hardBis" = "name";
+  querySort: string = "";
+  sortColumn: "iparse" | "parse" | "attendance" | "coreRaider" | "name" | "class" | "softBis" | "hardBis" = "name";
   sortDirection: "asc" | "desc" = "asc";
   selectedNames = new Set<string>();
   copied = false;
+  copiedParse = false;
   $user = this.auth.$user;
   editMode = false;
 
@@ -43,7 +52,8 @@ export class PlayersComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private gearService: GearService,
-    private auth: AuthService
+    private auth: AuthService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit(): void {
@@ -55,6 +65,11 @@ export class PlayersComponent implements OnInit {
       this.classFilter = params["class"] || "";
       this.nameSearch = params["name"] || "";
       this.corePlayers = params["core"] || "";
+      this.querySort = params["sort"] || "";
+      if (this.querySort) {
+        this.sortColumn = this.querySort.split('_')[0] as 'parse' | 'iparse' | 'attendance';
+        this.sortDirection = this.querySort.split('_')[1] as 'asc' | 'desc';
+      }
     });
 
     this.gearService.getLibrary().subscribe((lib) => {
@@ -108,6 +123,10 @@ export class PlayersComponent implements OnInit {
 
   getSortValue(player: Player): any {
     switch (this.sortColumn) {
+      case "parse":
+        return player?.latestPerformance?.bestParse?.parse || 0;
+      case "iparse":
+        return player?.latestPerformance?.bestIParse?.iparse || 0;
       case "softBis":
         return this.getSoftBisCount(player);
       case "hardBis":
@@ -123,12 +142,17 @@ export class PlayersComponent implements OnInit {
     }
   }
 
+
   setSort(column: typeof this.sortColumn): void {
     if (this.sortColumn === column) {
       this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
     } else {
       this.sortColumn = column;
       this.sortDirection = "asc";
+    }
+    if (['parse', 'iparse', 'attendance'].includes(this.sortColumn)) {
+      this.querySort = this.sortColumn + '_' + this.sortDirection;
+      this.updateQueryParams();
     }
   }
 
@@ -184,6 +208,63 @@ export class PlayersComponent implements OnInit {
     return count;
   }
 
+
+  copyParseToClipboard(): void {
+    const headers = [
+      "Name",
+      "Class",
+      "Parse",
+      "IParse",
+    ];
+
+    const source = [...this.filteredPlayers].filter(
+      (p) => this.selectedNames.size === 0 || this.selectedNames.has(p.name)
+    );
+
+    const getParseString = (player: Player, type: 'bestParse' | 'bestIParse') => {
+      if (player?.latestPerformance?.[type]?.parse) {
+        return `${String(player?.latestPerformance?.[type]?.parse)} - ${player?.latestPerformance?.[type]?.boss} ${this.datePipe.transform(player.latestPerformance.start, 'MM/dd')}`
+      }
+      return 'n/a'
+    }
+
+    const rows = source.map((player) => [
+      player.name,
+      player.class,
+      getParseString(player, 'bestParse'),
+      getParseString(player, 'bestIParse'),
+    ]);
+
+    const allRows = [headers, ...rows];
+    const colWidths = headers.map((_, i) =>
+      Math.max(...allRows.map((row) => row[i].length))
+    );
+
+    const formatRow = (row: string[]) =>
+      "| " + row.map((cell, i) => cell.padEnd(colWidths[i])).join(" | ") + " |";
+
+    const divider =
+      "+-" + colWidths.map((w) => "-".repeat(w)).join("-+-") + "-+";
+
+    const tableLines = [
+      divider,
+      formatRow(headers),
+      divider,
+      ...rows.map(formatRow),
+      divider,
+    ];
+
+    const message = "Most recent logged raid.\n"
+
+    const tableString = "```" + message + tableLines.join("\n") + "```"; // ✅ Fix here
+
+    navigator.clipboard.writeText(tableString).then(() => {
+      this.copiedParse = true;
+      setTimeout(() => (this.copiedParse = false), 3000);
+    });
+
+  }
+
   copyTableToClipboard(): void {
     const headers = [
       "Name",
@@ -208,8 +289,6 @@ export class PlayersComponent implements OnInit {
       String(player.attendance.rate) + '%',
       player.rank <= 3 ? "Yes" : "No"
     ]);
-    console.log(headers)
-    console.log(rows)
 
     const allRows = [headers, ...rows];
     const colWidths = headers.map((_, i) =>
@@ -230,6 +309,7 @@ export class PlayersComponent implements OnInit {
       divider,
     ];
 
+
     const tableString = "```" + tableLines.join("\n") + "```"; // ✅ Fix here
 
     navigator.clipboard.writeText(tableString).then(() => {
@@ -244,6 +324,7 @@ export class PlayersComponent implements OnInit {
         class: this.classFilter || null,
         name: this.nameSearch || null,
         core: this.corePlayers || null,
+        sort: this.querySort || null,
       },
       queryParamsHandling: "merge",
     });
@@ -294,6 +375,15 @@ export class PlayersComponent implements OnInit {
       // turning off edit mode without saving
       this.editMode = false;
     }
+  }
+
+
+  getLatestParseTitle(player: Player, type: 'iParse' | 'Parse') {
+    if (player.latestPerformance) {
+      const parse = type == 'iParse' ? player.latestPerformance.bestIParse : player.latestPerformance.bestParse;
+      return `${parse.boss} - ${player.latestPerformance.dungeon} \nDate: ${this.datePipe.transform(player.latestPerformance.start, 'MM-dd-yyyy')}`
+    }
+    return null
   }
 
 }

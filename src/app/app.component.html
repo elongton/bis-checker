@@ -3,8 +3,8 @@
   <div class="header-container">
     <div class="global-header">
       <div class="gh-left">
-        <span class="logo"><a routerLink="/players">CRASHOUT</a></span>
-        <span style="margin-left: 15px;"><a routerLink="/players">Players</a> </span>
+        <span class="logo"><a routerLink="/players" [queryParams]="{sort: 'parse_desc', core: 'true'}">CRASHOUT</a></span>
+        <span style="margin-left: 15px;"><a routerLink="/players" [queryParams]="{sort: 'parse_desc', core: 'true'}">Players</a> </span>
       </div>
       <div class="gh-right">
         <span><a routerLink="/bis-list">BiS Lists</a> </span>

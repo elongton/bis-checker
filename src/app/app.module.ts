@@ -19,6 +19,8 @@ import { PlayerDetailComponent } from "./player-detail/player-detail.component";
 import { ButtonDirective } from "./directives/button.directive";
 import { CapitalizeFirstPipe } from "./pipes/capitalize-first.pipe";
 import { LowerCasePipe } from "./pipes/lowercase.pipe";
+import { DatePipe } from "@angular/common";
+import { ParseColorDirective } from "./directives/parse-color.directive";
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { LowerCasePipe } from "./pipes/lowercase.pipe";
     PlayersComponent,
     PlayerDetailComponent ,
     ButtonDirective,
+    ParseColorDirective,
     CapitalizeFirstPipe,
     LowerCasePipe,
   ],
@@ -54,6 +57,7 @@ import { LowerCasePipe } from "./pipes/lowercase.pipe";
       { path: "**", redirectTo: "" },
     ]),
   ],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

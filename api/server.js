@@ -55,7 +55,9 @@ app.get('/api/auth/discord/callback',
 app.get('/api/refresh-players', async (req, res) => {
   try {
     const playerLibrary = await fetchAndUpdatePlayers()
-    res.json(`Players refreshed: ${Object.keys(playerLibrary).length}`);
+    // const playerPerformancePerRaid = await fetchAndUpdatePlayers()
+    // res.json(`Players refreshed: ${Object.keys(playerLibrary).length}`);
+    res.json(playerLibrary);
   } catch (e) {
     console.error(e);
     res.status(500).json({ error: 'internal_error', detail: e.message });

@@ -192,17 +192,52 @@ router.patch("/:name/spec", async (req, res) => {
   }
 });
 
+// router.get("/", async (req, res) => {
+//   try {
+//     const db = await connect();
+//     const collection = db.collection("players");
+//     const players = await collection.find({}).sort({ name: 1 }).toArray();
+//     res.json(players);
+//   } catch (err) {
+//     console.error("Failed to fetch all players:", err);
+//     res.status(500).json({ error: "Failed to retrieve players" });
+//   }
+// });
+
 router.get("/", async (req, res) => {
   try {
     const db = await connect();
     const collection = db.collection("players");
-    const players = await collection.find({}).sort({ name: 1 }).toArray();
+
+    const players = await collection
+      .aggregate([
+        { $sort: { name: 1 } },
+        {
+          $project: {
+            _id: 0,
+            name: 1,
+            class: 1,
+            items: 1,
+            lastSeen: 1,
+            image: 1,
+            level: 1,
+            rank: 1,
+            spec: 1,
+            latestPerformance: 1,
+            attendance: { rate: "$attendance.rate" }, // keep nested
+          },
+        },
+      ])
+      .toArray();
+
     res.json(players);
   } catch (err) {
     console.error("Failed to fetch all players:", err);
     res.status(500).json({ error: "Failed to retrieve players" });
   }
 });
+
+
 
 router.patch("/:name/core", async (req, res) => {
   const playerName = req.params.name;

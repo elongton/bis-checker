@@ -16,27 +16,27 @@ let inflight = null;         // Promise<string> for deduping concurrent callers
 const SKEW_BUFFER_MS = 60 * 1000;
 
 function isTokenValid() {
-    return cachedToken && Date.now() < (tokenExpiresAt - SKEW_BUFFER_MS);
+  return cachedToken && Date.now() < (tokenExpiresAt - SKEW_BUFFER_MS);
 }
 
 async function fetchToken() {
-    const response = await axios.post(
-        WCL_OAUTH_URL,
-        qs.stringify({ grant_type: "client_credentials" }),
-        {
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            auth: {
-                username: CLIENT_ID,
-                password: CLIENT_SECRET,
-            },
-            timeout: 10_000,
-        }
-    );
+  const response = await axios.post(
+    WCL_OAUTH_URL,
+    qs.stringify({ grant_type: "client_credentials" }),
+    {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      auth: {
+        username: CLIENT_ID,
+        password: CLIENT_SECRET,
+      },
+      timeout: 10_000,
+    }
+  );
 
-    const { access_token, expires_in } = response.data; // expires_in is seconds
-    cachedToken = access_token;
-    tokenExpiresAt = Date.now() + (Number(expires_in) * 1000);
-    return cachedToken;
+  const { access_token, expires_in } = response.data; // expires_in is seconds
+  cachedToken = access_token;
+  tokenExpiresAt = Date.now() + (Number(expires_in) * 1000);
+  return cachedToken;
 }
 
 /**
@@ -44,29 +44,66 @@ async function fetchToken() {
  * Ensures only one network request is made if multiple callers arrive simultaneously.
  */
 async function getWclToken() {
-    if (isTokenValid()) return cachedToken;
+  if (isTokenValid()) return cachedToken;
 
-    // If a refresh is already happening, await it
-    if (inflight) return inflight;
+  // If a refresh is already happening, await it
+  if (inflight) return inflight;
 
-    // Start a fresh fetch; ensure we clear inflight no matter what
-    inflight = (async () => {
-        try {
-            return await fetchToken();
-        } finally {
-            inflight = null;
-        }
-    })();
+  // Start a fresh fetch; ensure we clear inflight no matter what
+  inflight = (async () => {
+    try {
+      return await fetchToken();
+    } finally {
+      inflight = null;
+    }
+  })();
 
-    return inflight;
+  return inflight;
 }
 
 // You’ll need a client access token from WCL OAuth
 // Generate via client_id + client_secret and store in .env
 
+async function fetchPlayerFightData(code) {
+  const WCL_TOKEN = await getWclToken();
+  const query = `
+    query PlayerIParseForFight($code: String!) {
+      reportData {
+        report(code: $code) {
+          rankings(playerMetric: dps, compare: Rankings)
+        }
+      }
+    }
+`
+
+  try {
+    const response = await axios.post(
+      WCL_API_URL,
+      {
+        query,
+        variables: { code },
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${WCL_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return response.data.data;
+  } catch (error) {
+    console.error("Error Fetching Fight Data:", error.response?.data || error.message);
+    throw error;
+  }
+
+
+}
+
+
 async function getGuildAttendance(guildId, page = 1) {
-    const WCL_TOKEN = await getWclToken();
-    const query = `
+  const WCL_TOKEN = await getWclToken();
+  const query = `
     query GuildAttendance($guildId: Int!, $page: Int!) {
       guildData {
         guild(id: $guildId) {
@@ -90,26 +127,26 @@ async function getGuildAttendance(guildId, page = 1) {
     }
   `;
 
-    try {
-        const response = await axios.post(
-            WCL_API_URL,
-            {
-                query,
-                variables: { guildId, page },
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${WCL_TOKEN}`,
-                    "Content-Type": "application/json",
-                },
-            }
-        );
+  try {
+    const response = await axios.post(
+      WCL_API_URL,
+      {
+        query,
+        variables: { guildId, page },
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${WCL_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        return response.data.data;
-    } catch (error) {
-        console.error("Error fetching guild attendance:", error.response?.data || error.message);
-        throw error;
-    }
+    return response.data.data;
+  } catch (error) {
+    console.error("Error fetching guild attendance:", error.response?.data || error.message);
+    throw error;
+  }
 }
 
-module.exports = { getGuildAttendance };
+module.exports = { getGuildAttendance, fetchPlayerFightData };
